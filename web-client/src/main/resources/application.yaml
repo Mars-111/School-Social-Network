@@ -1,0 +1,23 @@
+services:
+  user:
+    uri: http://localhost:8081
+    registration-id: keycloak
+
+spring:
+  application:
+    name: web-client
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/school-social-network
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: user-service
+            client-secret: uDHrhwFRnNm3lDMNYd1geQuO9sogNnXi
+            scope:
+              - openid
+              - microprofile-jwt
+

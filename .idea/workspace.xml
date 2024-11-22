@@ -4,35 +4,161 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="" />
+    <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/UserServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/config/RestClientBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/config/SecurityBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/controllers/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/controllers/payload/CreateUserPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/services/KeycloakService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/ru/kors/userservice/services/impl/UserServiceKeycloak.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/http-test/CreateUser.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/http-test/GetAccessToken.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/http-test/GetUsers.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/http-test/findUser.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/WebClientApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/client/MyBadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/client/UserRestClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/client/impl/UserRestClientKeycloak.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/client/payload/CreateUserPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/config/ClientBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/config/SecurityBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/security/OAuthClientHttpRequestInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/resources/templates/index.ftlh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/resources/templates/login.ftlh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/src/main/resources/templates/registration.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2oz6tMWQVc87pXzOVl2Bh23yhSt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "HTTP Request.All in CreateUser.executor": "Run",
+    "HTTP Request.All in GetAccessToken.executor": "Run",
+    "HTTP Request.All in GetUsers.executor": "Run",
+    "HTTP Request.All in findUser.executor": "Run",
+    "HTTP Request.GetAccessToken | #1.executor": "Run",
+    "HTTP Request.GetUsers | #1.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "Spring Boot.WebClientApplication.executor": "Run",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "22",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/develop/sc24-SC24EP01-basic-web-application",
+    "last_opened_file_path": "C:/develop/spring-security-keycloak-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\develop\School-Social-Network\web-client\src\main\java\ru\kors\webclient" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.kors.webclient.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WebClientApplication">
+    <configuration name="All in CreateUser" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/CreateUser.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in GetAccessToken" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/GetAccessToken.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in GetUsers" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/GetUsers.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in findUser" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/findUser.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="GetAccessToken | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/GetAccessToken.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.kors.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="web-client" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.kors.webclient.WebClientApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.All in findUser" />
+        <item itemvalue="HTTP Request.All in GetAccessToken" />
+        <item itemvalue="HTTP Request.GetAccessToken | #1" />
+        <item itemvalue="HTTP Request.All in CreateUser" />
+        <item itemvalue="HTTP Request.All in GetUsers" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -50,10 +176,19 @@
       <option name="presentableId" value="Default" />
       <updated>1731860273265</updated>
       <workItem from="1731860274377" duration="38000" />
+      <workItem from="1731934626980" duration="2403000" />
+      <workItem from="1732004882690" duration="24915000" />
+      <workItem from="1732195277811" duration="3426000" />
+      <workItem from="1732207318748" duration="301000" />
+      <workItem from="1732207647550" duration="5751000" />
+      <workItem from="1732266332161" duration="2806000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

@@ -11,6 +11,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>user-service</module>
+    <module>web-client</module>
   </modules>
 
   <properties>
