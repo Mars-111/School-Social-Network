@@ -1,0 +1,23 @@
+[
+  {
+    "id": "7dc930d0-ef66-4e15-b79e-9542f5aeb1b0",
+    "createdTimestamp": 1732030278939,
+    "username": "newuser1",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "New",
+    "lastName": "User",
+    "email": "newuser@example.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  }
+]

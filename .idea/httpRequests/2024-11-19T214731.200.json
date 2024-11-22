@@ -1,0 +1,164 @@
+[
+  {
+    "id": "fcf8bd6b-d0a6-4b1e-892a-024eab03f765",
+    "createdTimestamp": 1731861531193,
+    "username": "admin",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "46782803-93bc-4345-b777-faaa04b4e7dd",
+    "createdTimestamp": 1732037832989,
+    "username": "marsnew!@@!@",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "Nedwqw",
+    "lastName": "Usqwder",
+    "email": "newuser@exampl121212e.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "7dc930d0-ef66-4e15-b79e-9542f5aeb1b0",
+    "createdTimestamp": 1732030278939,
+    "username": "newuser1",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "New",
+    "lastName": "User",
+    "email": "newuser@example.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "e7febe14-ea19-4079-bf41-910d11493650",
+    "createdTimestamp": 1732035699537,
+    "username": "newuser11212121212121212",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "New1212",
+    "lastName": "Use1212r",
+    "email": "newuser@example1212121212.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "7166bd48-832a-4eff-b24c-9ccecb1c15f8",
+    "createdTimestamp": 1732040809286,
+    "username": "rl2i",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "Elis2ey",
+    "lastName": "Filk2ov",
+    "email": "rl2i@gmail.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "51284845-e2c1-4530-bf19-0fa4a924102d",
+    "createdTimestamp": 1732041536523,
+    "username": "rl2i1",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "Elis2ey1",
+    "lastName": "Filk2o1v",
+    "email": "rl2i@gmai1l.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "46098983-f561-432e-b7a4-454813c5fe5f",
+    "createdTimestamp": 1732038659469,
+    "username": "rli",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "firstName": "Elisey",
+    "lastName": "Filkov",
+    "email": "rli@gmail.com",
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  },
+  {
+    "id": "6ec54fc8-1593-40e0-95ab-8a76e1578686",
+    "createdTimestamp": 1731861543335,
+    "username": "user",
+    "enabled": true,
+    "totp": false,
+    "emailVerified": false,
+    "disableableCredentialTypes": [],
+    "requiredActions": [],
+    "notBefore": 0,
+    "access": {
+      "manageGroupMembership": true,
+      "view": true,
+      "mapRoles": true,
+      "impersonate": false,
+      "manage": true
+    }
+  }
+]
