@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  mysql-kc:
+    image: mysql:8.0.27
+    ports:
+      - "3377:3306"
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: bisky
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: keycloak
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - keycloak-and-mysql-volume:/var/lib/mysql
+    networks:
+      - keycloak-and-mysql-network
+
+  keycloak-w:
+    image: quay.io/keycloak/keycloak:25.0.0
+    command: start-dev
+    ports:
+      - "9081:8080"
+    restart: unless-stopped
+    build: .
+    environment:
+      KEYCLOAK_ADMIN : admin
+      KEYCLOAK_ADMIN_PASSWORD: admin@1234
+      KC_DB: mysql
+      KC_DB_USERNAME: root
+      KC_DB_PASSWORD: password
+#      KC_HTTP_RELATIVE_PATH: /keycloak
+      KC_DB_URL: jdbc:mysql://mysql-kc:3306/keycloak
+      KC_FEATURES: token-exchange,admin-fine-grained-authz
+      KC_HOSTNAME: localhost
+    networks:
+      - keycloak-and-mysql-network
+
+networks:
+  keycloak-and-mysql-network:
+
+volumes:
+  keycloak-and-mysql-volume:

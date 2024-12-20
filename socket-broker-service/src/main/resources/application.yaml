@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: socket-broker-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9082/realms/school-social-network
+
+
+server:
+  port: 8081
+
+

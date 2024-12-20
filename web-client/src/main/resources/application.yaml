@@ -1,7 +1,20 @@
+#custom
 services:
   user:
     uri: http://localhost:8081
     registration-id: keycloak
+
+keycloak:
+  admin:
+    client:
+      serverUrl: http://localhost:9082
+      realm: school-social-network
+      clientId: web-client
+      username: admin
+      password: admin
+      clientSecret: ESalRyar13qKR18s1C9c7kmyngRaoPAb
+
+#
 
 spring:
   application:
@@ -11,13 +24,11 @@ spring:
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8082/realms/school-social-network
+            issuer-uri: "${keycloak.admin.client.serverUrl}/realms/school-social-network"
             user-name-attribute: preferred_username
         registration:
           keycloak:
-            client-id: user-service
-            client-secret: uDHrhwFRnNm3lDMNYd1geQuO9sogNnXi
+            client-id: ${keycloak.admin.client.clientId}
+            client-secret: ${keycloak.admin.client.clientSecret}
             scope:
               - openid
-              - microprofile-jwt
-

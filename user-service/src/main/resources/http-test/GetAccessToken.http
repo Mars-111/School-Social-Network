@@ -1,4 +1,0 @@
-POST http://localhost:8082/realms/school-social-network/protocol/openid-connect/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=client_credentials&client_id=user-service&client_secret=uDHrhwFRnNm3lDMNYd1geQuO9sogNnXi

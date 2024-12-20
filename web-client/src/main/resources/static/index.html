@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STOMP WebSocket Test</title>
+    <style> body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; } .container { width: 400px; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); background-color: white; } h1 { text-align: center; margin-bottom: 30px; } input[type=text], button { width: 100%; padding: 12px; margin-bottom: 15px; border: none; outline: none; font-size: 16px; } input[type=text] { border-bottom: 1px solid #ccc; } button { cursor: pointer; background-color: #4CAF50; color: white; transition: background-color 0.3s ease; } button:hover { background-color: #45a049; } ul { list-style-type: none; padding: 0; margin-top: 20px; } li { margin-bottom: 10px; padding: 10px; background-color: #e6e6ff; border-radius: 5px; } </style>
+</head>
+<body>
+<div class="container">
+    <h1>STOMP WebSocket Test</h1>
+    <input type="text" id="messageInput" placeholder="Введите сообщение...">
+    <button onclick="sendMessage()">Отправить</button>
+    <ul id="messages"></ul>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

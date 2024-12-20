@@ -10,8 +10,9 @@
   <version>24.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>user-service</module>
     <module>web-client</module>
+    <module>keycloak-auth-service</module>
+    <module>socket-broker-service</module>
   </modules>
 
   <properties>

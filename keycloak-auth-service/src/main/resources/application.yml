@@ -1,0 +1,38 @@
+spring:
+  config:
+    import: vault://
+  application:
+    name: auth-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.keycloak.serverUrl}/realms/${app.keycloak.realm}
+  cloud:
+    consul:
+      discovery:
+        health-check-path: /auth/actuator/health
+server:
+  port: 6700
+  servlet:
+    context-path: /auth
+app:
+  keycloak:
+    admin:
+      clientId: admin-cli
+      clientSecret: pHJbF76NVZA3gyynb0a5PzHIgZaF3bdJ
+    realm: spring
+    serverUrl: http://localhost:9082
+spring.cloud.vault:
+  host: localhost
+  port: 8200
+  scheme: http
+  uri: http://localhost:8200
+  connection-timeout: 5000
+  read-timeout: 15000
+  token: s.6a7JShDbGzzy6PgC5HMZYr8s
+  kv:
+    backend: kv
+    default-context: auth-service
+    enabled: true
+  enabled: true
