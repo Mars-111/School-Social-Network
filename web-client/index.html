@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Web App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./public/styles.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/keycloak-js@25.0.0/dist/keycloak.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+</head>
+<body>
+
+    
+    <div class="container">
+        <div class="jumbotron mt-4">
+            <h1 class="display-4">Keycloak - Javascript Integration</h1>
+            <p class="lead">A pure javascript web app</p>
+            <div class="mt-4">
+                <button id="loginBtn" class="btn btn-primary">Login</button>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+                <button id="isLoggedInBtn" class="btn btn-info">Is Logged In</button>
+                <button id="accessTokenBtn" class="btn btn-warning">Access Token</button>
+                <button id="showParsedTokenBtn" class="btn btn-dark">Show Parsed Access Token</button>
+                <button id="callApiBtn" class="btn btn-success">Call API</button>
+                <a href="socket.html">Перейти на страницу с сокетами</a>
+            </div>
+            <div class="mt-4">
+                <textarea id="output" class="form-control" rows="5" placeholder="Output will be displayed here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

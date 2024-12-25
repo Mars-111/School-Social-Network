@@ -11,4 +11,15 @@ spring:
 server:
   port: 8081
 
+keycloak:
+  public:
+    key:
+      n: nDh7fkMhHawFnu5yYAzu9jMyRF78HpIcs-FLP1UdG-Mm8neEQUTTzZtzFzbJp8DzqL3drKAFAm4QbqQfxYv9w-yuZjd58RLfX4A9q_yhHwCcVrDiNJdUg1VPWagtqsi77g3Bn9O4-wsZRmj9WenW4tOBJgxDHN8cPRIjq4DURfkn-EUVtvRFUDb3BT2Fm_NpxXPhleE5W9JDhPW8TNrlSCZCIykj_eUSnDfQWJrQ6-ipcZPZV3Nel69E9f0rj-ExICXors15XRsJPBsdB6H0bGTomHdRGAujrCuu1ylNyWaM0FXMRuMcIYXWGeaz-V6n_vndxVEzsAZKh-prLSNGdQ
+      e: AQAB
 
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.web: DEBUG
+debug: true

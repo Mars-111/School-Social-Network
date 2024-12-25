@@ -1,0 +1,13 @@
+{
+  "name": "school-social-network",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite"
+  },
+  "dependencies": {
+    "keycloak-js": "^26.0.7"
+  },
+  "devDependencies": {
+    "vite": "^2.6.4"
+  }
+}
