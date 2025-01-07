@@ -3,33 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Web App</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./public/styles.css"> -->
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="./public/chat-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/keycloak-js@25.0.0/dist/keycloak.min.js"></script>
-    <script type="module" src="./src/main.js"></script>
+    <script src="./src/KeycloakClass.js" type="module"></script>
 </head>
 <body>
-
-    
     <div class="container">
-        <div class="jumbotron mt-4">
-            <h1 class="display-4">Keycloak - Javascript Integration</h1>
-            <p class="lead">A pure javascript web app</p>
-            <div class="mt-4">
-                <button id="loginBtn" class="btn btn-primary">Login</button>
-                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
-                <button id="isLoggedInBtn" class="btn btn-info">Is Logged In</button>
-                <button id="accessTokenBtn" class="btn btn-warning">Access Token</button>
-                <button id="showParsedTokenBtn" class="btn btn-dark">Show Parsed Access Token</button>
-                <button id="callApiBtn" class="btn btn-success">Call API</button>
-                <a href="socket.html">Перейти на страницу с сокетами</a>
+        <div class="chat-list" id="chat-list">
+            <!-- Chat list will be populated here -->
+        </div>
+        <div class="chat-window">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Chat messages will be displayed here -->
             </div>
-            <div class="mt-4">
-                <textarea id="output" class="form-control" rows="5" placeholder="Output will be displayed here..."></textarea>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id ="sendButton">Send</button>
             </div>
         </div>
     </div>
-
+    <script src="./src/app.js" type="module"></script>
 </body>
 </html>

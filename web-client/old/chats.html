@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чат</title>
+  <link rel="stylesheet" href="./public/chat-style.css">
+</head>
+<body>
+
+  <!-- Навигационная панель -->
+  <div class="navbar">
+    Чат-система
+  </div>
+
+  <!-- Основной контейнер с чатами -->
+  <div class="container">
+    
+    <!-- Список чатов -->
+    <div class="chat-list">
+      <h2>Список чатов</h2>
+      <div id="chatListContainer">
+        <!-- Чаты будут добавляться сюда -->
+      </div>
+      <button class="add-chat-button" onclick="sendRequestToAddChat()">Добавить чат</button>
+    </div>
+
+    <!-- Окно чата -->
+    <div class="chat-window">
+      <h2 id="chatTitle">Выберите чат</h2>
+      <div id="messagesContainer" class="messages">
+        <!-- Сообщения будут добавляться сюда -->
+      </div>
+      <div class="input-container">
+        <input type="text" id="messageInput" placeholder="Введите сообщение...">
+        <button onclick="sendMessage()">Отправить</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/keycloak-js@25.0.0/dist/keycloak.min.js"></script>
+  <script type="module" src="./src/KeycloakClass.js"></script>
+  <script type="module" src="./src/chat.js"></script>
+
+</body>
+</html>

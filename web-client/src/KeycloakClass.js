@@ -19,7 +19,6 @@ function authenticationKeycloak() {
     });
 }
 
-
 function startTokenRefresh() {
     // Устанавливаем интервал для обновления токена
     setInterval(() => {
@@ -37,6 +36,5 @@ function startTokenRefresh() {
             });
     }, 60000); // Проверяем каждые 60 секунд
 }
-
 
 export { keycloak, authenticationKeycloak };

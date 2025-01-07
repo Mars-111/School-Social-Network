@@ -1,15 +1,7 @@
 import { keycloak, authenticationKeycloak } from './KeycloakClass.js';
+import { joinChat } from './main.js';
 
 let stompClient;
-
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    let sendButton = document.getElementById('sendButton');
-    sendButton.addEventListener('click', sendMessage);
-
-    connect();
-});
-
 
 authenticationKeycloak().then(() => {
     console.log('Token: ' + keycloak.token);
@@ -29,8 +21,13 @@ function connectSocket() {
     stompClient.connect({}, function (frame) {
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/all', function (messageOutput) {
-            showMessage(JSON.parse(messageOutput.body));//.content);
+            showMessage(JSON.parse(messageOutput.body));
         });
+
+        stompClient.subscribe('/system/join-chat/' + getSubFromToken(), function (messageOutput) {
+            joinChat(JSON.parse(messageOutput.body));
+        });
+
     }, function (error) {
         console.log('Connection error: ' + error);
     });
@@ -44,31 +41,8 @@ function connectSocket() {
             console.log('Failed to refresh token');
         });
     };
+
+
 }
 
-function sendMessage() {
-    let messageContent = document.getElementById('messageInput').value.trim();
-    if (messageContent && stompClient) {
-        // Создаем объект заголовков с токеном
-        const headers = {
-            'token': keycloak.token // Предполагается, что вы используете Keycloak для аутентификации
-        };
-
-        // Отправляем сообщение с заголовками
-        stompClient.send("/app/all", headers, JSON.stringify({ 
-            'content': messageContent,
-            'type': 'CHAT' // Укажите тип сообщения, если это необходимо
-        }));
-
-        // Очищаем поле ввода
-        document.getElementById('messageInput').value = '';
-    }
-}
-
-
-function showMessage(message) {
-    let messageElement = document.createElement('li');
-    messageElement.classList.add('list-group-item');
-    messageElement.textContent = message.sender + ": " + message.content;
-    document.getElementById('messages').appendChild(messageElement);
-}
+export {stompClient};

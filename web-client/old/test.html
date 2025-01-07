@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чат</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Навигационная панель */
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    /* Основная панель с чатом */
+    .container {
+      display: flex;
+      height: 100%;
+    }
+
+    /* Левый блок для списка чатов */
+    .chat-list {
+      width: 25%;
+      background-color: #f4f4f4;
+      padding: 10px;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+    }
+
+    .chat-list h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .chat-item {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .chat-item:hover {
+      background-color: #e0e0e0;
+    }
+
+    .add-chat-button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-chat-button:hover {
+      background-color: #45a049;
+    }
+
+    /* Правый блок для чата */
+    .chat-window {
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .chat-window h2 {
+      margin-bottom: 20px;
+    }
+
+    .messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 10px;
+      background-color: #f1f1f1;
+    }
+
+    .message .sender {
+      font-weight: bold;
+    }
+
+    .message .text {
+      margin-top: 5px;
+    }
+
+    /* Поле ввода и кнопка отправки */
+    .input-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-container input {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input-container button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .input-container button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Навигационная панель -->
+  <div class="navbar">
+    Чат-система
+  </div>
+
+  <!-- Основной контейнер с чатами -->
+  <div class="container">
+    
+    <!-- Список чатов -->
+    <div class="chat-list">
+      <h2>Список чатов</h2>
+      <div id="chatListContainer">
+        <!-- Чаты будут добавляться сюда -->
+      </div>
+      <button class="add-chat-button" onclick="addChat()">Добавить чат</button>
+    </div>
+
+    <!-- Окно чата -->
+    <div class="chat-window">
+      <h2 id="chatTitle">Выберите чат</h2>
+      <div id="messagesContainer" class="messages">
+        <!-- Сообщения будут добавляться сюда -->
+      </div>
+      <div class="input-container">
+        <input type="text" id="messageInput" placeholder="Введите сообщение...">
+        <button onclick="sendMessage()">Отправить</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let activeChat = null;
+    const chatList = [];
+    
+    // Функция для добавления нового чата
+    function addChat() {
+      const chatName = prompt("Введите название чата:");
+      if (chatName) {
+        const newChat = {
+          id: chatList.length + 1,
+          name: chatName,
+          messages: []
+        };
+        chatList.push(newChat);
+        renderChatList();
+      }
+    }
+
+    // Функция для рендера списка чатов
+    function renderChatList() {
+      const chatListContainer = document.getElementById("chatListContainer");
+      chatListContainer.innerHTML = '';
+      chatList.forEach(chat => {
+        const chatItem = document.createElement("div");
+        chatItem.classList.add("chat-item");
+        chatItem.textContent = chat.name;
+        chatItem.onclick = () => openChat(chat.id);
+        chatListContainer.appendChild(chatItem);
+      });
+    }
+
+    // Функция для открытия чата
+    function openChat(chatId) {
+      activeChat = chatList.find(chat => chat.id === chatId);
+      document.getElementById("chatTitle").textContent = activeChat.name;
+      renderMessages();
+    }
+
+    // Функция для рендера сообщений в чате
+    function renderMessages() {
+      const messagesContainer = document.getElementById("messagesContainer");
+      messagesContainer.innerHTML = '';
+      if (activeChat) {
+        activeChat.messages.forEach(message => {
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add("message");
+          messageDiv.innerHTML = `
+            <div class="sender">${message.sender}</div>
+            <div class="text">${message.text}</div>
+          `;
+          messagesContainer.appendChild(messageDiv);
+        });
+      }
+    }
+
+    // Функция для отправки сообщения
+    function sendMessage() {
+      const messageInput = document.getElementById("messageInput");
+      const messageText = messageInput.value.trim();
+      if (messageText && activeChat) {
+        const newMessage = {
+          sender: "Вы",
+          text: messageText
+        };
+        activeChat.messages.push(newMessage);
+        messageInput.value = '';
+        renderMessages();
+      }
+    }
+
+  </script>
+
+</body>
+</html>
