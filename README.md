@@ -13,5 +13,7 @@ School Social Network - это соцаильная сеть с уклоном �
 Файл docker-compose.yml ищите в docker папке.
 
 Топики:
-docker exec -it broker-1 opt/kafka/bin/kafka-topics.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --create --topic messages --partitions 10 --replication-factor 2 --config retention.ms=2000000 --config cleanup.policy=delete
-docker exec -it broker-1 opt/kafka/bin/kafka-topics.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --create --topic events --partitions 10 --replication-factor 2 --config retention.ms=2000000 --config cleanup.policy=delete
+<ul>
+  <li>docker exec -it broker-1 opt/kafka/bin/kafka-topics.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --create --topic messages --partitions 10 --replication-factor 2 --config retention.ms=2000000 --config cleanup.policy=delete</li>
+  <li>docker exec -it broker-1 opt/kafka/bin/kafka-topics.sh --bootstrap-server broker-1:19092,broker-2:19092,broker-3:19092 --create --topic events --partitions 10 --replication-factor 2 --config retention.ms=2000000 --config cleanup.policy=delete</li>
+</ul>
