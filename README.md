@@ -8,3 +8,9 @@ School Social Network - это соцаильная сеть с уклоном �
 2. docker run --name chats-service-db -p 5432:5432 -e POSTGRES_DB=chats -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123 postgres:16
 
 Далее запустить Socket-broker-service и chats-service, а так же клиент web-client. (keyloak-service еще в разработке).
+
+<h1>Kafka:</h1>
+Файл docker-compose.yml ищите в docker папке.
+
+Топики:
+docker exec -it broker-1 opt/kafka/bin/kafka-topics.sh --bootstrap-server broker-1:29092 --create --topic chats --partitions 10 --replication-factor 2 --config retention.ms=2000000 --config cleanup.policy=delete
