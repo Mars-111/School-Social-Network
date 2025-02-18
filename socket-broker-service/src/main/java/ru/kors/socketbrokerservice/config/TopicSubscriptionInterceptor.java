@@ -52,6 +52,7 @@ public class TopicSubscriptionInterceptor implements ChannelInterceptor {
             }
             else if (destination.startsWith("/user/")) {
                 if (jwtService.validateToken(token).getSubject().equals(destination.split("/")[2])) {
+
                     return message;
                 }
                 else {
