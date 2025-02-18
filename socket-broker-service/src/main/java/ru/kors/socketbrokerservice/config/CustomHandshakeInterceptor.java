@@ -3,7 +3,6 @@ package ru.kors.socketbrokerservice.config;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.ServerHttpRequest;
@@ -11,22 +10,20 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 import org.springframework.web.util.UriComponentsBuilder;
+import ru.kors.socketbrokerservice.api.UsersRestApi;
+import ru.kors.socketbrokerservice.api.payload.CreateUserPayload;
+import ru.kors.socketbrokerservice.api.payload.UserRestPayload;
 import ru.kors.socketbrokerservice.services.JwtService;
 
-import java.io.Console;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Slf4j
 @Configuration
+@RequiredArgsConstructor
 public class CustomHandshakeInterceptor implements HandshakeInterceptor {
+    private final UsersRestApi usersRestApi;
     private final JwtService jwtService;
-
-    public CustomHandshakeInterceptor(JwtService jwtService) {
-        this.jwtService = jwtService;
-        log.info("CustomHandshakeInterceptor created");
-    }
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
@@ -48,16 +45,20 @@ public class CustomHandshakeInterceptor implements HandshakeInterceptor {
             return false;
         }
 
-        //БРЕД
-//        var user = claims.get("preferred_username", String.class);
-//        if (user == null) {
-//            log.info("USER == NULL");
-//            response.setStatusCode(HttpStatus.UNAUTHORIZED);
-//            return false;
-//        }
+        String user = claims.getSubject();
+        if (user == null) {
+            log.info("User is null");
+            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            return false;
+        }
+        attributes.put("sub", user);
 
-        //attributes.put("token", token);
-
+        if  (usersRestApi.findByKeycloakId(user).isEmpty()) {
+            log.info("Creating a new user in the database");
+            CreateUserPayload userPayload = new CreateUserPayload(user);
+            var tmpUser  = usersRestApi.createUser(userPayload);
+            log.info(String.valueOf(tmpUser.getId()));
+        }
 
         request.getHeaders().add("token", token);
 

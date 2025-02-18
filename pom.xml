@@ -12,6 +12,7 @@
   <modules>
     <module>keycloak-auth-service</module>
     <module>socket-broker-service</module>
+    <module>keycloak-registration-spi</module>
   </modules>
 
   <properties>

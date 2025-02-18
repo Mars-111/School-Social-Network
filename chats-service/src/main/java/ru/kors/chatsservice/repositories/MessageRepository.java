@@ -1,4 +1,15 @@
 package ru.kors.chatsservice.repositories;
 
-public interface MessageRepository {
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import ru.kors.chatsservice.models.entity.Message;
+
+import java.util.List;
+
+public interface MessageRepository extends JpaRepository<Message, Long> {
+    Page<Message> findAllByChat_Id(Long chatId, Pageable pageable);
+    List<Message> findAllByChat_Id(Long chatId);
+//    List<Message> findByIdLessThan(Integer id, Pageable pageable);
+//    List<Message> findAllByOrderByIdDesc(Pageable pageable);
 }

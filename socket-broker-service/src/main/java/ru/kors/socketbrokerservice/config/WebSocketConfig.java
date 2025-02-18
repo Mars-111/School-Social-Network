@@ -34,17 +34,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/app");
-        registry.enableSimpleBroker("/topic");//.setHeartbeatValue(new long[] {10000, 30000});
+        registry.enableSimpleBroker("/topic", "/system");//.setHeartbeatValue(new long[] {10000, 30000});
     }
-
-
-//    @Bean
-//    public TaskScheduler taskScheduler() {
-//        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
-//        scheduler.setPoolSize(10); // Установите размер пула по мере необходимости
-//        scheduler.setThreadNamePrefix("my-scheduler-");
-//        return scheduler;
-//    }
 
     @Bean
     public MappingJackson2MessageConverter jacksonMessageConverter() {

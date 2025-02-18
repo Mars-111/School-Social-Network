@@ -8,6 +8,10 @@
         <option value="$PROJECT_DIR$/web-client/pom.xml" />
         <option value="$PROJECT_DIR$/socket-broker-service/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/chats-service/pom.xml" />
+        <option value="$PROJECT_DIR$/keycloak-event-listener/pom.xml" />
+        <option value="$PROJECT_DIR$/keycloak-custom-registration-spi/pom.xml" />
+        <option value="$PROJECT_DIR$/keycloak-add-tag/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

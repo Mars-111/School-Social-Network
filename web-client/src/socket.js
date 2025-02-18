@@ -15,6 +15,7 @@ authenticationKeycloak().then(() => {
 });
 
 function connectSocket() {
+    console.log('Token: ' + keycloak.token);
     let socket = new SockJS(`http://localhost:8081/ws?token=${keycloak.token}`);
     stompClient = Stomp.over(socket);
 

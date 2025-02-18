@@ -1,1 +1,55 @@
-spring.application.name=chats-service
+spring:
+  application:
+    name: chats-service
+
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9082/realms/school-social-network
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/chats
+    username: admin
+    password: 123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  kafka:
+    bootstrap-servers: localhost:29092,localhost:39092,localhost:49092
+    producer:
+      retries: 3
+      acks: all
+      properties:
+        linger.ms: 1
+    consumer:
+      auto-offset-reset: latest
+      enable-auto-commit: true
+    properties:
+      security.protocol: PLAINTEXT
+
+server:
+  port: 8082
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.web.client.RestClient: DEBUG
+    org.springframework.http: DEBUG
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.web.socket: DEBUG
+    org.springframework.messaging: DEBUG
+    org.springframework.security: DEBUG
+    ru.kors: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

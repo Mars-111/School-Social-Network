@@ -7,6 +7,20 @@ spring:
         jwt:
           issuer-uri: http://localhost:9082/realms/school-social-network
 
+  kafka:
+    bootstrap-servers: localhost:29092,localhost:39092,localhost:49092
+    producer:
+      retries: 3
+      acks: all
+      properties:
+        linger.ms: 1
+    consumer:
+      group-id: "socket-broker-1"
+      auto-offset-reset: latest
+      enable-auto-commit: true
+    properties:
+      security.protocol: PLAINTEXT
+
 
 server:
   port: 8081

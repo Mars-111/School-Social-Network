@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Chat {
-    private Long chatId;
+public class ChatRestPayload {
     private String chatName;
 }

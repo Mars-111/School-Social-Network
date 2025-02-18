@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Event {
+public class EventRestPayload {
     private Long id;
     private Long chatId;
     private String userId;

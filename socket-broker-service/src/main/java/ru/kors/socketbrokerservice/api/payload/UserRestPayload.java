@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class User {
-    private Long id;
+public class UserRestPayload {
+    //private Long id;
     private String keycloakId;
 }

@@ -4,6 +4,7 @@ let stompClient = null;
 let currentChatId = null;
 
 authenticationKeycloak().then(authenticated => {
+    console.log('Token: ' + keycloak.token);
     if (authenticated) {
         connectWebSocket();
     }
@@ -12,9 +13,12 @@ authenticationKeycloak().then(authenticated => {
 document.addEventListener('DOMContentLoaded', (event) => {
     let sendButton = document.getElementById('sendButton');
     sendButton.addEventListener('click', sendMessage);
+    let createChatButton = document.getElementById('createChatButton');
+    createChatButton.addEventListener('click', createChat);
 });
 
 function connectWebSocket() {
+    console.log('Token: ' + keycloak.token);
     const socket = new SockJS('http://localhost:8081/ws?token=' + keycloak.token);
     stompClient = Stomp.over(socket);
     stompClient.connect({}, frame => {
@@ -23,51 +27,60 @@ function connectWebSocket() {
     });
 }
 
-const chats = new Map();
-let subscribedChats = new Set();
+let chats = new Set();
+let chatsMessages = new Map();
 
 function loadChatList() {
-    stompClient.subscribe('/system/get-chats/' + keycloak.subject, message => {
-        const chatList = JSON.parse(message.body); // Renamed to avoid conflict
-        console.log(chatList);
+    fetch('http://localhost:8082/api/users/chats', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + keycloak.token
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        chats = data;
         const chatListElement = document.getElementById('chat-list');
         chatListElement.innerHTML = '';
-        chatList.forEach(chat => {
+        chats.forEach(chat => {
             const chatElement = document.createElement('div');
             chatElement.textContent = chat.name;
             chatElement.onclick = () => openChat(chat.id);
             chatListElement.appendChild(chatElement);
-            
-            if (!subscribedChats.has(chat.id)) {
-                // Subscribe to chat messages
-                stompClient.subscribe('/topic/' + chat.id, message => {
-                    const messagePayload = JSON.parse(message.body);
-                    if (currentChatId === messagePayload.chatId) { // Corrected variable usage
-                        displayMessage(messagePayload);
-                    }
-                    if (!chats.has(chat.id)) {
-                        chats.set(chat.id, []); // Initialize if not present
-                    }
-                    chats.set(chat.id, chats.get(chat.id).concat(messagePayload));
-                });
-                subscribedChats.add(chat.id);
-            }   
-
-            stompClient.subscribe('/system/get-history/' + keycloak.subject, message => {
-                const body = JSON.parse(message.body); // Moved inside callback
-
-                chats.set(body.chatId, body.messages);
-
-                if (currentChatId === body.chatId) {
-                    body.messages.forEach(message => {
-                        displayMessage(message);
-                    });
-                }
-            });
-            stompClient.send('/app/get-history', { token: keycloak.token }, chat.id );
         });
+    })
+    .catch(error => {
+        console.error('Error geting chats:', error);
     });
-    stompClient.send('/app/get-chats', { token: keycloak.token }, {});
+}
+
+function createChat() {
+    const chatName = prompt("Enter chat name:");
+    const chatTag = prompt("Enter chat tag:");
+    const isPrivate = confirm("Is this a private chat?");
+    
+    if (chatName && chatTag) {
+        fetch('http://localhost:8082/api/chats', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + keycloak.token
+            },
+            body: JSON.stringify({
+                tag: chatTag,
+                name: chatName,
+                privateChat: isPrivate
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Chat created:', data);
+            loadChatList(); // Refresh the chat list
+        })
+        .catch(error => {
+            console.error('Error creating chat:', error);
+        });
+    }
 }
 
 function openChat(chatId) {
@@ -75,7 +88,7 @@ function openChat(chatId) {
     const chatMessagesElement = document.getElementById('chat-messages');
     chatMessagesElement.innerHTML = '';
 
-    const messages = chats.get(chatId) || [];
+    const messages = chatsMessages.get(chatId) || [];
     messages.forEach(message => {
         displayMessage(message);
     });
@@ -95,13 +108,27 @@ function sendMessage() {
     console.log('Send button clicked');
     const messageInput = document.getElementById('message-input');
     const messageContent = messageInput.value;
-    console.log(messageContent);
     if (messageContent && currentChatId) {
-        stompClient.send('/app/send-message', { token: keycloak.token }, JSON.stringify({
-            chatId: currentChatId,
-            content: messageContent,
-            type: 'CHAT'
-        }));
+        fetch('http://localhost:8082/api/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + keycloak.token
+            },
+            body: JSON.stringify({
+                chatId: currentChatId,
+                content: messageContent,
+                type: 'CHAT'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Message sent:', data);
+        })
+        .catch(error => {
+            console.error('Error sending message:', error);
+        });
         messageInput.value = '';
+        console.log(messageContent);
     }
 }

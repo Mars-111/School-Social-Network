@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.kors.socketbrokerservice.config.KeycloakPublicKey;
+import ru.kors.socketbrokerservice.models.User;
 
 import java.security.PublicKey;
 import java.util.Date;
@@ -16,6 +17,7 @@ import java.util.Date;
 public class JwtService {
 
     private final PublicKey publicKey;
+    private final UserService userService;
 
     public Claims validateToken(String token) {
         try {
@@ -34,4 +36,14 @@ public class JwtService {
         }
         return null;
     }
+
+    public User getUserFromToken(String token) {
+        Claims claims = validateToken(token);
+        if (claims == null) {
+            return null;
+        }
+        return userService.findByKeycloak(claims.getSubject());
+    }
+
+
 }
