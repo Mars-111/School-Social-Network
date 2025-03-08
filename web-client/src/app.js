@@ -1,12 +1,13 @@
 import { keycloak, authenticationKeycloak } from './KeycloakClass.js';
+import { stompClient } from './ConnectSocket.js';
 
 let stompClient = null;
 let currentChatId = null;
 
 authenticationKeycloak().then(authenticated => {
     console.log('Token: ' + keycloak.token);
-    if (authenticated) {
-        connectWebSocket();
+    if (!authenticated) {
+        
     }
 });
 

@@ -27,7 +27,7 @@ public class ChatController  {
     private final CurrentUserUtil currentUserUtil;
     private final ChatRoleService chatRoleService;
     private final KafkaProducerService kafkaProducerService;
-
+ 
     @GetMapping
     public List<Chat> getAllChats() {
         return chatService.findAll();

@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.socket.WebSocketHandler;
@@ -12,7 +11,6 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.kors.socketbrokerservice.api.UsersRestApi;
 import ru.kors.socketbrokerservice.api.payload.CreateUserPayload;
-import ru.kors.socketbrokerservice.api.payload.UserRestPayload;
 import ru.kors.socketbrokerservice.services.JwtService;
 
 import java.util.List;
@@ -27,48 +25,54 @@ public class CustomHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
-        // Получите токен из параметров запроса
-        List<String> tokenList =
-                UriComponentsBuilder.fromUri(request.getURI()).build().getQueryParams().get("token");
-        String token = (tokenList != null && !tokenList.isEmpty()) ? tokenList.get(0) : null;
+        // Читаем токен из заголовка или query-параметра
+        String token = request.getHeaders().getFirst("Authorization");
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7); // Убираем "Bearer "
+        }
 
         if (token == null) {
-            log.info("Token is null");
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            List<String> tokenList = UriComponentsBuilder.fromUri(request.getURI()).build().getQueryParams().get("token");
+            token = (tokenList != null && !tokenList.isEmpty()) ? tokenList.get(0) : null;
+        }
+
+        log.info("Token: " + token);
+
+        if (token == null) {
+            log.error("Token is null, rejecting handshake. Headers: " + request.getHeaders());
             return false;
         }
 
         Claims claims = jwtService.validateToken(token);
+        log.info("Token claims: " + claims);
+
         if (claims == null) {
-            log.info("Invalid token");
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            log.error("Invalid token, rejecting handshake.");
             return false;
         }
 
         String user = claims.getSubject();
         if (user == null) {
-            log.info("User is null");
-            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            log.error("User is null, rejecting handshake.");
             return false;
         }
-        attributes.put("sub", user);
 
-        if  (usersRestApi.findByKeycloakId(user).isEmpty()) {
+        attributes.put("sub", user);
+        attributes.put("token", token);
+
+        if (usersRestApi.findByKeycloakId(user).isEmpty()) {
             log.info("Creating a new user in the database");
             CreateUserPayload userPayload = new CreateUserPayload(user);
-            var tmpUser  = usersRestApi.createUser(userPayload);
-            log.info(String.valueOf(tmpUser.getId()));
+            var tmpUser = usersRestApi.createUser(userPayload);
+            log.info("User created with ID: " + tmpUser.getId());
         }
 
-        request.getHeaders().add("token", token);
-
-        log.info("Token in header: " + request.getHeaders().getFirst("token"));
         return true;
     }
 
-
     @Override
     public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Exception exception) {
-        // После завершения рукопожатия
+
     }
+
 }

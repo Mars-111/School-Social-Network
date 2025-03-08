@@ -7,13 +7,13 @@ const keycloak = new Keycloak({
 function authenticationKeycloak() {
     return keycloak.init({ 
         onLoad: 'check-sso' 
-    }).then(function(authenticated) {
+    }).then((authenticated) => {
         if (!authenticated) {
             return keycloak.login();
         }
         startTokenRefresh(); // Запускаем процесс обновления токена
         return Promise.resolve(authenticated);
-    }).catch(function() {
+    }).catch(() => {
         console.log('Failed to initialize');
         return Promise.reject();
     });

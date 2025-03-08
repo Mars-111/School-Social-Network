@@ -23,7 +23,6 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final ChatService chatService;
-    private final JoinRequestService joinRequestService;
     private final KafkaProducerService kafkaProducerService;
     private final ChatEventService chatEventService;
 

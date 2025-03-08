@@ -11,9 +11,9 @@
 4||10|c|G
 4||10|C|G
 4||10|T|G</Grants>
-      <IntrospectionStateNumber>1216</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1288</IntrospectionStateNumber>
       <ServerVersion>16.6</ServerVersion>
-      <StartupTime>1739189790</StartupTime>
+      <StartupTime>1741262969</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -55,14 +55,14 @@ false Africa/Blantyre
 false Africa/Brazzaville
 false Africa/Bujumbura
 false Africa/Cairo
-false Africa/Casablanca
+true Africa/Casablanca
 false Africa/Ceuta
 false Africa/Conakry
 false Africa/Dakar
 false Africa/Dar_es_Salaam
 false Africa/Djibouti
 false Africa/Douala
-false Africa/El_Aaiun
+true Africa/El_Aaiun
 false Africa/Freetown
 false Africa/Gaborone
 false Africa/Harare
@@ -810,14 +810,14 @@ false posix/Africa/Blantyre
 false posix/Africa/Brazzaville
 false posix/Africa/Bujumbura
 false posix/Africa/Cairo
-false posix/Africa/Casablanca
+true posix/Africa/Casablanca
 false posix/Africa/Ceuta
 false posix/Africa/Conakry
 false posix/Africa/Dakar
 false posix/Africa/Dar_es_Salaam
 false posix/Africa/Djibouti
 false posix/Africa/Douala
-false posix/Africa/El_Aaiun
+true posix/Africa/El_Aaiun
 false posix/Africa/Freetown
 false posix/Africa/Gaborone
 false posix/Africa/Harare
@@ -1407,7 +1407,7 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>1216</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1288</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>admin</OwnerName>
     </database>
@@ -4831,247 +4831,241 @@ false posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1216</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-02-10.13:34:18</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1288</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-03-07.21:32:08</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="265" parent="264" name="chats_id_seq">
-      <ObjectId>24863</ObjectId>
+      <ObjectId>33013</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="266" parent="264" name="chats_roles_id_seq">
-      <ObjectId>24871</ObjectId>
+      <ObjectId>33021</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1142</StateNumber>
+      <StateNumber>1238</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="267" parent="264" name="events_id_seq">
-      <ObjectId>24877</ObjectId>
+      <ObjectId>33027</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1143</StateNumber>
+      <StateNumber>1239</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="268" parent="264" name="join_requests_id_seq">
-      <ObjectId>24885</ObjectId>
+      <ObjectId>33035</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1144</StateNumber>
+      <StateNumber>1240</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="269" parent="264" name="messages_id_seq">
-      <ObjectId>24891</ObjectId>
+      <ObjectId>33041</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <sequence id="270" parent="264" name="users_id_seq">
-      <ObjectId>24909</ObjectId>
+      <ObjectId>33059</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>1148</StateNumber>
+      <StateNumber>1244</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <table id="271" parent="264" name="chats">
-      <ObjectId>24864</ObjectId>
-      <StateNumber>1163</StateNumber>
+      <ObjectId>33014</ObjectId>
+      <StateNumber>1260</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
     <table id="272" parent="264" name="chats_roles">
-      <ObjectId>24872</ObjectId>
-      <StateNumber>1164</StateNumber>
+      <ObjectId>33022</ObjectId>
+      <StateNumber>1261</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="273" parent="264" name="event_changes">
-      <ObjectId>33003</ObjectId>
-      <StateNumber>1212</StateNumber>
+    <table id="273" parent="264" name="events">
+      <ObjectId>33028</ObjectId>
+      <StateNumber>1263</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="274" parent="264" name="events">
-      <ObjectId>24878</ObjectId>
-      <StateNumber>1166</StateNumber>
+    <table id="274" parent="264" name="join_requests">
+      <ObjectId>33036</ObjectId>
+      <StateNumber>1265</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="275" parent="264" name="join_requests">
-      <ObjectId>24886</ObjectId>
-      <StateNumber>1169</StateNumber>
+    <table id="275" parent="264" name="messages">
+      <ObjectId>33042</ObjectId>
+      <StateNumber>1267</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="276" parent="264" name="messages">
-      <ObjectId>24892</ObjectId>
-      <StateNumber>1167</StateNumber>
+    <table id="276" parent="264" name="read_messages">
+      <ObjectId>33049</ObjectId>
+      <StateNumber>1269</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="277" parent="264" name="read_messages">
-      <ObjectId>24899</ObjectId>
-      <StateNumber>1173</StateNumber>
+    <table id="277" parent="264" name="user_chats">
+      <ObjectId>33054</ObjectId>
+      <StateNumber>1270</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="278" parent="264" name="user_chats">
-      <ObjectId>24904</ObjectId>
-      <StateNumber>1174</StateNumber>
+    <table id="278" parent="264" name="users">
+      <ObjectId>33060</ObjectId>
+      <StateNumber>1260</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
-    <table id="279" parent="264" name="users">
-      <ObjectId>24910</ObjectId>
-      <StateNumber>1163</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>admin</OwnerName>
-    </table>
-    <column id="280" parent="271" name="id">
+    <column id="279" parent="271" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>24863</SequenceId>
+      <SequenceId>33013</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="281" parent="271" name="name">
+    <column id="280" parent="271" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="282" parent="271" name="private_chat">
+    <column id="281" parent="271" name="private_chat">
       <Position>3</Position>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="283" parent="271" name="tag">
+    <column id="282" parent="271" name="tag">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="284" parent="271" name="owner_id">
+    <column id="283" parent="271" name="owner_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="285" parent="271" name="fkllt7ugw3s9gplx0slfuw1lsgw">
+    <foreign-key id="284" parent="271" name="fkllt7ugw3s9gplx0slfuw1lsgw">
       <ColNames>owner_id</ColNames>
-      <ObjectId>24931</ObjectId>
-      <StateNumber>1163</StateNumber>
+      <ObjectId>33082</ObjectId>
+      <StateNumber>1260</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24910</RefTableId>
+      <RefTableId>33060</RefTableId>
     </foreign-key>
-    <index id="286" parent="271" name="chats_pkey">
+    <index id="285" parent="271" name="chats_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24869</ObjectId>
+      <ObjectId>33019</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1141</StateNumber>
+      <StateNumber>1237</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="287" parent="271" name="ukm12s0o38tbun336osqiacbggv">
+    <index id="286" parent="271" name="ukm12s0o38tbun336osqiacbggv">
       <ColNames>tag</ColNames>
-      <ObjectId>24917</ObjectId>
-      <StateNumber>1150</StateNumber>
+      <ObjectId>33067</ObjectId>
+      <StateNumber>1246</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="288" parent="271" name="chats_pkey">
+    <key id="287" parent="271" name="chats_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24870</ObjectId>
+      <ObjectId>33020</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1141</StateNumber>
-      <UnderlyingIndexId>24869</UnderlyingIndexId>
+      <StateNumber>1237</StateNumber>
+      <UnderlyingIndexId>33019</UnderlyingIndexId>
     </key>
-    <key id="289" parent="271" name="ukm12s0o38tbun336osqiacbggv">
-      <ObjectId>24918</ObjectId>
-      <StateNumber>1150</StateNumber>
-      <UnderlyingIndexId>24917</UnderlyingIndexId>
+    <key id="288" parent="271" name="ukm12s0o38tbun336osqiacbggv">
+      <ObjectId>33068</ObjectId>
+      <StateNumber>1246</StateNumber>
+      <UnderlyingIndexId>33067</UnderlyingIndexId>
     </key>
-    <column id="290" parent="272" name="id">
+    <column id="289" parent="272" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1142</StateNumber>
+      <StateNumber>1238</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>24871</SequenceId>
+      <SequenceId>33021</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="291" parent="272" name="role">
+    <column id="290" parent="272" name="role">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1142</StateNumber>
+      <StateNumber>1238</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="292" parent="272" name="chat_id">
+    <column id="291" parent="272" name="chat_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1142</StateNumber>
+      <StateNumber>1238</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="293" parent="272" name="user_id">
+    <column id="292" parent="272" name="user_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1142</StateNumber>
+      <StateNumber>1238</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="294" parent="272" name="fkvgctk3egg5o9jnukucvfcogv">
+    <foreign-key id="293" parent="272" name="fkvgctk3egg5o9jnukucvfcogv">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24936</ObjectId>
-      <StateNumber>1164</StateNumber>
+      <ObjectId>33087</ObjectId>
+      <StateNumber>1261</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24864</RefTableId>
+      <RefTableId>33014</RefTableId>
     </foreign-key>
-    <foreign-key id="295" parent="272" name="fk9e15x9dinps7up3eero2rr19c">
+    <foreign-key id="294" parent="272" name="fk9e15x9dinps7up3eero2rr19c">
       <ColNames>user_id</ColNames>
-      <ObjectId>24941</ObjectId>
-      <StateNumber>1165</StateNumber>
+      <ObjectId>33092</ObjectId>
+      <StateNumber>1262</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24910</RefTableId>
+      <RefTableId>33060</RefTableId>
     </foreign-key>
-    <index id="296" parent="272" name="chats_roles_pkey">
+    <index id="295" parent="272" name="chats_roles_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24875</ObjectId>
+      <ObjectId>33025</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1142</StateNumber>
+      <StateNumber>1238</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="297" parent="272" name="idx_user_chat_role">
+    <index id="296" parent="272" name="idx_user_chat_role">
       <ColNames>user_id
 chat_id
 role</ColNames>
-      <ObjectId>24920</ObjectId>
-      <StateNumber>1152</StateNumber>
+      <ObjectId>33070</ObjectId>
+      <StateNumber>1248</StateNumber>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>
 
@@ -5083,491 +5077,455 @@ pg_catalog</CollationParentNames>
 
 100</CollationIds>
     </index>
-    <index id="298" parent="272" name="idx_user_chat">
+    <index id="297" parent="272" name="idx_user_chat">
       <ColNames>user_id
 chat_id</ColNames>
-      <ObjectId>24919</ObjectId>
-      <StateNumber>1151</StateNumber>
+      <ObjectId>33069</ObjectId>
+      <StateNumber>1247</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="299" parent="272" name="chats_roles_pkey">
+    <key id="298" parent="272" name="chats_roles_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24876</ObjectId>
+      <ObjectId>33026</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1142</StateNumber>
-      <UnderlyingIndexId>24875</UnderlyingIndexId>
+      <StateNumber>1238</StateNumber>
+      <UnderlyingIndexId>33025</UnderlyingIndexId>
     </key>
-    <column id="300" parent="273" name="event_id">
+    <column id="299" parent="273" name="event_category">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1209</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="301" parent="273" name="change">
-      <Position>2</Position>
-      <StateNumber>1209</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
+      <StateNumber>1239</StateNumber>
+      <StoredType>varchar(31)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="302" parent="273" name="fkrhxg58xhs07mpk2y1s09elryk">
-      <ColNames>event_id</ColNames>
-      <ObjectId>33008</ObjectId>
-      <StateNumber>1212</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24878</RefTableId>
-    </foreign-key>
-    <column id="303" parent="274" name="id">
+    <column id="300" parent="273" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1143</StateNumber>
+      <Position>2</Position>
+      <StateNumber>1239</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>24877</SequenceId>
+      <SequenceId>33027</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="304" parent="274" name="data">
-      <Position>2</Position>
-      <StateNumber>1143</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="305" parent="274" name="timestamp">
-      <NotNull>1</NotNull>
+    <column id="301" parent="273" name="data">
       <Position>3</Position>
-      <StateNumber>1143</StateNumber>
-      <StoredType>timestamp(6)|0s</StoredType>
-      <TypeId>1114</TypeId>
+      <StateNumber>1239</StateNumber>
+      <StoredType>jsonb|0s</StoredType>
+      <TypeId>3802</TypeId>
     </column>
-    <column id="306" parent="274" name="type">
+    <column id="302" parent="273" name="timestamp">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1143</StateNumber>
+      <StateNumber>1239</StateNumber>
+      <StoredType>timestamp(6) with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="303" parent="273" name="type">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>1239</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="307" parent="274" name="chat_id">
-      <Position>5</Position>
-      <StateNumber>1143</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="308" parent="274" name="message_id">
+    <column id="304" parent="273" name="chat_id">
+      <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>1143</StateNumber>
+      <StateNumber>1239</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="309" parent="274" name="user_id">
+    <column id="305" parent="273" name="user_id">
+      <NotNull>1</NotNull>
       <Position>7</Position>
-      <StateNumber>1143</StateNumber>
+      <StateNumber>1239</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="310" parent="274" name="fkduo9l2a1iakamwxautsodeqxq">
+    <foreign-key id="306" parent="273" name="fkduo9l2a1iakamwxautsodeqxq">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24946</ObjectId>
-      <StateNumber>1166</StateNumber>
+      <ObjectId>33097</ObjectId>
+      <StateNumber>1263</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24864</RefTableId>
+      <RefTableId>33014</RefTableId>
     </foreign-key>
-    <foreign-key id="311" parent="274" name="fkep9hx346qsromt2a70qpaiemw">
-      <ColNames>message_id</ColNames>
-      <ObjectId>24951</ObjectId>
-      <StateNumber>1167</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24892</RefTableId>
-    </foreign-key>
-    <foreign-key id="312" parent="274" name="fkat8p3s7yjcp57lny4udqvqncq">
+    <foreign-key id="307" parent="273" name="fkat8p3s7yjcp57lny4udqvqncq">
       <ColNames>user_id</ColNames>
-      <ObjectId>24956</ObjectId>
-      <StateNumber>1168</StateNumber>
+      <ObjectId>33102</ObjectId>
+      <StateNumber>1264</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24910</RefTableId>
+      <RefTableId>33060</RefTableId>
     </foreign-key>
-    <index id="313" parent="274" name="events_pkey">
+    <index id="308" parent="273" name="events_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24883</ObjectId>
+      <ObjectId>33033</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1143</StateNumber>
+      <StateNumber>1239</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="314" parent="274" name="idx_events_timestamp">
+    <index id="309" parent="273" name="idx_events_timestamp">
       <ColNames>timestamp</ColNames>
-      <ObjectId>33007</ObjectId>
-      <StateNumber>1211</StateNumber>
+      <ObjectId>33071</ObjectId>
+      <StateNumber>1249</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="315" parent="274" name="idx_timestamp">
-      <ColNames>timestamp</ColNames>
-      <ObjectId>24921</ObjectId>
-      <StateNumber>1153</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="316" parent="274" name="idx_type">
+    <index id="310" parent="273" name="idx_events_event_type">
       <ColNames>type</ColNames>
-      <ObjectId>24922</ObjectId>
-      <StateNumber>1154</StateNumber>
+      <ObjectId>33143</ObjectId>
+      <StateNumber>1280</StateNumber>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="317" parent="274" name="idx_events_chat">
+    <index id="311" parent="273" name="idx_chat_events_chat">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24997</ObjectId>
-      <StateNumber>1180</StateNumber>
+      <ObjectId>33073</ObjectId>
+      <StateNumber>1251</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="318" parent="274" name="idx_events_message">
-      <ColNames>message_id</ColNames>
-      <ObjectId>33006</ObjectId>
-      <StateNumber>1210</StateNumber>
+    <index id="312" parent="273" name="idx_user_events_user">
+      <ColNames>user_id</ColNames>
+      <ObjectId>33072</ObjectId>
+      <StateNumber>1250</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="319" parent="274" name="idx_message">
-      <ColNames>message_id</ColNames>
-      <ObjectId>24998</ObjectId>
-      <StateNumber>1181</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="320" parent="274" name="events_pkey">
+    <key id="313" parent="273" name="events_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24884</ObjectId>
+      <ObjectId>33034</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1143</StateNumber>
-      <UnderlyingIndexId>24883</UnderlyingIndexId>
+      <StateNumber>1239</StateNumber>
+      <UnderlyingIndexId>33033</UnderlyingIndexId>
     </key>
-    <column id="321" parent="275" name="id">
+    <column id="314" parent="274" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1144</StateNumber>
+      <StateNumber>1240</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>24885</SequenceId>
+      <SequenceId>33035</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="322" parent="275" name="timestamp">
+    <column id="315" parent="274" name="timestamp">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1144</StateNumber>
+      <StateNumber>1240</StateNumber>
       <StoredType>timestamp(6)|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="323" parent="275" name="chat_id">
+    <column id="316" parent="274" name="chat_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1144</StateNumber>
+      <StateNumber>1240</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="324" parent="275" name="user_id">
+    <column id="317" parent="274" name="user_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1144</StateNumber>
+      <StateNumber>1240</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="325" parent="275" name="fk1sl2tls6my3f0a48p6aobo24q">
+    <foreign-key id="318" parent="274" name="fk1sl2tls6my3f0a48p6aobo24q">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24961</ObjectId>
-      <StateNumber>1169</StateNumber>
+      <ObjectId>33107</ObjectId>
+      <StateNumber>1265</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24864</RefTableId>
+      <RefTableId>33014</RefTableId>
     </foreign-key>
-    <foreign-key id="326" parent="275" name="fkdku7pij8qiqg1471wybd70vdu">
+    <foreign-key id="319" parent="274" name="fkdku7pij8qiqg1471wybd70vdu">
       <ColNames>user_id</ColNames>
-      <ObjectId>24966</ObjectId>
-      <StateNumber>1170</StateNumber>
+      <ObjectId>33112</ObjectId>
+      <StateNumber>1266</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24910</RefTableId>
+      <RefTableId>33060</RefTableId>
     </foreign-key>
-    <index id="327" parent="275" name="join_requests_pkey">
+    <index id="320" parent="274" name="join_requests_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24889</ObjectId>
+      <ObjectId>33039</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1144</StateNumber>
+      <StateNumber>1240</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="328" parent="275" name="join_requests_pkey">
+    <key id="321" parent="274" name="join_requests_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24890</ObjectId>
+      <ObjectId>33040</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1144</StateNumber>
-      <UnderlyingIndexId>24889</UnderlyingIndexId>
+      <StateNumber>1240</StateNumber>
+      <UnderlyingIndexId>33039</UnderlyingIndexId>
     </key>
-    <column id="329" parent="276" name="id">
+    <column id="322" parent="275" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>24891</SequenceId>
+      <SequenceId>33041</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="330" parent="276" name="content">
+    <column id="323" parent="275" name="content">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="331" parent="276" name="timestamp">
+    <column id="324" parent="275" name="timestamp">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>timestamp(6)|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="332" parent="276" name="type">
+    <column id="325" parent="275" name="type">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="333" parent="276" name="chat_id">
+    <column id="326" parent="275" name="chat_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="334" parent="276" name="sender_id">
+    <column id="327" parent="275" name="sender_id">
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="335" parent="276" name="fk64w44ngcpqp99ptcb9werdfmb">
+    <foreign-key id="328" parent="275" name="fk64w44ngcpqp99ptcb9werdfmb">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24971</ObjectId>
-      <StateNumber>1171</StateNumber>
+      <ObjectId>33117</ObjectId>
+      <StateNumber>1267</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24864</RefTableId>
+      <RefTableId>33014</RefTableId>
     </foreign-key>
-    <foreign-key id="336" parent="276" name="fk4ui4nnwntodh6wjvck53dbk9m">
+    <foreign-key id="329" parent="275" name="fk4ui4nnwntodh6wjvck53dbk9m">
       <ColNames>sender_id</ColNames>
-      <ObjectId>24976</ObjectId>
-      <StateNumber>1172</StateNumber>
+      <ObjectId>33122</ObjectId>
+      <StateNumber>1268</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24910</RefTableId>
+      <RefTableId>33060</RefTableId>
     </foreign-key>
-    <index id="337" parent="276" name="messages_pkey">
+    <index id="330" parent="275" name="messages_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24897</ObjectId>
+      <ObjectId>33047</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1145</StateNumber>
+      <StateNumber>1241</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="338" parent="276" name="idx_messages_chat_id">
+    <index id="331" parent="275" name="idx_messages_chat_id">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24923</ObjectId>
-      <StateNumber>1155</StateNumber>
+      <ObjectId>33074</ObjectId>
+      <StateNumber>1252</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="339" parent="276" name="idx_messages_user_id">
+    <index id="332" parent="275" name="idx_messages_user_id">
       <ColNames>sender_id</ColNames>
-      <ObjectId>24924</ObjectId>
-      <StateNumber>1156</StateNumber>
+      <ObjectId>33075</ObjectId>
+      <StateNumber>1253</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="340" parent="276" name="messages_pkey">
+    <key id="333" parent="275" name="messages_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24898</ObjectId>
+      <ObjectId>33048</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1145</StateNumber>
-      <UnderlyingIndexId>24897</UnderlyingIndexId>
+      <StateNumber>1241</StateNumber>
+      <UnderlyingIndexId>33047</UnderlyingIndexId>
+    </key>
+    <column id="334" parent="276" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1242</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="335" parent="276" name="timestamp">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1242</StateNumber>
+      <StoredType>timestamp(6)|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="336" parent="276" name="message_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>1242</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="337" parent="276" name="fklo0kefqxbwut7kew9r80qxuud">
+      <ColNames>message_id</ColNames>
+      <ObjectId>33127</ObjectId>
+      <StateNumber>1269</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>33042</RefTableId>
+    </foreign-key>
+    <index id="338" parent="276" name="read_messages_pkey">
+      <ColNames>message_id
+user_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33052</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1242</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>
+100</CollationIds>
+      <CollationParentNames>
+pg_catalog</CollationParentNames>
+      <CollationNames>
+default</CollationNames>
+    </index>
+    <index id="339" parent="276" name="idx_user_id">
+      <ColNames>user_id</ColNames>
+      <ObjectId>33076</ObjectId>
+      <StateNumber>1254</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="340" parent="276" name="read_messages_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>33053</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1242</StateNumber>
+      <UnderlyingIndexId>33052</UnderlyingIndexId>
     </key>
     <column id="341" parent="277" name="user_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1146</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
+      <StateNumber>1243</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <TypeId>20</TypeId>
     </column>
-    <column id="342" parent="277" name="timestamp">
+    <column id="342" parent="277" name="chat_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1146</StateNumber>
-      <StoredType>timestamp(6)|0s</StoredType>
-      <TypeId>1114</TypeId>
-    </column>
-    <column id="343" parent="277" name="message_id">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>1146</StateNumber>
+      <StateNumber>1243</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="344" parent="277" name="fklo0kefqxbwut7kew9r80qxuud">
-      <ColNames>message_id</ColNames>
-      <ObjectId>24981</ObjectId>
-      <StateNumber>1173</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24892</RefTableId>
-    </foreign-key>
-    <index id="345" parent="277" name="read_messages_pkey">
-      <ColNames>message_id
-user_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24902</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>1146</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>
-100</CollationIds>
-      <CollationParentNames>
-pg_catalog</CollationParentNames>
-      <CollationNames>
-default</CollationNames>
-    </index>
-    <index id="346" parent="277" name="idx_user_id">
+    <foreign-key id="343" parent="277" name="fktdc8rg12fl9yhkd7cqjc2j0oj">
       <ColNames>user_id</ColNames>
-      <ObjectId>24925</ObjectId>
-      <StateNumber>1157</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationNames>default</CollationNames>
-      <CollationIds>100</CollationIds>
-      <CollationParentNames>pg_catalog</CollationParentNames>
-    </index>
-    <key id="347" parent="277" name="read_messages_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24903</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>1146</StateNumber>
-      <UnderlyingIndexId>24902</UnderlyingIndexId>
-    </key>
-    <column id="348" parent="278" name="user_id">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1147</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <column id="349" parent="278" name="chat_id">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>1147</StateNumber>
-      <StoredType>bigint|0s</StoredType>
-      <TypeId>20</TypeId>
-    </column>
-    <foreign-key id="350" parent="278" name="fktdc8rg12fl9yhkd7cqjc2j0oj">
-      <ColNames>user_id</ColNames>
-      <ObjectId>24991</ObjectId>
-      <StateNumber>1175</StateNumber>
+      <ObjectId>33137</ObjectId>
+      <StateNumber>1271</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24910</RefTableId>
+      <RefTableId>33060</RefTableId>
     </foreign-key>
-    <foreign-key id="351" parent="278" name="fk7wnur32eifid4w1671b9gnrny">
+    <foreign-key id="344" parent="277" name="fk7wnur32eifid4w1671b9gnrny">
       <ColNames>chat_id</ColNames>
-      <ObjectId>24986</ObjectId>
-      <StateNumber>1174</StateNumber>
+      <ObjectId>33132</ObjectId>
+      <StateNumber>1270</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>24864</RefTableId>
+      <RefTableId>33014</RefTableId>
     </foreign-key>
-    <index id="352" parent="278" name="user_chats_pkey">
+    <index id="345" parent="277" name="user_chats_pkey">
       <ColNames>user_id
 chat_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24907</ObjectId>
+      <ObjectId>33057</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1147</StateNumber>
+      <StateNumber>1243</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="353" parent="278" name="user_chats_pkey">
+    <key id="346" parent="277" name="user_chats_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24908</ObjectId>
+      <ObjectId>33058</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1147</StateNumber>
-      <UnderlyingIndexId>24907</UnderlyingIndexId>
+      <StateNumber>1243</StateNumber>
+      <UnderlyingIndexId>33057</UnderlyingIndexId>
     </key>
-    <column id="354" parent="279" name="id">
+    <column id="347" parent="278" name="id">
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1148</StateNumber>
+      <StateNumber>1244</StateNumber>
       <StoredType>bigint|0s</StoredType>
-      <SequenceId>24909</SequenceId>
+      <SequenceId>33059</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="355" parent="279" name="keycloak_id">
+    <column id="348" parent="278" name="keycloak_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1148</StateNumber>
+      <StateNumber>1244</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="356" parent="279" name="tag">
+    <column id="349" parent="278" name="tag">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1148</StateNumber>
+      <StateNumber>1244</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="357" parent="279" name="users_pkey">
+    <index id="350" parent="278" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24915</ObjectId>
+      <ObjectId>33065</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1148</StateNumber>
+      <StateNumber>1244</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="358" parent="279" name="uk366dgrd625s5659shyen79mmw">
+    <index id="351" parent="278" name="uk366dgrd625s5659shyen79mmw">
       <ColNames>keycloak_id</ColNames>
-      <ObjectId>24927</ObjectId>
-      <StateNumber>1160</StateNumber>
+      <ObjectId>33078</ObjectId>
+      <StateNumber>1257</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="359" parent="279" name="uk6naom5p0pwt1b7wxbcvba5u0q">
+    <index id="352" parent="278" name="uk6naom5p0pwt1b7wxbcvba5u0q">
       <ColNames>tag</ColNames>
-      <ObjectId>24929</ObjectId>
-      <StateNumber>1162</StateNumber>
+      <ObjectId>33080</ObjectId>
+      <StateNumber>1259</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="360" parent="279" name="idx_user_chat_id">
+    <index id="353" parent="278" name="idx_user_chat_id">
       <ColNames>keycloak_id</ColNames>
-      <ObjectId>24926</ObjectId>
-      <StateNumber>1158</StateNumber>
+      <ObjectId>33077</ObjectId>
+      <StateNumber>1255</StateNumber>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="361" parent="279" name="users_pkey">
+    <key id="354" parent="278" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>24916</ObjectId>
+      <ObjectId>33066</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1148</StateNumber>
-      <UnderlyingIndexId>24915</UnderlyingIndexId>
+      <StateNumber>1244</StateNumber>
+      <UnderlyingIndexId>33065</UnderlyingIndexId>
     </key>
-    <key id="362" parent="279" name="uk366dgrd625s5659shyen79mmw">
-      <ObjectId>24928</ObjectId>
-      <StateNumber>1160</StateNumber>
-      <UnderlyingIndexId>24927</UnderlyingIndexId>
+    <key id="355" parent="278" name="uk366dgrd625s5659shyen79mmw">
+      <ObjectId>33079</ObjectId>
+      <StateNumber>1257</StateNumber>
+      <UnderlyingIndexId>33078</UnderlyingIndexId>
     </key>
-    <key id="363" parent="279" name="uk6naom5p0pwt1b7wxbcvba5u0q">
-      <ObjectId>24930</ObjectId>
-      <StateNumber>1162</StateNumber>
-      <UnderlyingIndexId>24929</UnderlyingIndexId>
+    <key id="356" parent="278" name="uk6naom5p0pwt1b7wxbcvba5u0q">
+      <ObjectId>33081</ObjectId>
+      <StateNumber>1259</StateNumber>
+      <UnderlyingIndexId>33080</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

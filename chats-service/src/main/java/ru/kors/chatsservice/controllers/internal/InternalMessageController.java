@@ -8,6 +8,7 @@ import ru.kors.chatsservice.services.MessageService;
 import ru.kors.chatsservice.services.UserService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/internal/api/messages")
@@ -32,8 +33,8 @@ public class InternalMessageController {
     }
 
     @GetMapping("/chat/{chatId}")
-    public ResponseEntity<List<Message>> getMessagesByChatId(@PathVariable Long chatId) {
-        List<Message> messages = messageService.findAllByChatId(chatId);
+    public ResponseEntity<Set<Message>> getMessagesByChatId(@PathVariable Long chatId) {
+        Set<Message> messages = messageService.findAllByChatId(chatId);
         return ResponseEntity.ok(messages);
     }
 

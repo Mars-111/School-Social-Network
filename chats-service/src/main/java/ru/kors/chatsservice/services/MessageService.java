@@ -25,6 +25,7 @@ import ru.kors.chatsservice.repositories.MessageRepository;
 import ru.kors.chatsservice.repositories.UserRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -49,7 +50,7 @@ public class MessageService {
         return messageRepository.findAllByChat_Id(chatId, pageable);
     }
 
-    public List<Message> findAllByChatId(Long chatId) {
+    public Set<Message> findAllByChatId(Long chatId) {
         return messageRepository.findAllByChat_Id(chatId);
     }
 

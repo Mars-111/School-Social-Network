@@ -17,7 +17,9 @@ import java.time.Instant;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "events", indexes = {
         @Index(name = "idx_events_timestamp", columnList = "timestamp"),
-        @Index(name = "idx_events_event_type", columnList = "event_type")
+        @Index(name = "idx_events_event_type", columnList = "type"),
+        @Index(name = "idx_user_events_user", columnList = "user_id"),
+        @Index(name = "idx_chat_events_chat", columnList = "chat_id")
 })
 public abstract class BaseEvent {
 

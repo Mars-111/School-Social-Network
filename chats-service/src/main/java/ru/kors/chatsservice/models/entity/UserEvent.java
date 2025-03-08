@@ -15,9 +15,6 @@ import ru.kors.chatsservice.models.entity.serializers.UserEventSerializer;
 @NoArgsConstructor
 @Entity
 @DiscriminatorValue("user") // Значение дисриминатора для объектов этого класса
-@Table(name = "events", indexes = {
-        @Index(name = "idx_user_events_user", columnList = "user_id")
-})
 @JsonSerialize(using = UserEventSerializer.class)
 @JsonDeserialize(using = UserEventDeserializer.class)
 public class UserEvent extends BaseEvent {
