@@ -5,95 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025">
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/components/AuthProvider.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/components/ChatMessagesMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/components/UserChatsMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/hooks/useUserChats.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/keycloak.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/socket/socketService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-client/src/hooks/useUserChatsState.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web-client/src/ConnectSocket.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e/storage_v2/_src_/database/chats.G9ijBQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e/storage_v2/_src_/database/chats.G9ijBQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/KafkaTopicConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/SecurityBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalEventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalEventController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalMessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/UserEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/abstracts/BaseEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/abstracts/BaseEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/EventSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/EventService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16433" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16433" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16556" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16556" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16580" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16580" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16584" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16756" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16756" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16791" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16791" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16797" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16797" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17361" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17361" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17403" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17403" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17460" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17460" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17690" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17690" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17765" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17765" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17864" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17864" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17913" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17913" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17937" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17937" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17947" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17947" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17955" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17955" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17963" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17963" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_stat/pgstat.stat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000002" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000002" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/EventsRestApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/MessageRestPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/MessageRestPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/CustomHandshakeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/CustomHandshakeInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/TopicSubscriptionInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/TopicSubscriptionInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/listeners/WebSocketEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/listeners/WebSocketEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/hooks/useUserChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/hooks/useUserChats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/socket/socketService.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/socket/socketService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-client/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/src/app.js" afterDir="false" />
@@ -508,6 +434,7 @@
       <workItem from="1741074625113" duration="4108000" />
       <workItem from="1741163210510" duration="9127000" />
       <workItem from="1741262793204" duration="7839000" />
+      <workItem from="1741542616671" duration="2765000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <option name="closed" value="true" />

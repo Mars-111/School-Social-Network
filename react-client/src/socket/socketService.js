@@ -1,7 +1,7 @@
 import { useAuth } from "../components/AuthProvider";
 import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client"; 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import useUserChats from "../hooks/useUserChats";
 
 export function useWebSocket() {
@@ -48,12 +48,37 @@ export function useWebSocket() {
 }
 
 
-function useSocketSubscriptionChats(token, socket) {
-    const chats = useUserChats();
-    chats.forEach(chat => {
-        socket.subscribe(`/chat/${chat.id}`, message => {
-            console.log("New message in chat:", chat.id);
-            console.log("Message:", message.body);
-        }); 
-    });
+
+export function useSocketSubscriptionChats(token) {
+    const socket = useWebSocket();
+    const chats = useUserChats(); // Получаем актуальный список чатов
+    const subscribedChatsRef = useRef(new Set()); // Храним подписки
+
+    useEffect(() => {
+        if (!socket) return;
+
+        const actualChats = new Set(chats.map(chat => chat.id));
+        const subscribedChats = subscribedChatsRef.current;
+
+        // Отписываемся от чатов, которых больше нет
+        subscribedChats.forEach(chatId => {
+            if (!actualChats.has(chatId)) {
+                socket.unsubscribe(`/chat/${chatId}`);
+                subscribedChats.delete(chatId);
+            }
+        });
+
+        // Подписываемся на новые чаты
+        actualChats.forEach(chatId => {
+            if (!subscribedChats.has(chatId)) {
+                socket.subscribe(`/chat/${chatId}`, message => {
+                    console.log("New message in chat:", chatId);
+                    console.log("Message:", message.body);
+                    
+                });
+                subscribedChats.add(chatId);
+            }
+        });
+
+    }, [socket, chats]); // useEffect сработает только при изменении чатов или сокета
 }
