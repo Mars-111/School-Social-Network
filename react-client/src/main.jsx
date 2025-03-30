@@ -1,9 +1,19 @@
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import { AuthProvider } from './components/AuthProvider.jsx'
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import keycloak from './keycloak';
+import {AppProvider} from './AppContext';
 
-createRoot(document.getElementById('root')).render(
-    <AuthProvider>
-    <App />
-    </AuthProvider>
-)
+keycloak.init({ onLoad: 'login-required' }).then(authenticated => {
+    if (authenticated) {
+        createRoot(document.getElementById('root')).render(
+            <AppProvider>
+                <App/>
+            </AppProvider>
+        )
+    } else {
+        window.location.reload();
+    }
+}).catch(err => {
+    console.error("Keycloak initialization failed", err);
+});

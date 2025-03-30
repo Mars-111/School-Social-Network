@@ -5,7 +5,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9082/realms/school-social-network
+          issuer-uri: https://keycloak.mars-ssn.ru/realms/school-social-network
 
   kafka:
     bootstrap-servers: localhost:29092,localhost:39092,localhost:49092
@@ -18,12 +18,18 @@ spring:
       group-id: "socket-broker-1"
       auto-offset-reset: latest
       enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     properties:
       security.protocol: PLAINTEXT
 
 
 server:
   port: 8081
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: Mars123asd!
+    key-store-type: PKCS12
+    key-alias: mars-ssn
 
 keycloak:
   public:

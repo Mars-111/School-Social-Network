@@ -2,10 +2,12 @@ package ru.kors.chatsservice.models.entity.abstracts;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.hibernate.annotations.JdbcTypeCode;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import ru.kors.chatsservice.config.JsonNodeConverter;
+
+import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 
@@ -32,7 +34,8 @@ public abstract class BaseEvent {
     @Column(name = "type", nullable = false)
     private String type;
 
-    @Convert(converter = JsonNodeConverter.class)
+    //@Convert(converter = JsonNodeConverter.class)
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "data", columnDefinition = "jsonb")
     private JsonNode data;
 

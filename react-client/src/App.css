@@ -1,0 +1,29 @@
+.app-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar {
+    width: 300px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .no-chat-selected {
+    margin: auto;
+    font-size: 1.2em;
+    color: #888;
+  }
+  
+  h2, h3 {
+    margin: 0 0 10px;
+  }
+  

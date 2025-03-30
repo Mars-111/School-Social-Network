@@ -1,42 +1,43 @@
-version: '3.9'
+version: '3'
 services:
-  mysql-kc:
-    image: mysql:8.0.27
-    ports:
-      - "3377:3306"
-    restart: unless-stopped
-    environment:
-      MYSQL_USER: bisky
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: keycloak
-      MYSQL_ROOT_PASSWORD: password
+  postgres:
+    image: postgres:latest
+    restart: always
     volumes:
-      - keycloak-and-mysql-volume:/var/lib/mysql
-    networks:
-      - keycloak-and-mysql-network
-
-  keycloak-w:
-    image: quay.io/keycloak/keycloak:25.0.0
-    command: start-dev
-    ports:
-      - "9081:8080"
-    restart: unless-stopped
-    build: .
+      - ./pgdata:/var/lib/postgresql/data
     environment:
-      KEYCLOAK_ADMIN : admin
-      KEYCLOAK_ADMIN_PASSWORD: admin@1234
-      KC_DB: mysql
-      KC_DB_USERNAME: root
-      KC_DB_PASSWORD: password
-#      KC_HTTP_RELATIVE_PATH: /keycloak
-      KC_DB_URL: jdbc:mysql://mysql-kc:3306/keycloak
-      KC_FEATURES: token-exchange,admin-fine-grained-authz
-      KC_HOSTNAME: localhost
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
     networks:
-      - keycloak-and-mysql-network
+      - local
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.0
+    command: start-dev --https-port=8443 --https-key-store-file=/opt/keycloak/conf/keycloak.p12 --https-key-store-password=changeit
+    restart: always
+    links:
+      - postgres
+    ports:
+      - "9082:8080"
+      - "8443:8443"  # Добавляем порт для HTTPS
+    volumes:
+      - ./backups/keycloak:/opt/keycloak  # Пробрасываем сохранённые файлы обратно
+      - ./backups/certs:/opt/keycloak/conf  # Пробрасываем SSL-сертификаты
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin@1234
+      KC_DB: postgres
+      KC_DB_SCHEMA: public
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: password
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_HOSTNAME: localhost
+      KC_FEATURES: token-exchange,admin-fine-grained-authz
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/keycloak.p12  # Указываем путь к SSL
+      KC_HTTPS_CERTIFICATE_PASSWORD: changeit
+    networks:
+      - local
 
 networks:
-  keycloak-and-mysql-network:
-
-volumes:
-  keycloak-and-mysql-volume:
+  local:

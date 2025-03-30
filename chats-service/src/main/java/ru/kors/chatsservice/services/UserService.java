@@ -4,6 +4,7 @@ package ru.kors.chatsservice.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.kors.chatsservice.controllers.internal.dto.CreateUserDTO;
 import ru.kors.chatsservice.exceptions.BadRequestException;
@@ -19,6 +20,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -64,7 +66,7 @@ public class UserService {
 
     public void assignChatToUser(User user, Long chatId) {
         Chat chat = chatService.findById(chatId);
-        if (!chat.getPrivateChat()) {
+        if (chat.getPrivateChat()) {
             //TODO
             throw new BadRequestException("This chat is private");
         }
@@ -81,11 +83,13 @@ public class UserService {
 
         event.setData(objectNode);
 
+
+        log.info("event info: (chat id: {}), (type: {}), (data: {}).", event.getChat().getId(), event.getType(), event.getData());
+        log.info("Saving event with JSON data: {}", event.getData().toString());
         chatEventService.save(event);
 
+        
         kafkaProducerService.send(event);
-
-        userRepository.save(user);
     }
 
     public void assignChatsToUser(User user, Set<Long> chatsIds) {

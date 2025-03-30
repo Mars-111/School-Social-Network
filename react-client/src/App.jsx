@@ -1,49 +1,39 @@
-import React, { useEffect } from "react";
-import { useAuth } from "./components/AuthProvider";
-import UserChatsMenu from "./components/UserChatsMenu";
-import { useState } from "react";
-import ChatMessagesMenu from "./components/ChatMessagesMenu";
-import { useWebSocket } from "./socket/socketService";
-import SendMessage from "./components/sendMessage";
+import React, { useState, useEffect } from 'react';
+import ChatList from './components/ChatList';
+import ChatWindow from './components/ChatWindow';
+import ErrorNotification from './components/ErrorNotification';
+import './App.css';
+import keycloak from './keycloak';
+import {useAppContext} from './AppContext';
+import AddChatButton from './components/AddChatButton';
 
+function App() {
+  const {chats, setChats} = useAppContext();
+  const {socketRef} = useAppContext();
+  const {errors, setErrors} = useAppContext();
+  const {messages, setMessages} = useAppContext();
+  const {selectedChat, setSelectedChat} = useAppContext();
 
-export default function App() {
-
-
-  const [activeChat, setActiveChat] = useState(null);
-  const { token, loading } = useAuth(); // Дожидаемся загрузки
-
-  useWebSocket(); // Подключаемся к WebSocket
-
-  return (
-    <>
-      <GetToken />
-
-      <UserChatsMenu setActiveChat={setActiveChat} />
-      <ChatMessagesMenu chatId={activeChat} />
-      <SendMessage chatId={activeChat} />
-    </>
-  );
-}
-
-
-
-
-
-
-
-
-
-function GetToken() {
-  const { isAuthenticated, token, loading } = useAuth();
-
-  if (loading) {
-    return <p>Загрузка...</p>;
-  }
+  const {isAddChatVisible} = useAppContext();
 
   return (
-    <div>
-      <p>Keycloak token: {isAuthenticated ? token : "Не авторизован"}</p>
+    <div className="app-container">
+      <div className="sidebar">
+        <AddChatButton/>
+        <ChatList/>
+      </div>
+      <div className="chat-container">
+        {selectedChat ? (
+          <ChatWindow/>
+        ) : (
+          <div className="no-chat-selected">
+            Выберите чат для начала общения
+          </div>
+        )}
+      </div>
+      {errors.length > 0 && <ErrorNotification onClose={() => setErrors([])} />}
     </div>
   );
 }
+
+export default App;

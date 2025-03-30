@@ -7,7 +7,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9082/realms/school-social-network
+          issuer-uri: https://keycloak.mars-ssn.ru/realms/school-social-network
 
   datasource:
     url: jdbc:postgresql://localhost:5432/chats
@@ -21,7 +21,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
     show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
     bootstrap-servers: localhost:29092,localhost:39092,localhost:49092
@@ -30,6 +32,7 @@ spring:
       acks: all
       properties:
         linger.ms: 1
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
     consumer:
       auto-offset-reset: latest
       enable-auto-commit: true
@@ -38,6 +41,11 @@ spring:
 
 server:
   port: 8082
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: Mars123asd!
+    key-store-type: PKCS12
+    key-alias: mars-ssn
 
 logging:
   level:

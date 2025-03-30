@@ -5,27 +5,42 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import lombok.extern.slf4j.Slf4j;
 
 @Converter(autoApply = true)
+@Slf4j
 public class JsonNodeConverter implements AttributeConverter<JsonNode, String> {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public String convertToDatabaseColumn(JsonNode jsonNode) {
+    public String convertToDatabaseColumn(JsonNode attribute) {
         try {
-            return jsonNode != null ? objectMapper.writeValueAsString(jsonNode) : null;
+            // Проверка на null перед сериализацией
+            if (attribute == null) {
+                return null;
+            }
+            log.info("data: " + objectMapper.writeValueAsString(attribute));
+            return objectMapper.writeValueAsString(attribute);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException("Error serializing JsonNode to string: ", e);
+            // Логирование ошибки сериализации
+            log.error("Ошибка сериализации JSON: {}", e.getMessage(), e);
+            throw new RuntimeException("Ошибка сериализации JSON", e);
         }
     }
 
     @Override
-    public JsonNode convertToEntityAttribute(String jsonString) {
+    public JsonNode convertToEntityAttribute(String dbData) {
         try {
-            return jsonString != null ? objectMapper.readTree(jsonString) : null;
+            // Проверка на null перед десериализацией
+            if (dbData == null) {
+                return null;
+            }
+            return objectMapper.readTree(dbData);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException("Error deserializing string in JsonNode: ", e);
+            // Логирование ошибки десериализации
+            log.error("Ошибка десериализации JSON: {}", e.getMessage(), e);
+            throw new RuntimeException("Ошибка десериализации JSON", e);
         }
     }
 }
