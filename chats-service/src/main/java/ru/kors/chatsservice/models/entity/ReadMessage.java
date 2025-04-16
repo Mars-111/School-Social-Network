@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.kors.chatsservice.models.entity.embeddable.ReadMessageId;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -31,10 +32,10 @@ public class ReadMessage {
     private Message message;
 
     @Column(name = "timestamp", nullable = false, updatable = false)
-    private LocalDateTime timestamp;
+    private Instant timestamp;
 
     @PrePersist
     private void setTimestamp() {
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = Instant.now();
     }
 }

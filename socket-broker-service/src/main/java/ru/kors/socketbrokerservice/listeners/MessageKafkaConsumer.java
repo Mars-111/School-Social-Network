@@ -2,17 +2,15 @@ package ru.kors.socketbrokerservice.listeners;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nimbusds.jose.shaded.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
-import ru.kors.socketbrokerservice.models.ChatEvent;
-import ru.kors.socketbrokerservice.models.Message;
-import ru.kors.socketbrokerservice.models.UserEvent;
+import ru.kors.socketbrokerservice.models.entity.ChatEvent;
+import ru.kors.socketbrokerservice.models.entity.Message;
+import ru.kors.socketbrokerservice.models.entity.UserEvent;
 
 @Component
 @RequiredArgsConstructor

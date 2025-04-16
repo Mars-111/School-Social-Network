@@ -9,6 +9,7 @@ import lombok.Setter;
 import ru.kors.chatsservice.models.entity.deserializers.ChatDeserializer;
 import ru.kors.chatsservice.models.entity.serializers.ChatSerializer;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Set;
 
@@ -30,6 +31,8 @@ public class Chat {
 
     @Column(nullable = false)
     private String name;
+
+    //TODO: Добавить тип чата (групповой, приватный, личка и т.д.)
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = false)

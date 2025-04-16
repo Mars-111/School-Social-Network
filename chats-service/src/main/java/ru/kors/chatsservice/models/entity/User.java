@@ -16,6 +16,8 @@ import ru.kors.chatsservice.models.entity.deserializers.UserDeserializer;
 import ru.kors.chatsservice.models.entity.serializers.ChatSerializer;
 import ru.kors.chatsservice.models.entity.serializers.UserSerializer;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -60,4 +62,7 @@ public class User {
     //Роли пользователя в чатах
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ChatRole> chatRoles;
+
+    @Column(name = "last_online")
+    private Instant lastOnline;
 }

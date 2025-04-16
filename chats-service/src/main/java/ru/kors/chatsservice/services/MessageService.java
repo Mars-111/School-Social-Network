@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.kors.chatsservice.controllers.external.Utils.CurrentUserUtil;
 import ru.kors.chatsservice.controllers.external.dto.CreateMessageDTO;
@@ -15,14 +13,9 @@ import ru.kors.chatsservice.controllers.external.dto.UpdateMessageDTO;
 import ru.kors.chatsservice.exceptions.BadRequestException;
 import ru.kors.chatsservice.exceptions.DoesNotHaveAccessException;
 import ru.kors.chatsservice.exceptions.NotFoundEntityException;
-import ru.kors.chatsservice.models.entity.Chat;
 import ru.kors.chatsservice.models.entity.ChatEvent;
 import ru.kors.chatsservice.models.entity.Message;
-import ru.kors.chatsservice.models.entity.User;
-import ru.kors.chatsservice.models.entity.serializers.ChatSerializer;
-import ru.kors.chatsservice.repositories.ChatRepository;
 import ru.kors.chatsservice.repositories.MessageRepository;
-import ru.kors.chatsservice.repositories.UserRepository;
 
 import java.util.List;
 import java.util.Set;
@@ -56,7 +49,7 @@ public class MessageService {
 
     public Message createMessage(CreateMessageDTO messageDTO, Long senderId) {
         //Проверка наличия чата у пользователя
-        userService.findUserChats(senderId).stream()
+        userService.findChatsByUserId(senderId).stream()
                 .map(chat -> chat.getId().equals(messageDTO.chatId()))
                 .findFirst().orElseThrow(() -> new DoesNotHaveAccessException("User does not have access to chat"));
         Message message = new Message();

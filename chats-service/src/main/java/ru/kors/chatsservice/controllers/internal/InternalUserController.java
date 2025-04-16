@@ -52,15 +52,22 @@ public class InternalUserController {
 
     @GetMapping("/{id}/chats")
     public ResponseEntity<Set<Chat>> getUserChats(@PathVariable Long id) {
-        Set<Chat> chats = userService.findUserChats(id);
+        Set<Chat> chats = userService.findChatsByUserId(id);
         if (chats == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(chats);
     }
 
+    @GetMapping("/{userId}/chatsIds")
+    public ResponseEntity<Set<Long>> getUserChatIds(@PathVariable Long userId) {
+        Set<Long> chatIds = userService.findChatsIdsByUserId(userId);
+        return ResponseEntity.ok(chatIds);
+    }
+
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody CreateUserDTO user) {
+        System.out.println("Creating user: " + user);
         return ResponseEntity.ok(userService.createUser(user));
     }
 

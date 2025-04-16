@@ -27,6 +27,7 @@ public class SecurityBeans {
         http
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
                         .requestMatchers("/api/**").authenticated()
+                        .requestMatchers("/internal/**").permitAll()
                         .anyRequest().permitAll()
                 )
                 .csrf(CsrfConfigurer::disable)

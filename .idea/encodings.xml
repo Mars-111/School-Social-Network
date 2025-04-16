@@ -12,6 +12,8 @@
     <file url="file://$PROJECT_DIR$/keycloak-registration-spi/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/keycloak-registration-spi/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/socket-broker-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/socket-controller-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/socket-controller-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service/src/main/java" charset="UTF-8" />

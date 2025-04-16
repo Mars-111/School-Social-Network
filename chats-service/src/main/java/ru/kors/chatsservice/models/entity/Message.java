@@ -15,6 +15,7 @@ import ru.kors.chatsservice.models.entity.serializers.ChatSerializer;
 import ru.kors.chatsservice.models.entity.serializers.MessageSerializer;
 
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -48,13 +49,13 @@ public class Message {
     private String content;
 
     @Column(name = "timestamp", nullable = false, updatable = false)
-    private LocalDateTime timestamp;
+    private Instant timestamp;
 
     @OneToMany(mappedBy = "message", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ReadMessage> readMessages;
 
     @PrePersist
     private void setTimestamp() {
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = Instant.now();
     }
 }

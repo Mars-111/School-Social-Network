@@ -12,7 +12,6 @@ import ru.kors.chatsservice.exceptions.NotFoundEntityException;
 import ru.kors.chatsservice.models.entity.Chat;
 import ru.kors.chatsservice.models.entity.ChatEvent;
 import ru.kors.chatsservice.models.entity.User;
-import ru.kors.chatsservice.models.entity.UserEvent;
 import ru.kors.chatsservice.repositories.UserRepository;
 
 import java.util.List;
@@ -59,7 +58,7 @@ public class UserService {
         userRepository.deleteUserByKeycloakId(keycloakId);
     }
 
-    public Set<Chat> findUserChats(Long userId) {
+    public Set<Chat> findChatsByUserId(Long userId) {
         User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundEntityException("User not found"));
         return user.getChats();
     }
@@ -88,7 +87,7 @@ public class UserService {
         log.info("Saving event with JSON data: {}", event.getData().toString());
         chatEventService.save(event);
 
-        
+
         kafkaProducerService.send(event);
     }
 
@@ -107,5 +106,9 @@ public class UserService {
 
     public Boolean existUserByTag(String tag) {
         return userRepository.existsByTag(tag);
+    }
+
+    public Set<Long> findChatsIdsByUserId(Long userId) {
+        return userRepository.findChatIdsByUserId(userId);
     }
 }

@@ -5,6 +5,7 @@ import ru.kors.chatsservice.models.entity.Chat;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 
 public interface ChatRepository extends JpaRepository<Chat, Long> {

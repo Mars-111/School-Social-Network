@@ -18,7 +18,7 @@ import java.util.Set;
 public class InternalApiFilter extends GenericFilterBean {
 
     // Разрешенные IP-адреса (локальный сервис на порту 9082)
-    private static final Set<String> ALLOWED_IPS = Collections.unmodifiableSet(Set.of("127.0.0.1", "0:0:0:0:0:0:0:1")); // IPv4 и IPv6 localhost
+    private static final Set<String> ALLOWED_IPS = Collections.unmodifiableSet(Set.of("127.0.0.1", "0:0:0:0:0:0:0:1", "77.222.14.221")); // IPv4 и IPv6 localhost
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -30,8 +30,11 @@ public class InternalApiFilter extends GenericFilterBean {
         if (requestURI.startsWith("/internal/")) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             String clientIp = getClientIp(httpRequest);
+            System.out.println("Request to internal API from IP: " + clientIp);
+
 
             if (!ALLOWED_IPS.contains(clientIp)) {
+                System.out.println("Access Denied for IP: " + clientIp);
                 httpResponse.sendError(HttpServletResponse.SC_FORBIDDEN, "Access Denied");
                 return;
             }

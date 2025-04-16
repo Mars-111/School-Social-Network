@@ -18,6 +18,7 @@ import ru.kors.chatsservice.repositories.ChatRoleRepository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
