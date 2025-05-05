@@ -4,19 +4,55 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import ru.kors.chatsservice.models.entity.Message;
+import ru.kors.chatsservice.models.entity.MessageMedia;
 
 import java.io.IOException;
 
 public class MessageSerializer extends JsonSerializer<Message> {
+
     @Override
     public void serialize(Message message, JsonGenerator gen, SerializerProvider serializers) throws IOException {
         gen.writeStartObject();
+        writeMessage(gen, message, false);
+        gen.writeEndObject();
+    }
+
+    private void writeMessage(JsonGenerator gen, Message message, boolean nested) throws IOException {
         gen.writeNumberField("id", message.getId());
+        gen.writeStringField("type", message.getType());
+        gen.writeNumberField("flags", message.getFlags());
         gen.writeNumberField("chat_id", message.getChat().getId());
         gen.writeNumberField("sender_id", message.getSender().getId());
-        gen.writeStringField("type", message.getType());
-        gen.writeStringField("content", message.getContent());
         gen.writeObjectField("timestamp", message.getTimestamp());
-        gen.writeEndObject();
+
+        if (message.getContent() != null) {
+            gen.writeStringField("content", message.getContent());
+        }
+
+        writeReplyOrForward(gen, "reply_to", message.getReplyTo(), nested);
+        writeReplyOrForward(gen, "forwarded_from", message.getForwardedFrom(), nested);
+
+        if (message.getMediaList() != null && !message.getMediaList().isEmpty()) {
+            gen.writeArrayFieldStart("media");
+            for (MessageMedia media : message.getMediaList()) {
+                gen.writeStartObject();
+                gen.writeStringField("media_type", media.getType());
+                gen.writeStringField("media_url", media.getUrl());
+                gen.writeEndObject();
+            }
+            gen.writeEndArray();
+        }
+    }
+
+    private void writeReplyOrForward(JsonGenerator gen, String fieldName, Message nestedMessage, boolean parentIsNested) throws IOException {
+        if (nestedMessage == null) return;
+
+        if (!parentIsNested) {
+            gen.writeObjectFieldStart(fieldName);
+            writeMessage(gen, nestedMessage, true);
+            gen.writeEndObject();
+        } else {
+            gen.writeNumberField(fieldName + "_id", nestedMessage.getId());
+        }
     }
 }

@@ -64,7 +64,6 @@ public class UserController {
     public ResponseEntity<Void> assignChatToUser(@PathVariable Long chatId) {
         User user = currentUserUtil.getCurrentUser();
         userService.assignChatToUser(user, chatId);
-
         return ResponseEntity.ok().build();
     }
 

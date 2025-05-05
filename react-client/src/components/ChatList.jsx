@@ -4,9 +4,11 @@ import { useAppContext } from '../AppContext';
 import keycloak from '../keycloak';
 
 function ChatList() {
-	const {chats} =  useAppContext();
+	const {chats, messages} =  useAppContext();
 	const {selectedChat, setSelectedChat} = useAppContext();
 	const {setErrors} = useAppContext();
+
+	console.log("chats: ", chats);
 
 	const handleJoinChat = async (chat) => {
 		try {
@@ -36,11 +38,20 @@ function ChatList() {
 				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 				<div>
 					<div>{chat.name}</div>
-					{chat.lastMessage && (
-					<div style={{ fontSize: '0.8em', color: '#555' }}>
-						{chat.lastMessage.content}
-					</div>
-					)}
+					{(() => {
+						const chatMessages = messages.get(chat.id) ?? [];
+						
+						if (chatMessages.length > 0) {
+							const lastMessage = chatMessages[chatMessages.length - 1];
+							return (
+								<div style={{ fontSize: '0.8em', color: '#555' }}>
+									{lastMessage.content}
+								</div>
+							);
+						}
+
+						return null;
+					})()}
 				</div>
 				{chat.privateChat && !chat.joined && (
 					<button onClick={(e) => { e.stopPropagation(); handleJoinChat(chat); }}>

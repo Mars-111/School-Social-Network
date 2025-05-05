@@ -18,7 +18,7 @@ import java.util.Set;
 public class UsersRestApi {
 
     private final RestClient restClient;
-    private final String baseUrl = "http://localhost:8082/internal/api/users";
+    private final String baseUrl = "https://chats.mars-ssn.ru/internal/api/users";
 
     private static final ParameterizedTypeReference<Set<User>> USER_LIST_TYPE_REFERENCE =
             new ParameterizedTypeReference<>() {

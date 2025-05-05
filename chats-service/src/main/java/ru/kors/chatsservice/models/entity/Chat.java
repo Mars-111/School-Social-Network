@@ -33,13 +33,11 @@ public class Chat {
     private String name;
 
     //TODO: Добавить тип чата (групповой, приватный, личка и т.д.)
+    private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
-
-    //https://chatgpt.com/share/677e9b38-89fc-8001-9dd9-6149fc4db443
-    private Boolean privateChat = false;
 
     @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @OrderBy("timestamp ASC") // Сохраняем порядок по времени
@@ -61,10 +59,18 @@ public class Chat {
     @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<ChatRole> chatRoles;
 
-    public Chat(String tag, String name, Boolean privateChat, User owner) {
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Instant createdAt;
+
+    @PrePersist
+    private void setTimestamp() {
+        this.createdAt = Instant.now();
+    }
+
+    public Chat(String tag, String name, String type, User owner) {
         this.tag = tag;
         this.name = name;
-        this.privateChat = privateChat;
+        this.type = type;
         this.owner = owner;
     }
 }

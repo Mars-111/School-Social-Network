@@ -1,64 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025">
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_stat/pgstat.stat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/redis/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/SchedulerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/UserSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/HeartbeatService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/RedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/SessionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/src/main/java/ru/kors/socketcontrollerservice/SocketControllerServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-controller-service/src/test/java/ru/kors/socketcontrollerservice/SocketControllerServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/MediaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/LastMessageReadInChat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/MessageMedia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/ChatRoles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/ChatTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/MessageFlags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/MessageMediaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017_vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-login-spi/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-login-spi/src/main/java/authenticators/EmailUsernameFormAuthenticator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-login-spi/src/main/java/factories/EmailUsernameAuthenticatorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-client/src/components/ChatWindow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-client/src/components/CreateChatButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-client/src/components/CreateChatButton.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-client/src/components/Pending.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react-client/src/hooks/usePendingMessages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketMessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Media.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/serializers/MessageSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/supporting/MessageForwardedFrom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/supporting/MessageReplyTo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web-client/src/ConnectSocket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-client/web-client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/internal/session/manager.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/internal/session/session.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/internal/ws/ws_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws-service/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e/storage_v2/_src_/database/chats.G9ijBQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e/storage_v2/_src_/database/chats.G9ijBQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/InternalApiFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/InternalApiFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/SecurityBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/Utils/CurrentUserUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/Utils/CurrentUserUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/CreateChatDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/CreateChatDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/CreateMessageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/CreateMessageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/UpdateMessageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/UpdateMessageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalChatController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ReadMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ReadMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/MessageEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ReadMessage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/ChatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/ChatRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/UserEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/abstracts/BaseEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/ChatDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/ChatDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/MessageDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/MessageDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/ChatSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/ChatSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MessageSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MessageSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/ReadMessageRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/JoinRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/JoinRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/KafkaProducerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/KafkaProducerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MessageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/generated-bytecode.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/generated-bytecode.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/quarkus-application.dat" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/quarkus-application.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/transformed-bytecode.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/transformed-bytecode.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/providers/keycloak-custom-authenticator-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/providers/keycloak-custom-authenticator-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16439" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16439" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16562" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16562" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" afterDir="false" />
@@ -66,92 +92,83 @@
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16791" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16791" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16797" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16797" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16834" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16834" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17117" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17117" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17265" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17265" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17279" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17279" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17293" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17293" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17334" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17334" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17515" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17515" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17515_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17515_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17520" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17520" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17545" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17545" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17619" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17619" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17630" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17630" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17633" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17633" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17636" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17636" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17637" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17637" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17690" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17690" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17703" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17703" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17705" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17705" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17738" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17738" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17765" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17765" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17769" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17769" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17781" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17781" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17785" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17785" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17812" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17812" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17813" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17813" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17816" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17816" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17817" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17817" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17818" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17818" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17819" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17819" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17820" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17820" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17937" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17937" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_stat/pgstat.stat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_subtrans/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_subtrans/0000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000003" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000003" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-registration-spi/src/main/java/authenticators/CustomAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-registration-spi/src/main/java/authenticators/CustomAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-registration-spi/src/main/java/factories/CustomAuthenticatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-registration-spi/src/main/java/factories/CustomAuthenticatorFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/ChatsRestApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/MessagesRestApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/ReadMessageRestApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/AppContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/AppContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/components/ChatList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/ChatList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/components/ChatWindow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/ChatWindow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/components/ErrorNotification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/ErrorNotification.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/components/Message.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/Message.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/components/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/Message.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/hooks/useChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/hooks/useChats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/hooks/useMessagesChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/hooks/useMessagesChats.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/hooks/useSocket.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/hooks/useSocket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/keycloak.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/keycloak.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/services/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/src/services/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/services/socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-client/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/vite.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/UsersRestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/UsersRestApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/AssignChatsPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/ChatRestPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/CreateUserPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/EventRestPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/MessageRestPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/UpdateChatPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/api/payload/UserRestPayload.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/CustomHandshakeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/CustomHandshakeInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/CustomHandshakeInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/TopicSubscriptionInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketBeans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/config/WebSocketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/listeners/MessageKafkaConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/listeners/MessageKafkaConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/ChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/ChatEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/ChatRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/ChatRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/JoinRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/JoinRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/UserEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/abstracts/BaseEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/abstracts/BaseEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/deserializers/ChatDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/ChatDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/deserializers/ChatRoleDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/ChatRoleDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/deserializers/EventDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/EventDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/deserializers/JoinRequestDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/JoinRequestDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/deserializers/MessageDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/MessageDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/deserializers/UserDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/UserDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/ChatService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/listeners/WebSocketEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/UserSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/ChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/ChatEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/UserEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/abstracts/BaseEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/ChatDeserializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/MessageDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/deserializers/MessageDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/HeartbeatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/HeartbeatService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/SessionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" afterDir="false" />
@@ -171,13 +188,15 @@
         <option value="JUnit5 Test Class" />
         <option value="HTTP Request" />
         <option value="Record" />
-        <option value="Enum" />
         <option value="Exception" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -194,12 +213,22 @@
     &quot;accountId&quot;: &quot;48dbf182-9486-4bd2-a074-d8c637f677bd&quot;
   }
 }</component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/corretto-22.0.2/lib/src.zip!/java.base/java/lang/System.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/corretto-22.0.2/lib/src.zip!/java.base/java/util/concurrent/ConcurrentMap.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/corretto-22.0.2/lib/src.zip!/java.base/java/util/concurrent/ScheduledExecutorService.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-23.0.1/lib/src.zip!/java.base/java/lang/String.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.18.2/jackson-databind-2.18.2.jar!/com/fasterxml/jackson/databind/JsonNode.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar!/jakarta/persistence/OneToMany.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.7.4/postgresql-42.7.4.jar!/org/postgresql/Driver.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar!/lombok/ToString.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/kafka/spring-kafka/3.3.1/spring-kafka-3.3.1.jar!/org/springframework/kafka/core/KafkaTemplate.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-websocket/6.2.0/spring-websocket-6.2.0.jar!/org/springframework/web/socket/CloseStatus.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-websocket/6.2.0/spring-websocket-6.2.0.jar!/org/springframework/web/socket/PingMessage.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-websocket/6.2.0/spring-websocket-6.2.0.jar!/org/springframework/web/socket/handler/AbstractWebSocketHandler.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -209,63 +238,70 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2oz6tMWQVc87pXzOVl2Bh23yhSt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in CreateUser.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in GetAccessToken.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in GetUsers.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in findUser.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.GetAccessToken | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.GetUsers | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.openRealms | #1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KeycloakBeansTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KeycloakBeansTest.keycloakIsValid.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ChatsServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.KeycloakAuthServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.KeycloakEventListenerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.SocketBrokerServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.WebClientApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/develop/School-Social-Network&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.kafka: Compose Deployment.executor": "Run",
+    "HTTP Request.All in CreateUser.executor": "Run",
+    "HTTP Request.All in GetAccessToken.executor": "Run",
+    "HTTP Request.All in GetUsers.executor": "Run",
+    "HTTP Request.All in findUser.executor": "Run",
+    "HTTP Request.GetAccessToken | #1.executor": "Run",
+    "HTTP Request.GetUsers | #1.executor": "Run",
+    "HTTP Request.openRealms | #1.executor": "Run",
+    "JUnit.KeycloakBeansTest.executor": "Run",
+    "JUnit.KeycloakBeansTest.keycloakIsValid.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.GoLinterPluginOnboarding": "true",
+    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ChatsServiceApplication.executor": "Run",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "Spring Boot.KeycloakAuthServiceApplication.executor": "Run",
+    "Spring Boot.KeycloakEventListenerApplication.executor": "Run",
+    "Spring Boot.SocketBrokerServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "Spring Boot.WebClientApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/develop/School-Social-Network",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\develop\School-Social-Network\keycloak-tag-action\custom-theme\added-tag-theme\login" />
@@ -425,12 +461,12 @@
       <item itemvalue="HTTP Request.openRealms | #1" />
       <item itemvalue="JUnit.KeycloakBeansTest" />
       <item itemvalue="JUnit.KeycloakBeansTest.keycloakIsValid" />
-      <item itemvalue="Spring Boot.SocketControllerServiceApplication" />
       <item itemvalue="Spring Boot.ChatsServiceApplication" />
       <item itemvalue="Spring Boot.KeycloakAuthServiceApplication" />
       <item itemvalue="Spring Boot.KeycloakCustomRegistrationSpiApplication" />
       <item itemvalue="Spring Boot.KeycloakEventListenerApplication" />
       <item itemvalue="Spring Boot.SocketBrokerServiceApplication" />
+      <item itemvalue="Spring Boot.SocketControllerServiceApplication" />
       <item itemvalue="Spring Boot.UserServiceApplication" />
       <item itemvalue="Spring Boot.WebClientApplication" />
       <item itemvalue="Spring Boot.DemoApplication" />
@@ -438,9 +474,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.kafka: Compose Deployment" />
-        <item itemvalue="Spring Boot.DemoApplication" />
-        <item itemvalue="JUnit.KeycloakBeansTest.keycloakIsValid" />
-        <item itemvalue="JUnit.KeycloakBeansTest" />
         <item itemvalue="HTTP Request.openRealms | #1" />
       </list>
     </recent_temporary>
@@ -609,6 +642,13 @@
       <workItem from="1744379036269" duration="9003000" />
       <workItem from="1744486795239" duration="21403000" />
       <workItem from="1744667684574" duration="32438000" />
+      <workItem from="1744845161459" duration="20863000" />
+      <workItem from="1744979710258" duration="31692000" />
+      <workItem from="1745330448360" duration="52176000" />
+      <workItem from="1745969723644" duration="8438000" />
+      <workItem from="1746195986132" duration="11638000" />
+      <workItem from="1746231503705" duration="13000" />
+      <workItem from="1746267716533" duration="66559000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <option name="closed" value="true" />
@@ -646,16 +686,9 @@
     <MESSAGE value="18.02.2025" />
     <option name="LAST_COMMIT_MESSAGE" value="18.02.2025" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="java-line">
-          <url>file://$PROJECT_DIR$/web-client/src/main/java/ru/kors/webclient/controller/JwtController.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

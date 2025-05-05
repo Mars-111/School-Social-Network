@@ -18,7 +18,7 @@ import java.util.Set;
 public class InternalApiFilter extends GenericFilterBean {
 
     // Разрешенные IP-адреса (локальный сервис на порту 9082)
-    private static final Set<String> ALLOWED_IPS = Collections.unmodifiableSet(Set.of("127.0.0.1", "0:0:0:0:0:0:0:1", "77.222.14.221")); // IPv4 и IPv6 localhost
+    private static final Set<String> ALLOWED_IPS = Collections.unmodifiableSet(Set.of("127.0.0.1", "0:0:0:0:0:0:0:1", "37.122.171.60", "mars-ssn.ru")); // IPv4 и IPv6 localhost
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -33,7 +33,7 @@ public class HeartbeatService {
     @Scheduled(fixedRate = 10000) // каждые 10 секунд
     public void sendHeartbeat() {
         long now = System.currentTimeMillis();
-        // Получаем "снимок" активных сессий из SessionManager.
+
         Set<UserSession> sessions = sessionManager.getSessions(); //Уже снапшот, ибо return new HashSet<>(sessionsById.values());
         // Преобразуем в массив, чтобы избежать гонок с модификацией коллекции.
         for (UserSession userSession : sessions) {
@@ -48,7 +48,7 @@ public class HeartbeatService {
 
             // Отправляем ping с payload (можно оставить пустым, если не нужен).
             try {
-                wsSession.sendMessage(new PingMessage(ByteBuffer.wrap("ping".getBytes())));
+                wsSession.sendMessage(new PingMessage());
             } catch (IOException e) {
                 log.warn("Heartbeat: не удалось отправить ping для сессии {} (userId: {}): {}",
                         wsSession.getId(), userSession.getUserId(), e.getMessage());

@@ -22,12 +22,12 @@ export default defineConfig({
       'chat.mars-ssn.ru', 
       'keycloak.mars-ssn.ru'
     ],
-    server: {
-      hmr: {
-        protocol: 'wss',
-        host: 'socket.mars-ssn.ru'
-      }
-    }
+
+    // hmr: {
+    //   protocol: 'wss',
+    //   host: 'socket.mars-ssn.ru',
+    //   port: 443
+    // }
     
   }
 });

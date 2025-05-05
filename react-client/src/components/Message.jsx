@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { formatTime } from "../services/timeUtils";
 import "./Message.css";
 
-export default function Message({ message }) {
+export default function Message({ message, onDelete, onEdit, onReply, onForward }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [editedText, setEditedText] = useState(message.content);
+
+    const menuRef = useRef(null);
 
     const handleEdit = () => {
         setIsEditing(true);
@@ -13,45 +16,105 @@ export default function Message({ message }) {
 
     const handleSaveEdit = () => {
         if (editedText.trim() !== "") {
-            onEdit(editedText);
+            const messageEditDTO = { content: editedText };
+            onEdit(message.chat_id, message.id, messageEditDTO);
         }
         setIsEditing(false);
     };
 
+    const handleDelete = () => {
+        onDelete(message.chat_id, message.id);
+        setIsMenuOpen(false);
+    };
+
+    const handleReply = () => {
+        onReply?.(message);
+        setIsMenuOpen(false);
+    };
+
+    const handleForward = () => {
+        onForward?.(message);
+        setIsMenuOpen(false);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
         <div className="message-container">
-            {/* Содержимое сообщения */}
             <div className="message-content">
+
+                {/* Отображение пересланного сообщения */}
+                {message.forwarded_from && (
+                    <div className="forwarded-box">
+                        <span className="forwarded-label">Переслано от {message.forwarded_from?.sender_id || "неизвестно"}</span>
+                        <div className="forwarded-content">
+                            {message.forwarded_from?.content || "Медиа"}
+                        </div>
+                    </div>
+                )}
+
+                {/* Отображение ответа */}
+                {message.reply_to && (
+                    <div className="reply-box">
+                        <div className="reply-line" />
+                        <div className="reply-content">
+                            <span className="reply-author">{message.reply_to?.sender_id || "неизвестно"}</span>
+                            <div className="reply-text">{message.reply_to?.content || "Медиа"}</div>
+                        </div>
+                    </div>
+                )}
+
                 {isEditing ? (
                     <input
                         type="text"
                         value={editedText}
                         onChange={(e) => setEditedText(e.target.value)}
                         onBlur={handleSaveEdit}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                e.preventDefault();
+                                handleSaveEdit();
+                            }
+                        }}
                         autoFocus
                         className="edit-input"
                     />
                 ) : (
                     <>
-                    <strong>{message.sender_id ? message.sender_id : 
-                    (message.senderId ? message.senderId : 'Неизвестно')}: </strong>
-                    <span>{message.content}</span>
+                        <strong>{message.sender_id || message.senderId || "Неизвестно"}: </strong>
+                        <span>{message.content}</span>
                     </>
                 )}
             </div>
 
-            {/* Три точки (меню) */}
-            <div className="message-menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                &#8226;&#8226;&#8226;
+            <div className="timestamp">
+                {formatTime(message.timestamp)}
             </div>
 
-            {/* Меню с вариантами */}
-            {isMenuOpen && (
-                <div className="message-menu">
-                    <button onClick={handleEdit}>✏ Изменить</button>
-                    <button onClick={onDelete}>❌ Удалить</button>
+            <div style={{ display: "flex", alignItems: "center", position: "relative" }} ref={menuRef}>
+                <div className="message-menu-icon" onClick={() => setIsMenuOpen((prev) => !prev)}>
+                    &#8226;&#8226;&#8226;
                 </div>
-            )}
+
+                {isMenuOpen && (
+                    <div className="message-menu">
+                        <button onClick={handleReply}>💬 Ответить</button>
+                        <button onClick={handleForward}>📤 Переслать</button>
+                        <button onClick={handleEdit}>✏ Изменить</button>
+                        <button onClick={handleDelete}>❌ Удалить</button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

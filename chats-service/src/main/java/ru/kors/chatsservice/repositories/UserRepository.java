@@ -21,4 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT c.id FROM User u JOIN u.chats c WHERE u.id = :userId")
     Set<Long> findChatIdsByUserId(@Param("userId") Long userId);
 
+    boolean existsByIdAndChats_Id(Long userId, Long chatId);
+//    Boolean existsByUserIdAndChatId(Long userId, Long chatId);
 }

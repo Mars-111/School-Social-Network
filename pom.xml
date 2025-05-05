@@ -14,6 +14,7 @@
     <module>socket-broker-service</module>
     <module>keycloak-registration-spi</module>
       <module>socket-controller-service</module>
+      <module>keycloak-login-spi</module>
   </modules>
 
   <properties>

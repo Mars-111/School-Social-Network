@@ -10,7 +10,7 @@ import org.keycloak.provider.ProviderConfigProperty;
 
 import java.util.List;
 
-public class CustomAuthenticatorFactory implements AuthenticatorFactory {
+public class    CustomAuthenticatorFactory implements AuthenticatorFactory {
 
     private static final String PROVIDER_ID = "custom-authenticator";
 

@@ -37,35 +37,35 @@ public class JoinRequestService {
     public List<JoinRequest> findByUserId(Long userId) {
         return joinRequestRepository.findByUserId(userId);
     }
-
-    public JoinRequest createJoinRequest(User user, Chat chat) {
-        if (!chat.getPrivateChat()) {
-            throw new BadRequestException("Chat is not private");
-        }
-        JoinRequest request = new JoinRequest();
-        request.setUser(user);
-        request.setChat(chat);
-        request.setTimestamp(LocalDateTime.now());
-
-        UserEvent userEvent = new UserEvent();
-        userEvent.setType("new join request");
-        userEvent.setUser(chat.getOwner());
-
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode data = mapper.createObjectNode();
-        data.put("chat_id", chat.getId());
-
-        userEvent.setData(data);
-        //TODO
-
-
-
-        //TODO
-        //kafkaProducerService.sendPersonal();
-
-
-        return joinRequestRepository.save(request);
-    }
+//
+//    public JoinRequest createJoinRequest(User user, Chat chat) {
+//        if (!chat.getPrivateChat()) {
+//            throw new BadRequestException("Chat is not private");
+//        }
+//        JoinRequest request = new JoinRequest();
+//        request.setUser(user);
+//        request.setChat(chat);
+//        request.setTimestamp(LocalDateTime.now());
+//
+//        UserEvent userEvent = new UserEvent();
+//        userEvent.setType("new join request");
+//        userEvent.setUser(chat.getOwner());
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        ObjectNode data = mapper.createObjectNode();
+//        data.put("chat_id", chat.getId());
+//
+//        userEvent.setData(data);
+//        //TODO
+//
+//
+//
+//        //TODO
+//        //kafkaProducerService.sendPersonal();
+//
+//
+//        return joinRequestRepository.save(request);
+//    }
 
     public void acceptJoinRequest(JoinRequest request) {
         User user = request.getUser();

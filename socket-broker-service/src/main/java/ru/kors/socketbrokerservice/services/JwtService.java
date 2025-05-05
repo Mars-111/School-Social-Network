@@ -14,7 +14,6 @@ import java.security.PublicKey;
 public class JwtService {
 
     private final PublicKey publicKey;
-    private final UserService userService;
 
     public Claims validateToken(String token) {
         try {
@@ -32,14 +31,6 @@ public class JwtService {
             log.error("Token validation failed: {}", e.getMessage());
         }
         return null;
-    }
-
-    public User getUserFromToken(String token) {
-        Claims claims = validateToken(token);
-        if (claims == null) {
-            return null;
-        }
-        return userService.findByKeycloak(claims.getSubject());
     }
 
 

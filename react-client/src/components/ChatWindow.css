@@ -1,0 +1,23 @@
+.reply-forward-banner {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.original-text {
+    font-size: 0.9em;
+    color: #555;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

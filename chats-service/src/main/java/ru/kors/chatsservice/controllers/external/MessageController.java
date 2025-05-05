@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kors.chatsservice.controllers.external.Utils.CurrentUserUtil;
 import ru.kors.chatsservice.controllers.external.dto.CreateMessageDTO;
+import ru.kors.chatsservice.controllers.external.dto.UpdateMessageDTO;
 import ru.kors.chatsservice.models.entity.Message;
 import ru.kors.chatsservice.services.KafkaProducerService;
 import ru.kors.chatsservice.services.MessageService;
@@ -41,8 +42,15 @@ public class MessageController {
 
     @PostMapping
     public ResponseEntity<Message> createMessage(@RequestBody CreateMessageDTO messageDTO) {
-        Message message = messageService.createMessage(messageDTO, currentUserUtil.getCurrentUser().getId());
+        Message message = messageService.createMessage(messageDTO, currentUserUtil.getCurrentUserId());
         return ResponseEntity.ok(message);
+    }
+
+    @PutMapping("/{messageId}")
+    public ResponseEntity<Message> updateMessage(@PathVariable Long messageId, @RequestBody UpdateMessageDTO messageDTO) {
+        Message updatedMessage =
+                messageService.updateMessage(messageId, messageDTO, currentUserUtil.getCurrentUserId());
+        return ResponseEntity.ok(updatedMessage);
     }
 
     @DeleteMapping("/{messageId}")

@@ -34,11 +34,13 @@ public class WebSocketHandler extends TextWebSocketHandler {
     @Value("${server.id}")
     private String serverId;
 
+    private final WebSocketMessageHandler webSocketMessageHandler;
     private final SessionManager sessionManager;
 
     //ПРИ РЕГИСТРАЦИИ СЕССИ НЕОБХОДИМО ПЕРЕДАВАТЬ JWT В АТРИБУТАХ
     @Override
     public void afterConnectionEstablished(WebSocketSession session) {
+        log.info("Установлено соединение с клиентом: {}", session.getId());
         sessionManager.registerSession(session);
     }
 
@@ -50,20 +52,22 @@ public class WebSocketHandler extends TextWebSocketHandler {
         }
     }
 
-
     @Override
-    public void handleBinaryMessage(WebSocketSession session, BinaryMessage message) throws Exception {
+    public void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         // Обработка бинарных сообщений
         log.info("Получено бинарное сообщение от сессии {}: {}", session.getId(), message.getPayload());
     }
 
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-
-        if (message.getPayload().startsWith("sub:chat:")) {
-            if (message.getPayload().startsWith("event:", 9)) {
-                Long chatId = Long.valueOf(message.getPayload().substring(10));
-
+        try {
+            webSocketMessageHandler.handleMessage(session, message);
+        } catch (Exception e) {
+            log.error("Ошибка при обработке сообщения от WebSocket-клиента", e);
+            try {
+                session.close(CloseStatus.SERVER_ERROR);
+            } catch (IOException ioException) {
+                log.error("Ошибка при закрытии WebSocket-сессии", ioException);
             }
         }
     }

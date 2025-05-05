@@ -51,18 +51,18 @@ public class ChatController  {
         return ResponseEntity.ok(chat);
     }
 
-    @PutMapping("/{chatId}")
-    public ResponseEntity<Chat> changeChat(@PathVariable Long chatId, @RequestBody ChangeChatDTO changeChatDTO) {
-        if (!chatService.isOwner(chatId, currentUserUtil.getCurrentUser().getId())) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
-        Chat chat = chatService.changeChat(chatId, changeChatDTO);
-        return ResponseEntity.ok(chat);
-    }
+//    @PutMapping("/{chatId}")
+//    public ResponseEntity<Chat> changeChat(@PathVariable Long chatId, @RequestBody ChangeChatDTO changeChatDTO) {
+//        if (!chatService.isOwner(chatId, currentUserUtil.getCurrentUser().getId())) {
+//            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+//        }
+//        Chat chat = chatService.changeChat(chatId, changeChatDTO);
+//        return ResponseEntity.ok(chat);
+//    }
 
     @PostMapping
     public Chat createChat(@RequestBody CreateChatDTO chatDTO) {
-        User user = currentUserUtil.getCurrentUser();
+        Long user = currentUserUtil.getCurrentUserId();
         return chatService.createChat(chatDTO, user);
     }
 
@@ -74,17 +74,17 @@ public class ChatController  {
         return ResponseEntity.ok(joinRequestService.findByChatId(chatId));
     }
 
-    @PostMapping("/{chatId}/join-request")
-    public ResponseEntity<JoinRequest> createRequest(@PathVariable Long chatId) {
-        User user = currentUserUtil.getCurrentUser();
-        Chat chat = chatService.findById(chatId);
-        JoinRequest request = joinRequestService.createJoinRequest(user, chat);
-
-        //TODO: Отправка уведомления о запросах на вступление владельцу чата
-         //personal event
-
-        return ResponseEntity.ok(request);
-    }
+//    @PostMapping("/{chatId}/join-request")
+//    public ResponseEntity<JoinRequest> createRequest(@PathVariable Long chatId) {
+//        User user = currentUserUtil.getCurrentUser();
+//        Chat chat = chatService.findById(chatId);
+//        JoinRequest request = joinRequestService.createJoinRequest(user, chat);
+//
+//        //TODO: Отправка уведомления о запросах на вступление владельцу чата
+//         //personal event
+//
+//        return ResponseEntity.ok(request);
+//    }
 
     @PostMapping("/join-request/{requestId}")
     public ResponseEntity<Void> acceptRequest(@PathVariable Long requestId) {

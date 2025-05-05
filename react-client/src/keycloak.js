@@ -1,10 +1,9 @@
 import Keycloak from "keycloak-js";
 
-// Настройки Keycloak
 const keycloak = new Keycloak({
-    url: "https://keycloak.mars-ssn.ru", // Адрес сервера Keycloak
-    realm: "school-social-network",          // Название твоего реалма
-    clientId: "web-client"     // ID клиента (указан в Keycloak)
+  url: "https://keycloak.mars-ssn.ru", // Твой Keycloak сервер
+  realm: "school-social-network",
+  clientId: "web-client"
 });
 
 export default keycloak;

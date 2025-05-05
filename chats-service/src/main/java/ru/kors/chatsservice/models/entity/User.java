@@ -63,6 +63,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ChatRole> chatRoles;
 
-    @Column(name = "last_online")
-    private Instant lastOnline;
+//    @Column(name = "last_online")
+//    private Instant lastOnline;
 }

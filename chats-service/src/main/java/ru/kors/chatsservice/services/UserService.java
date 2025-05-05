@@ -63,12 +63,16 @@ public class UserService {
         return user.getChats();
     }
 
+    public Boolean existsByIdAndChatId(Long userId, Long chatId) {
+        return userRepository.existsByIdAndChats_Id(userId, chatId);
+    }
+
     public void assignChatToUser(User user, Long chatId) {
         Chat chat = chatService.findById(chatId);
-        if (chat.getPrivateChat()) {
-            //TODO
-            throw new BadRequestException("This chat is private");
-        }
+//        if (chat.getPrivateChat()) {
+//            //TODO
+//            throw new BadRequestException("This chat is private");
+//        }
 
         user.getChats().add(chat);
 
@@ -89,6 +93,8 @@ public class UserService {
 
 
         kafkaProducerService.send(event);
+        //TODO: отправить кафкой сообщение что пользователь присоединился к чату
+        kafkaProducerService.sendJoinChatUser(user.getId(), chat.getId());
     }
 
     public void assignChatsToUser(User user, Set<Long> chatsIds) {

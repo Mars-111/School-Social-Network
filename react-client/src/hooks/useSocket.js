@@ -1,104 +1,158 @@
-import { useRef, useEffect } from 'react';
-import initStompClient from '../services/socket';
-import { getChat } from '../services/api';
-import keycloak from '../keycloak';
-import { useAppContext } from '../AppContext';
+import { useEffect, useRef, useState } from 'react';
+import keycloak from '../keycloak'; // Импортируйте ваш экземпляр Keycloak
 
-function existsChat(chats, chatId) {
-    return chats.some(c => c.id === chatId);
-}
+const RECONNECT_INTERVAL = 3000; // 3 секунды между попытками
 
-export default function useInitSocket(chats, setChats, messages, setMessages, setErrors, selectedChat) {
-    console.log("chats in useInitSocket: ", chats);
-    const stompClientRef = useRef(null);
-    
-    // Инициализация STOMP-клиента с обработкой личных событий
-    useEffect(() => {
-        const client = initStompClient(keycloak.token, (message) => {
+export default function useInitSocket(addMessage, editMessage, deleteMessage, selectedChat, chats) {
+    const socketClient = useRef(null);
+    const reconnectTimer = useRef(null);
+    const alreadySubscribedPrivateChat = useRef(new Set());
+
+    function connect() {
+        console.log("Инициализация WebSocket-клиента...");
+
+        const socket = new WebSocket(`wss://socket.mars-ssn.ru/ws?token=${keycloak.token}`);
+
+        socket.onopen = () => {
+            console.log("WebSocket соединение установлено");
+            clearTimeout(reconnectTimer.current);
+        };
+
+        socket.onclose = (event) => {
+            console.log("WebSocket соединение закрыто:", event);
+            attemptReconnect();
+        };
+
+        socket.onerror = (error) => {
+            console.error("Ошибка WebSocket:", error);
+            socket.close(); // Закрываем явно, чтобы сработал onclose и запустился reconnect
+        };
+
+        socket.onmessage = (event) => {
             try {
-                const event = JSON.parse(message.body);
-                if (event.type === "join-chat" && event.chat) {
-                    setChats(prev => {
-                        const exists = existsChat(prev, event.chat.id);
-                        const data = JSON.parse(event.data);
-                        return exists ? prev : [...prev, data.chat];
-                    }); 
+                const data = JSON.parse(event.data);
+                handleMessage(data);
+            } catch (e) {
+                console.error("Ошибка парсинга сообщения:", e, event.data);
+            }
+        };
+
+        socketClient.current = socket;
+    }
+
+    function handleMessage(message) {
+        console.log("---------------------------------------------");
+        console.log("Получено сообщение:", message);
+        console.log("---------------------------------------------");
+        if (message.type === "text") {
+            console.log("Получено текстовое сообщение: ", message);
+            addMessage(message);
+        }
+        else if (message.type === "change message") {
+            console.log("Получено событие редактирования сообщения из сокета: ", message);
+            //{"changes": [{"field": "content", "new_value": "Привет", "old_value": "sdassasda"}], "message_id": 225}
+            const chatId = Number(message.chat_id);
+            const messageId = Number(message.data.message_id);
+            const changes = message.data.changes;
+            for (const change of changes) {
+                if (change.field === "content") {
+                    const newValue = change.new_value;
+                    // const oldValue = change.old_value; //Не интересно
+                    const messageEditDTO = { content: newValue };
+                    editMessage(chatId, messageId, messageEditDTO);
                 }
-            } catch (e) { 
-                setErrors(prev => [...prev, `Ошибка обработки личного события сокета: ${e}`]);
+            }
+        }
+        else if (message.type  === "delete message") {
+            console.log("получино событие удаления сообщения из сокета: ", message);
+            const chatId = Number(message.chat_id);
+            const data = message.data;
+            const messageId = Number(data.message_id);
+            deleteMessage(chatId, messageId);
+        }
+    }
+
+    function attemptReconnect() {
+        if (reconnectTimer.current) return; // Уже запланировано
+
+        console.log(`Попытка переподключения через ${RECONNECT_INTERVAL / 1000}с...`);
+        reconnectTimer.current = setTimeout(() => {
+            reconnectTimer.current = null;
+            connect();
+        }, RECONNECT_INTERVAL);
+    }
+
+    useEffect(() => {
+            if (!selectedChat) { return; }
+            const isPrivate = selectedChat.type === "PRIVATE";
+            if (!isPrivate) {
+                subscribeGlobalToChat(selectedChat.id);
+            }
+            
+            return () => {
+                if (!isPrivate) {
+                    unsubscribeGlobalFromChat(selectedChat.id);
+                }
+            }
+    }, [selectedChat]);
+
+
+    useEffect(() => {
+        const privateChatIds = new Set(
+            chats.filter(chat => chat.type === 'PRIVATE').map(chat => chat.id)
+        );
+
+        // Подписываемся на новые чаты
+        privateChatIds.forEach(chatId => {
+            if (!alreadySubscribedPrivateChat.current.has(chatId)) {
+                console.log("Подписываемся на приватный чат с id: " + chatId);
+                subscribeGlobalToChat(chatId);
+                alreadySubscribedPrivateChat.current.add(chatId);
             }
         });
-        stompClientRef.current = client;
-        return () => {
-            if (client && client.connected) {
-                client.deactivate();
+
+        // Отписываемся от чатов, которых больше нет
+        alreadySubscribedPrivateChat.current.forEach(chatId => {
+            if (!privateChatIds.has(chatId)) {
+                console.log("Отписываемся от приватного чата с id: ", chatId);
+                unsubscribeGlobalFromChat(chatId);
+                alreadySubscribedPrivateChat.current.delete(chatId);
             }
+        });
+
+    }, [chats]);
+
+
+
+    function subscribeGlobalToChat(chatId) {
+        if (socketClient.current && socketClient.current.readyState === WebSocket.OPEN) {
+            socketClient.current.send("G" + chatId);
+            console.log("Глобальная подписка на чат:", chatId);
+        } else {
+            console.warn("Попытка подписки, но WebSocket ещё не открыт");
+        }
+    }
+    
+    function unsubscribeGlobalFromChat(chatId) {
+        if (socketClient.current && socketClient.current.readyState === WebSocket.OPEN) {
+            socketClient.current.send("UG" + chatId);
+            console.log("Глобальная отписка от чата:", chatId);
+        } else {
+            console.warn("Попытка отписки, но WebSocket ещё не открыт");
+        }
+    }
+    
+
+    useEffect(() => {
+        connect();
+
+        return () => {
+            if (socketClient.current) {
+                socketClient.current.close();
+            }
+            clearTimeout(reconnectTimer.current);
         };
     }, []);
 
-    // Глобальная подписка на чаты
-    useEffect(() => {
-        if (stompClientRef.current && stompClientRef.current.connected && chats.length > 0) {
-            const subscriptions = chats.map(chat => {
-                console.log("Подписка на чат: ", chat.id);
-                return {
-                    id: chat.id,
-                    subscription: (
-                        stompClientRef.current.subscribe(`/chat/${chat.id}`, (message) => {
-                            try {
-                                const stompMessage = JSON.parse(message.body);
-                                console.log("Получено сообщение из чата: ", stompMessage);
-
-                                if (!existsChat(chats, chat.id)) {
-                                    getChat(stompMessage.chat_id, keycloak.token)
-                                        .then(chat => setChats(prev => [...prev, chat]))
-                                        .catch(err => setErrors(prev => [...prev, `Ошибка получения чата: ${err}`]));
-                                }
-
-                                // Если сообщение НЕ из выбранного чата
-                                console.log("selectedChat: ", selectedChat);
-                                console.log("chat: ", chat);
-                                if (selectedChat?.id !== chat.id) {
-                                    messages.set(chat.id, [...(messages.get(chat.id) || []), stompMessage]);
-                                    return;
-                                }
-
-                                setMessages(prev => {
-                                    const newMessages = new Map(prev);
-                                    const existingMessages = newMessages.get(chat.id) || [];
-
-                                    if (stompMessage.type === "text") {
-                                        newMessages.set(chat.id, [...existingMessages, stompMessage]);
-                                    } 
-                                    else if (stompMessage.type === "update-message") {
-                                        const data = JSON.parse(stompMessage.data);
-                                        newMessages.set(chat.id, existingMessages.map(m => 
-                                            m.id === data.message.id ? data.message : m
-                                        ));
-                                    } 
-                                    else if (stompMessage.type === "delete-message") {
-                                        const data = JSON.parse(stompMessage.data);
-                                        newMessages.set(chat.id, existingMessages.filter(m => 
-                                            m.id !== data.messageId
-                                        ));
-                                    }
-
-                                    return newMessages;
-                                });
-
-                            } catch (e) {
-                                setErrors(prev => [...prev, `Ошибка обработки события чата: ${e}`]);
-                            }
-                        })
-                    )
-                };
-            });
-
-            return () => {
-                subscriptions.forEach(sub => sub.subscription.unsubscribe());
-            };
-        }
-    }, [stompClientRef.current?.connected, chats, selectedChat]);
-
-    return stompClientRef;
+    return [socketClient, subscribeGlobalToChat, unsubscribeGlobalFromChat];
 }

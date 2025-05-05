@@ -1,36 +1,79 @@
-package ru.kors.socketbrokerservice.models.entity.deserializers;
-
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import ru.kors.socketbrokerservice.models.entity.Message;
-
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-public class MessageDeserializer extends JsonDeserializer<Message> {
-
-    @Override
-    public Message deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
-        ObjectNode node = p.getCodec().readTree(p);
-
-        Long id = node.has("id") ? node.get("id").asLong() : null;
-        String type = node.has("type") ? node.get("type").asText() : null;
-        Long chatId = node.has("chat_id") ? node.get("chat_id").asLong() : null;
-        Long senderId = node.has("sender_id") ? node.get("sender_id").asLong() : null;
-        String content = node.has("content") ? node.get("content").asText() : null;
-        String timestampStr = node.has("timestamp") ? node.get("timestamp").asText() : null;
-
-        LocalDateTime timestamp = null;
-        if (timestampStr != null) {
-            // Assuming the timestamp is in ISO format, modify this if needed
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-            timestamp = LocalDateTime.parse(timestampStr, formatter);
-        }
-
-        return new Message(id, type, chatId, senderId, content, timestamp);
-    }
-}
-
+//package ru.kors.socketbrokerservice.models.entity.deserializers;
+//
+//import com.fasterxml.jackson.core.JsonParser;
+//import com.fasterxml.jackson.core.JsonToken;
+//import com.fasterxml.jackson.databind.DeserializationContext;
+//import com.fasterxml.jackson.databind.JsonDeserializer;
+//import ru.kors.socketbrokerservice.models.entity.Message;
+//import ru.kors.socketbrokerservice.models.entity.Media;
+//
+//import java.io.IOException;
+//import java.time.Instant;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class MessageDeserializer extends JsonDeserializer<Message> {
+//
+//    @Override
+//    public Message deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+//        Message message = new Message();
+//        List<Media> mediaList = new ArrayList<>();
+//
+//        while (!p.isClosed() && p.nextToken() != JsonToken.END_OBJECT) {
+//            String fieldName = p.getCurrentName();
+//            if (fieldName == null) continue;
+//
+//            p.nextToken(); // move to value
+//
+//            switch (fieldName) {
+//                case "id":
+//                    message.setId(p.getLongValue());
+//                    break;
+//                case "type":
+//                    message.setType(p.getText());
+//                    break;
+//                case "flags":
+//                    message.setFlags(p.getIntValue());
+//                    break;
+//                case "chat_id":
+//                    message.setChatId(p.getLongValue());
+//                    break;
+//                case "sender_id":
+//                    message.setSenderId(p.getLongValue());
+//                    break;
+//                case "content":
+//                    message.setContent(p.getText());
+//                    break;
+//                case "timestamp":
+//                    message.setTimestamp(Instant.parse(p.getText()));
+//                    break;
+//                case "reply_to_id":
+//                    message.setReplyToId(p.getLongValue());
+//                    break;
+//                case "forwarded_from":
+//                    message.setForwardedFrom(p.getLongValue());
+//                    break;
+//                case "media":
+//                    if (p.currentToken() == JsonToken.START_ARRAY) {
+//                        while (p.nextToken() != JsonToken.END_ARRAY) {
+//                            Media media = new Media();
+//                            while (p.nextToken() != JsonToken.END_OBJECT) {
+//                                String mediaField = p.getCurrentName();
+//                                p.nextToken();
+//                                if ("media_type".equals(mediaField)) {
+//                                    media.setType(p.getText());
+//                                } else if ("media_url".equals(mediaField)) {
+//                                    media.setUrl(p.getText());
+//                                }
+//                            }
+//                            mediaList.add(media);
+//                        }
+//                    }
+//                    break;
+//            }
+//        }
+//
+//        message.setMediaList(mediaList);
+//        return message;
+//    }
+//}

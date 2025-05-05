@@ -6,9 +6,10 @@ import './App.css';
 import keycloak from './keycloak';
 import {useAppContext} from './AppContext';
 import AddChatButton from './components/AddChatButton';
+import CreateChatButton from './components/CreateChatButton';
 
 function App() {
-  const {chats, setChats} = useAppContext();
+  const {chats, setChats, createChat} = useAppContext();
   const {socketRef} = useAppContext();
   const {errors, setErrors} = useAppContext();
   const {messages, setMessages} = useAppContext();
@@ -20,6 +21,7 @@ function App() {
     <div className="app-container">
       <div className="sidebar">
         <AddChatButton/>
+        <CreateChatButton onCreate={createChat}/> 
         <ChatList/>
       </div>
       <div className="chat-container">

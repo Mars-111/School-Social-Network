@@ -6,8 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import ru.kors.chatsservice.models.entity.*;
-import ru.kors.chatsservice.models.entity.abstracts.BaseEvent;
-import ru.kors.chatsservice.models.entity.serializers.MessageSerializer;
+import ru.kors.chatsservice.models.entity.constants.MessageFlags;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +26,9 @@ public class KafkaProducerService {
 public void send(Message message) {
     try {
         String jsonMessage = objectMapper.writeValueAsString(message);
+        if ((message.getFlags() & MessageFlags.IS_ANONYMOUS) != 0) {
+            message.setSender(null);
+        }
         kafkaTemplate.send("chat-messages", message.getChat().getId(), jsonMessage);
         log.info("Message sent to chat-messages: " + jsonMessage);
     } catch (Exception e) {
@@ -74,4 +76,8 @@ public void send(Message message) {
         }
     }
 
+    public void sendJoinChatUser(Long userId, Long chatId) {
+        String data = "{\"user_id\": " + userId + ", \"chat_id\": " + chatId + "}";
+        kafkaTemplate.send("join-chat-users", data);
+    }
 }

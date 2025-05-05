@@ -14,8 +14,9 @@ public class ChatSerializer extends JsonSerializer<Chat> {
         gen.writeNumberField("id", chat.getId());
         gen.writeStringField("tag", chat.getTag());
         gen.writeStringField("name", chat.getName());
-        gen.writeBooleanField("private", chat.getPrivateChat());
+        gen.writeStringField("type", chat.getType());
         gen.writeObjectField("owner_id", chat.getOwner().getId());
+        gen.writeObjectField("created_at", chat.getCreatedAt());
         gen.writeEndObject();
     }
 }

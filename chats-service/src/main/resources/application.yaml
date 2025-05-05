@@ -33,6 +33,7 @@ spring:
       properties:
         linger.ms: 1
       key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      batch-size: 16384
     consumer:
       auto-offset-reset: latest
       enable-auto-commit: true

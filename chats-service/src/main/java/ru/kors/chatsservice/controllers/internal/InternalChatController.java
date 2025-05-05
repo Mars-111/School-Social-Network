@@ -63,10 +63,10 @@ public class InternalChatController {
         return chatService.saveChat(chat);
     } //Перенес в ChatController
 
-    @PutMapping("/{id}")
-    public Chat updateChat(@PathVariable Long id, @RequestBody ChangeChatDTO changeChatDTO) {
-        return chatService.changeChat(id, changeChatDTO);
-    }
+//    @PutMapping("/{id}")
+//    public Chat updateChat(@PathVariable Long id, @RequestBody ChangeChatDTO changeChatDTO) {
+//        return chatService.changeChat(id, changeChatDTO);
+//    }
 
     @PostMapping("/{chatId}/roles")
     public ResponseEntity<Void> assignRole(

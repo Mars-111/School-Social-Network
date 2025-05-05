@@ -10,11 +10,14 @@ export default function useInitMessagesChats(chats, loadingChats, setErrors) {
         if (loadingChats) return;
 
         chats.forEach(chat => {
-            if (!messages.has(chat.id)) {
+            if (!chat.isNew && !messages.has(chat.id)) {
                 (async () => {
                     try {
                         const chatMessages = await getMessagesByChat(chat.id, keycloak.token);
-
+                        if (!Array.isArray(chatMessages)) {
+                            throw new Error("Полученные сообщения не являются массивом");
+                        }
+                        console.log("Полученные сообщения для чата:", chatMessages);
                         setMessages(prev => {
                             const newMessages = new Map(prev); // Клонируем, так как Map мутируемый
                             newMessages.set(chat.id, chatMessages);

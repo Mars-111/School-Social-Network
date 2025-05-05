@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/keycloak-custom-registration-spi/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/keycloak-custom-registration-spi/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/keycloak-event-listener/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/keycloak-login-spi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/keycloak-login-spi/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/keycloak-registration-spi/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/keycloak-registration-spi/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/socket-broker-service/src/main/java" charset="UTF-8" />

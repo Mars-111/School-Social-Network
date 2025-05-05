@@ -1,18 +1,29 @@
 package ru.kors.socketbrokerservice.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jwt.SignedJWT;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import ru.kors.socketbrokerservice.api.UsersRestApi;
 import ru.kors.socketbrokerservice.models.UserSession;
+import ru.kors.socketbrokerservice.models.entity.ChatEvent;
+import ru.kors.socketbrokerservice.models.entity.Message;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.time.Duration;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -24,6 +35,10 @@ import java.util.stream.Collectors;
 public class SessionManager {
     @Value("${server.id}")
     private String serverId;
+
+    private static final Duration TTL = Duration.ofHours(48);
+
+    private final ObjectMapper objectMapper;
 
     //Rest
     private final UsersRestApi usersRestApi;
@@ -42,35 +57,117 @@ public class SessionManager {
     // подписанных на данное событие.
     private final ConcurrentMap<String, Set<UserSession>> subscribedSessions = new ConcurrentHashMap<>();
 
+
+    // serializers reused in pipelines
+    private final RedisSerializer<String> STRING_SER = new StringRedisSerializer();
+    private RedisSerializer<Long>   LONG_SER; //Инициализируется в PostConstruct, ибо longRedisTemplate будет null во время инициализации
+
+    @PostConstruct
+    public void init() {
+        LONG_SER = (RedisSerializer<Long>) longRedisTemplate.getValueSerializer();
+    }
+
     public void registerSession(WebSocketSession session) {
+        log.info("Registering session {}", session.getId());
         Long userId = getUserId(session);
 
-        // Создаем новый объект UserSession с пустым набором подписок по умолчанию.
-        UserSession userSession = new UserSession(userId, session);
+        if (userId == null) {
+            closeBadSession(session);
+            return;
+        }
 
-        // Используем userId из userSession, так как это дублирование — оно гарантирует согласованность
+        // 1) register in‑memory
+        UserSession userSession = new UserSession(userId, session);
         sessionsById.put(session.getId(), userSession);
         sessionsByUser.computeIfAbsent(userId, k -> ConcurrentHashMap.newKeySet()).add(userSession);
 
+        // 2) Redis‑keys
+        String dataKey = "u:" + userId;
+        String fetchedKey = dataKey + ":f";
 
-        Set<Long> chatIds; // Список чатов, на которые подписан пользователь
 
-        //Redis
-        // Добавляем сессию в редис
-        //stringRedisTemplate.opsForSet().add("sessions:" + userSession.userId(), session.getId() + "@" + serverId);
-        // Добавляем пользователя в подписки его чатов
-        Boolean exists = longRedisTemplate.hasKey("user:" + userId);
-        if (!exists) {
+        log.info("1");
+        Set<Long> chatIds = new HashSet<>();; // Список чатов, на которые подписан пользователь
+        boolean alreadyFetched = Boolean.TRUE.equals(stringRedisTemplate.hasKey(fetchedKey));
+        log.info("2");
+
+        if (!alreadyFetched) {
             chatIds = usersRestApi.getUserChatsIds(userId);
-            longRedisTemplate.opsForSet().add("user:" + userId, chatIds.toArray(new Long[0]));
+            log.debug("Fetched {} chats for user {}", chatIds.size(), userId);
+            log.info("3");
+            initializeUserChatsInRedis(dataKey, fetchedKey, chatIds);
+            log.info("4");
         }
         else {
-            chatIds = longRedisTemplate.opsForSet().members("user:" + userId);
+            log.info("5");
+            reloadUserChatsInRedis(dataKey, fetchedKey, chatIds);
         }
-        longRedisTemplate.expire("user:" + userId, Duration.ofHours(48));
+        log.info("6");
         //
 
+        log.info("user {} chats: {}", userId, chatIds);
+
         // Добавляем подписку на все чаты, на которые подписан пользователь
+
+        subscribeSessionToSubscriptions(userSession, chatIds);
+
+        log.debug("Registered session {} for user {}", session.getId(), userId);
+    }
+
+
+    private void closeBadSession(WebSocketSession session) {
+        log.warn("Не удалось получить userId из токена для сессии {}", session.getId());
+        try {
+            session.close(CloseStatus.BAD_DATA);
+        }
+        catch (Exception e) {
+            log.error("Ошибка при закрытии сессии {}: {}", session.getId(), e.getMessage());
+        }
+    }
+
+    private void initializeUserChatsInRedis(String dataKey, String fetchedKey, Set<Long> chatIds) {
+        longRedisTemplate.executePipelined((RedisCallback<Object>) conn -> {
+            byte[] dataBytes    = STRING_SER.serialize(dataKey);
+            byte[] fetchedBytes = STRING_SER.serialize(fetchedKey);
+
+            if (!chatIds.isEmpty()) {
+                for (Long id : chatIds) {
+                    conn.sAdd(dataBytes, LONG_SER.serialize(id));
+                }
+                conn.expire(dataBytes, TTL.getSeconds());
+            }
+            conn.set(fetchedBytes, STRING_SER.serialize("1"));
+            conn.expire(fetchedBytes, TTL.getSeconds());
+
+            // Возвращаемое значение не используется, поэтому возвращаем null
+            return null;
+        });
+    }
+
+    @SuppressWarnings("unchecked") // отключает предупреждения о приведении типов
+    private void reloadUserChatsInRedis(String dataKey, String fetchedKey, Set<Long> chatIds) {
+        //TODO
+        List<Object> replies = longRedisTemplate.executePipelined((RedisCallback<Object>) conn -> {
+            byte[] dataBytes    = STRING_SER.serialize(dataKey);
+            byte[] fetchedBytes = STRING_SER.serialize(fetchedKey);
+
+            // SMEMBERS
+            conn.sMembers(dataBytes);
+            // EXPIRE dataKey
+            conn.expire(dataBytes, TTL.getSeconds());
+            // EXPIRE fetchedKey
+            conn.expire(fetchedBytes, TTL.getSeconds());
+
+            return null;
+        });
+        // replies.get(0) — результат SMEMBERS
+        if (!replies.isEmpty()) {
+            chatIds.clear();
+            chatIds.addAll((Set<Long>) replies.get(0));
+        }
+    }
+
+    private void subscribeSessionToSubscriptions(UserSession userSession, Set<Long> chatIds) {
         userSession.getSubscriptions().addAll(chatIds.stream()
                 .map(chatId -> "c:" + chatId.toString())
                 .collect(Collectors.toSet()));
@@ -78,19 +175,11 @@ public class SessionManager {
             subscribedSessions.computeIfAbsent("c:" + chatId, k -> ConcurrentHashMap.newKeySet())
                     .add(userSession);
         }
-
-
-        log.debug("Registered session {} for user {}", session.getId(), userId);
     }
 
 
 
-    /**
-     * Удаляет сессию для указанного пользователя по sessionId.
-     * Удаляет сессию из всех структур: userSessions, sessionsById и subscribedSessions.
-     *
-     * @param sessionId идентификатор сессии, которая закрывается
-     */
+
     public void unregisterSession(String sessionId) {
         // Удаляем из userSessions.
         UserSession userSession = sessionsById.get(sessionId);
@@ -118,20 +207,15 @@ public class SessionManager {
         log.debug("Unregistered session {} for user {}", sessionId, userSession.getUserId());
     }
 
-    /**
-     * Подписывает сессию на заданный подписочный ключ.
-     * Например, для чата с идентификатором 17 можно использовать ключ "c:17".
-     *
-     * @param subscriptionKey подписочный ключ
-     * @param userSession     сессия пользователя
-     */
-    public void subscribe(String subscriptionKey, UserSession userSession) {
+
+    public void localSubscribe(String subscriptionKey, UserSession userSession) {
         if (userSession == null) {
             log.warn("Session {} not found for subscription {}", userSession.getSession().getId(), subscriptionKey);
             return;
         }
-        // Добавляем подписку для каждой найденной сессии.
-        userSession.getSubscriptions().add(subscriptionKey);
+        if (userSession.getSubscriptions().contains(subscriptionKey.substring(1))) {
+            userSession.getSubscriptions().add(subscriptionKey); //extended
+        }
         // Добавляем сессию в глобальный индекс подписок.
         subscribedSessions.computeIfAbsent(subscriptionKey, k -> ConcurrentHashMap.newKeySet())
                 .add(userSession);
@@ -143,14 +227,21 @@ public class SessionManager {
      * @param subscriptionKey подписочный ключ
      * @param userSession     сессия пользователя
      */
-    public void unsubscribe(String subscriptionKey, UserSession userSession) {
+    public void unLocalSubscribe(String subscriptionKey, UserSession userSession) {
         if (userSession == null) return;
+
         userSession.getSubscriptions().remove(subscriptionKey);
 
-        // Обновляем глобальный индекс подписок.
-        subscribedSessions.get(subscriptionKey).remove(userSession);
-        log.debug("Session {} for user {} unsubscribed from {}", userSession.getSession().getId(),userSession.getUserId(), subscriptionKey);
+        Set<UserSession> subs = subscribedSessions.get(subscriptionKey);
+        if (subs != null) {
+            subs.remove(userSession);
+            log.debug("Session {} for user {} unsubscribed from {}",
+                    userSession.getSession().getId(), userSession.getUserId(), subscriptionKey);
+        } else {
+            log.warn("Tried to unsubscribe from non-existent key: {}", subscriptionKey);
+        }
     }
+
 
     /**
      * Возвращает все сессии для указанного пользователя.
@@ -188,7 +279,20 @@ public class SessionManager {
 
 
     private String getToken(WebSocketSession session) {
-        return session.getAttributes().get("token").toString();
+        String query = session.getUri().getQuery(); // "token=abc123"
+        String token = null;
+
+        if (query != null) {
+            for (String param : query.split("&")) {
+                String[] pair = param.split("=");
+                if (pair.length == 2 && pair[0].equals("token")) {
+                    token = pair[1];
+                    break;
+                }
+            }
+        }
+        log.info("Token from session {}: {}", session.getId(), token);
+        return token;
     }
 
     private Long getUserId(WebSocketSession session) {
@@ -200,10 +304,57 @@ public class SessionManager {
         }
     }
 
-    public void updateLastActive(String sessionId) {
-        UserSession userSession = sessionsById.get(sessionId);
-        if (userSession != null) {
-            userSession.updateLastPongTime();
+    public void sendMessage(Message message) {
+        var users = subscribedSessions.get("c:" + message.getChatId());
+        log.info("sessions in chats: {}", subscribedSessions.get("c:" + message.getChatId()));
+        if (users == null || users.isEmpty()) {
+            log.warn("No subscribers for chat {}", message.getChatId());
+            return;
+        }
+        log.info("user size: {}", users.size());
+        for (UserSession userSession : users) {
+            WebSocketSession session = userSession.getSession();
+            if (session.isOpen()) {
+                log.info("sending message to {}", userSession.getUserId());
+                try {
+                    session.sendMessage(new TextMessage(objectMapper.writeValueAsString(message)));
+                } catch (IOException e) {
+                    log.error("Error sending message to session {}: {}", session.getId(), e.getMessage());
+                }
+            }
         }
     }
+
+    public void sendChatEvent(ChatEvent event) {
+        var users = subscribedSessions.get("c:" + event.getChatId());
+        if (users == null || users.isEmpty()) {
+            log.warn("No subscribers for chat {}", event.getChatId());
+            return;
+        }
+        log.info("user size: {}", users.size());
+        for (UserSession userSession : users) {
+            WebSocketSession session = userSession.getSession();
+            if (session.isOpen()) {
+                log.info("sending event to {}", userSession.getUserId());
+                try {
+                    session.sendMessage(new TextMessage(objectMapper.writeValueAsString(event)));
+                } catch (IOException e) {
+                    log.error("Error sending event to session {}: {}", session.getId(), e.getMessage());
+                }
+            }
+        }
+    }
+
+    public void globalSubscribe(Long userId, String subscriptionKey) {
+        String dataKey = "u:" + userId;
+
+        longRedisTemplate.opsForSet().add(dataKey, Long.valueOf(subscriptionKey.split(":")[1]));
+
+        for (UserSession userSession : sessionsByUser.get(userId)) {
+            userSession.getSubscriptions().add(subscriptionKey);
+            subscribedSessions.computeIfAbsent(subscriptionKey, k -> ConcurrentHashMap.newKeySet())
+                    .add(userSession);
+        }
+    }
+
 }

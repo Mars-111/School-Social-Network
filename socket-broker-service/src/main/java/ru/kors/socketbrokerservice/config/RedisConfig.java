@@ -16,22 +16,24 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, Long> redisTemplate(RedisConnectionFactory factory) {
+    public RedisTemplate<String, Long> longRedisTemplate(RedisConnectionFactory connectionFactory) {
         RedisTemplate<String, Long> template = new RedisTemplate<>();
-        template.setConnectionFactory(factory);
+        template.setConnectionFactory(connectionFactory);
         template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new GenericToStringSerializer<>(Long.class)); // или Jackson2JsonRedisSerializer, если JSON
+        template.setValueSerializer(new GenericToStringSerializer<>(Long.class)); // ключ!
+        template.afterPropertiesSet();
         return template;
     }
 
-    @Bean
-    public RedisTemplate<String, String> sessionRedisTemplate(RedisConnectionFactory factory) {
-        RedisTemplate<String, String> template = new RedisTemplate<>();
-        template.setConnectionFactory(factory);
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new StringRedisSerializer()); // важно!
-        return template;
-    }
+
+//    @Bean
+//    public RedisTemplate<String, String> sessionRedisTemplate(RedisConnectionFactory factory) {
+//        RedisTemplate<String, String> template = new RedisTemplate<>();
+//        template.setConnectionFactory(factory);
+//        template.setKeySerializer(new StringRedisSerializer());
+//        template.setValueSerializer(new StringRedisSerializer()); // важно!
+//        return template;
+//    }
 
 }
 

@@ -18,7 +18,7 @@ function ErrorNotification({ onClose }) {
 		}}>
 		{
 			errors.map(error => (
-			<span>{error}</span>
+				<span>{error}</span>
 			))
 		}
 		<button onClick={onClose} style={{

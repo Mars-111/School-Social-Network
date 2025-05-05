@@ -8,8 +8,17 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://keycloak.mars-ssn.ru/realms/school-social-network
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      ssl:
+        enabled: false
 
   kafka:
+    listener:
+      concurrency: 3
+      ack-mode: manual_immediate
     bootstrap-servers: localhost:29092,localhost:39092,localhost:49092
     producer:
       retries: 3
@@ -19,7 +28,7 @@ spring:
     consumer:
       group-id: "socket-broker-1"
       auto-offset-reset: latest
-      enable-auto-commit: true
+      enable-auto-commit: false
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     properties:
       security.protocol: PLAINTEXT
@@ -45,6 +54,8 @@ logging:
     org.springframework.security: DEBUG
     org.springframework.security.oauth2: DEBUG
     org.springframework.web: DEBUG
+    org.springframework.data.redis: DEBUG
+    ru.kors.socketbrokerservice.services.SessionManager: DEBUG
 debug: true
 
 websocket:
