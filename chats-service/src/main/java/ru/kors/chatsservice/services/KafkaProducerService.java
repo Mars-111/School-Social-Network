@@ -15,13 +15,6 @@ public class KafkaProducerService {
     private final KafkaTemplate<Long, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
-//    public void send(String topic, Long key, BaseEvent event) {
-//        kafkaTemplate.send(topic, key, event);
-//    }
-
-//    public void send(String topic, BaseEvent event) {
-//        kafkaTemplate.send(topic, event);
-//    }
 
 public void send(Message message) {
     try {

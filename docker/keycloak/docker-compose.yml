@@ -1,0 +1,51 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: keycloak_postgres_db
+    restart: always
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: Mars0091llk8!
+    networks:
+      - local
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.2.2
+    container_name: keycloak
+    restart: no
+    stdin_open: true
+    tty: true
+    command: start
+    environment:
+      KC_DB: postgres
+      KC_DB_SCHEMA: public
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: Mars0091llk8!
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_HOSTNAME: localhost
+      KC_FEATURES: token-exchange,admin-fine-grained-authz
+      #KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/keystore.p12
+      #KC_HTTPS_CERTIFICATE_KEY_STORE_TYPE: PKCS12
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/cert.pem
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/key.pem
+      KC_HTTPS_KEYSTORE_PASSWORD: Mars123asd!
+      KC_HTTPS_PORT: 8443
+      KC_HTTP_PORT: 8080  # HTTP порт
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin@1234
+    ports:
+      - "9081:8080"
+      - "9443:8443"
+    volumes:
+      - ./certs:/opt/keycloak/conf
+    depends_on:
+      - postgres
+    networks:
+      - local
+
+networks:
+  local:

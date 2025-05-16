@@ -10,10 +10,10 @@
   <version>24.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>keycloak-auth-service</module>
     <module>socket-broker-service</module>
+    <module>chats-service</module>
+    <module>store-media-service</module>
     <module>keycloak-registration-spi</module>
-      <module>socket-controller-service</module>
       <module>keycloak-login-spi</module>
   </modules>
 

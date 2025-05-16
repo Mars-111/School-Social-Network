@@ -92,7 +92,7 @@ export default function Message({ message, onDelete, onEdit, onReply, onForward 
                 ) : (
                     <>
                         <strong>{message.sender_id || message.senderId || "Неизвестно"}: </strong>
-                        <span>{message.content}</span>
+                        <span className="message-text">{message.content}</span>
                     </>
                 )}
             </div>

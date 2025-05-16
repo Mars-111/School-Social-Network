@@ -40,12 +40,14 @@ function ChatList() {
 					<div>{chat.name}</div>
 					{(() => {
 						const chatMessages = messages.get(chat.id) ?? [];
-						
+
 						if (chatMessages.length > 0) {
 							const lastMessage = chatMessages[chatMessages.length - 1];
 							return (
 								<div style={{ fontSize: '0.8em', color: '#555' }}>
-									{lastMessage.content}
+									{lastMessage.content.length > 10
+										? lastMessage.content.slice(0, 20) + '...'
+										: lastMessage.content}
 								</div>
 							);
 						}

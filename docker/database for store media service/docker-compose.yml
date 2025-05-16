@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16                      # Официальный образ PostgreSQL версии 16
+    container_name: store_media_postgres    # Имя контейнера (удобно для отладки и команд)
+    restart: unless-stopped                 # Перезапуск, если контейнер упал (кроме manual остановки)
+    environment:                            # Установка переменных окружения внутри контейнера
+      POSTGRES_DB: store_media_db           # Название создаваемой БД
+      POSTGRES_USER: admin       # Пользователь БД
+      POSTGRES_PASSWORD: 123        # Пароль для пользователя
+    ports:
+      - "5433:5432"                         # Проброс порта: хост:контейнер
+    volumes:
+      - pg_data:/var/lib/postgresql/data    # Сохраняем данные между перезапусками
+    networks:
+      - store_media_net                     # Связь с другими сервисами через сеть
+
+volumes:
+  pg_data:                                  # Определяем именованный volume (будет создан автоматически)
+
+networks:
+  store_media_net:                          # Пользовательская bridge-сеть (удобно для микросервисов)
+    driver: bridge
