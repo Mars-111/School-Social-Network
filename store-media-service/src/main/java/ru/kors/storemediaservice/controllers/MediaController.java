@@ -3,22 +3,21 @@ package ru.kors.storemediaservice.controllers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
-import ru.kors.storemediaservice.models.Media;
+import ru.kors.storemediaservice.exceptions.NotAccessToMediaException;
+import ru.kors.storemediaservice.models.DecodeTokenResult;
 import ru.kors.storemediaservice.services.CurrentUserUtil;
 import ru.kors.storemediaservice.services.MediaService;
-import software.amazon.awssdk.core.async.AsyncRequestBody;
+import ru.kors.storemediaservice.services.MediaAccessTokenService;
 import software.amazon.awssdk.services.s3.S3AsyncClient;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-import java.nio.ByteBuffer;
-import java.util.Map;
-import java.util.UUID;
+import java.time.Duration;
 
 @RestController
 @RequestMapping("/api/files")
@@ -29,117 +28,54 @@ public class MediaController {
     private final S3AsyncClient s3AsyncClient;
     private final MediaService mediaService;
     private final CurrentUserUtil currentUserUtil;
+    private final MediaAccessTokenService mediaAccessTokenService;
 
     @Value("${s3.bucket}")
     private String bucket;
 
-//    @PostMapping("/upload")
-//    public Mono<ResponseEntity<?>> uploadMultiple(@RequestPart("files") Mono<FilePart> files,
-//                                                  @RequestPart("length") Long length) {
-//        return files.flatMap(filePart -> {
-//
-//                    if (length == null || length <= 0) {
-//                        return Mono.just(Map.of(
-//                                "filename", filePart.filename(),
-//                                "status", "error",
-//                                "message", "Content-Length header is missing or invalid"
-//                        ));
-//                    }
-//
-//                    String key = UUID.randomUUID() + "-" + filePart.filename();
-//
-//                    AsyncRequestBody requestBody = AsyncRequestBody.fromPublisher(
-//                            filePart.content()
-//                                    .map(dataBuffer -> {
-//                                        ByteBuffer byteBuffer = dataBuffer.asByteBuffer();
-//                                        DataBufferUtils.release(dataBuffer);
-//                                        return byteBuffer;
-//                                    })
-//                    );
-//
-//                    PutObjectRequest request = PutObjectRequest.builder()
-//                            .bucket(bucket)
-//                            .key(key)
-//                            .contentType(Objects.requireNonNull(filePart.headers().getContentType()).toString())
-//                            .contentLength(length) // Указываем длину здесь
-//                            .build();
-//
-//                    return Mono.fromFuture(() -> s3AsyncClient.putObject(request, requestBody))
-//                            .map(resp -> Map.of(
-//                                    "filename", filePart.filename(),
-//                                    "key", key,
-//                                    "status", "success"
-//                            ))
-//                            .onErrorResume(e -> Mono.just(Map.of(
-//                                    "filename", filePart.filename(),
-//                                    "key", key,
-//                                    "status", "error",
-//                                    "message", e.getMessage()
-//                            )));
-//                })
-//                .map(ResponseEntity::ok);
-//    }
-
     @PostMapping("/upload")
-    public Mono<ResponseEntity<?>> uploadMultiple(@RequestPart("files") Mono<FilePart> files,
-                                                  @RequestParam("length") Long length) {
-        return files.flatMap(filePart -> {
-
-            if (length == null || length <= 0) {
-                return Mono.just(ResponseEntity.badRequest().body(Map.of(
-                        "filename", filePart.filename(),
-                        "status", "error",
-                        "message", "Content-Length header is missing or invalid"
-                )));
-            }
-
-            String key = UUID.randomUUID() + "-" + filePart.filename();
-
-            Flux<ByteBuffer> byteBufferFlux = filePart.content() //Гпт сказал что тут потонцеальная проблемма модет быть (пока что пофиг)
-                    .map(dataBuffer -> {
-                        ByteBuffer byteBuffer = dataBuffer.asByteBuffer();
-                        //DataBufferUtils.release(dataBuffer);
-                        return byteBuffer;
-                    });
-
-            AsyncRequestBody requestBody = AsyncRequestBody.fromPublisher(byteBufferFlux);
-
-            PutObjectRequest request = PutObjectRequest.builder()
-                    .bucket(bucket)
-                    .key(key)
-                    .contentType(filePart.headers().getContentType() != null
-                            ? filePart.headers().getContentType().toString()
-                            : "application/octet-stream")
-                    .contentLength(length)
-                    .build();
-
-            return Mono.fromFuture(() -> s3AsyncClient.putObject(request, requestBody))
-                    .flatMap(resp -> {
-                            //Создание записи в бд
-                            return currentUserUtil.getCurrentUserId()
-                                    .flatMap(userId -> {
-                                        Media media = Media.builder().key(key).ownerId(userId).build();
-                                        return mediaService.save(media).map(m -> {
-                                            return ResponseEntity.ok(Map.of(
-                                            "id", m.getId().toString(),
-                                            "filename", filePart.filename(),
-                                            "key", key,
-                                            "status", "success"
-                                            ));
-
-                                        });
-
-                                    });
-                        }
-                    )
-                    .onErrorResume(e -> Mono.just(ResponseEntity.internalServerError().body(Map.of(
-                            "filename", filePart.filename(),
-                            "key", key,
-                            "status", "error",
-                            "message", e.getMessage()
-                    ))));
-        });
+    public Mono<ResponseEntity<String>> uploadMultiple(@RequestPart("file") Mono<FilePart> file,
+                                                       @RequestParam("size") Long fileSize) {
+        return file.flatMap(filePart -> mediaService.upload(filePart, fileSize))
+                .map(uploadResult ->
+                        mediaAccessTokenService.generateMediaTokenForCreate(
+                                uploadResult.getMedia().getId(),
+                                uploadResult.getMedia().getOwnerId(),
+                                uploadResult.getMedia().getExtension(),
+                                uploadResult.getMedia().getFilename(),
+                                uploadResult.getImageMetadata(),
+                                fileSize))
+                .map(ResponseEntity::ok);
     }
+
+    @GetMapping("/{mediaId}")
+    public Mono<ResponseEntity<?>> download(@PathVariable Long mediaId,
+                                               @RequestHeader("Access-Media-Token") String mediaToken) {
+        DecodeTokenResult decoded = mediaAccessTokenService.decode(mediaToken);
+
+        return currentUserUtil.getCurrentUserId()
+                .handle((currentUserId, sink) -> {
+                    if (!currentUserId.equals(decoded.userId())) {
+                        sink.error(new NotAccessToMediaException("Token userId is not equal to current userId"));
+                        return;
+                    }
+                    if (!decoded.allowedMediaIds().contains(mediaId)) {
+                        sink.error(new NotAccessToMediaException("Not access to media"));
+                        return;
+                    }
+                    sink.complete();
+                })
+                .flatMap( userId -> mediaService.findKeyById(mediaId))
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Media not found")))
+                .flatMap(key ->
+                    mediaService.getOneTimeLink(key, Duration.ofSeconds(90))
+                        .map(url -> ResponseEntity
+                                .status(HttpStatus.FOUND)
+                                .header(HttpHeaders.LOCATION, url)
+                                .build())
+                );
+    }
+
 
 
 

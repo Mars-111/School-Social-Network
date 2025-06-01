@@ -5,10 +5,11 @@ import Pending from './Pending';
 import { sendMessage, editMessageApi, deleteMessageApi } from '../services/api';
 import MessageList from './MessageList';
 import './ChatWindow.css';
+import MediaPreviewList from './MediaPreviewList';
 
 
 function ChatWindow() {
-    const { messages, addMessage, editMessage, getMessage, deleteMessage, chats, selectedChat, getPendingList, addPending, retryPending, removePending, pendingVersion, createChat } = useAppContext();
+    const { messages, addMessage, editMessage, getMessage, deleteMessage, chats, selectedChat, getPendingList, addPending, retryPending, removePending, pendingVersion, getSelectedFiles, clearSelectedFiles } = useAppContext();
     const chat = chats.find((c) => c.id === selectedChat.id);
     const chatMessages = messages.get(selectedChat.id) || [];
     const messagesEndRef = useRef(null);
@@ -41,6 +42,12 @@ function ChatWindow() {
             type: 'text',
             chat_id: selectedChat.id
         };
+        const messageForPending = {
+            content: text,
+            type: 'text',
+            chat_id: selectedChat.id,
+            files: getSelectedFiles()
+        };
         if (replyTo) {
             message.reply_to = replyTo.id;
         }
@@ -48,13 +55,14 @@ function ChatWindow() {
             message.forwarded_from = forwardedFrom.id;
         }
         console.log("message: ", message);
-        const pendingItem = addPending(selectedChat.id, message);
+        const pendingItem = addPending(selectedChat.id, messageForPending);
         retryPending(selectedChat.id, pendingItem.tempId, () => {
             console.log("retryPending");
-            return sendMessage(message, addMessage);
+            return sendMessage(message, getSelectedFiles(), addMessage);
         });
         setReplyTo(null); // сбрасываем ответ
         setForwardedFrom(null); // сбрасываем пересланное сообщение
+        clearSelectedFiles(); // очищаем выбранные файлы
     }
 
     return (
@@ -119,6 +127,7 @@ function ChatWindow() {
             </div>
         )}
         <div style={{ borderTop: '1px solid #ddd', padding: '10px' }}>
+            <MediaPreviewList />
             <MessageInput onSend={handleSendMessage} />
         </div>
         </div>

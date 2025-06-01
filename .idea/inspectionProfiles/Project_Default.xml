@@ -5,6 +5,8 @@
       <option name="customHeaders">
         <set>
           <option value="token" />
+          <option value="allowed-token" />
+          <option value="Access-Media-Token" />
         </set>
       </option>
     </inspection_tool>

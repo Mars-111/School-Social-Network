@@ -5,6 +5,7 @@ import keycloak from './keycloak';
 import {AppProvider} from './AppContext';
 
 keycloak.init({ onLoad: 'login-required' }).then(authenticated => {
+    console.log("Keycloak token: ", keycloak.token);
     if (authenticated) {
         createRoot(document.getElementById('root')).render(
             <AppProvider>

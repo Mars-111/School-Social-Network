@@ -58,4 +58,9 @@ public class MessageController {
         messageService.deleteMessage(messageId);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{messageId}/media/access-jwt")
+    public ResponseEntity<String> getMediaAccessJwt(@PathVariable Long messageId) {
+        return ResponseEntity.ok(messageService.getMediaAccessJwt(messageId, currentUserUtil.getCurrentUserId()));
+    }
 }

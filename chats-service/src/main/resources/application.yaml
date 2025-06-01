@@ -53,6 +53,7 @@ media-service:
   release:
     jwt:
       secret: ${MEDIA_JWT_SECRET}
+      issuer: "chats-service"
 
 logging:
   level:

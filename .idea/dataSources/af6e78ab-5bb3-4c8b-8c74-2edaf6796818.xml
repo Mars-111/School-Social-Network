@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>745</IntrospectionStateNumber>
+      <IntrospectionStateNumber>827</IntrospectionStateNumber>
       <ServerVersion>16.6</ServerVersion>
-      <StartupTime>1747343534</StartupTime>
+      <StartupTime>1748776429</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1404,7 +1404,7 @@ true posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>745</IntrospectionStateNumber>
+      <IntrospectionStateNumber>827</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>admin</OwnerName>
     </database>
@@ -4823,23 +4823,23 @@ true posixrules
     <schema id="264" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>745</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-05-15.21:13:26</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>827</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-06-01.20:30:09</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="265" parent="264" name="files_id_seq">
-      <ObjectId>16389</ObjectId>
+      <ObjectId>24610</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>744</StateNumber>
-      <StoredType>integer|0s</StoredType>
+      <StateNumber>825</StateNumber>
+      <StoredType>bigint|0s</StoredType>
       <OwnerName>admin</OwnerName>
     </sequence>
     <table id="266" parent="264" name="files">
-      <ObjectId>16390</ObjectId>
-      <StateNumber>744</StateNumber>
+      <ObjectId>24611</ObjectId>
+      <StateNumber>825</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>admin</OwnerName>
     </table>
@@ -4847,68 +4847,85 @@ true posixrules
       <DefaultExpression>nextval(&apos;files_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>744</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16389</SequenceId>
-      <TypeId>23</TypeId>
+      <StateNumber>825</StateNumber>
+      <StoredType>bigint|0s</StoredType>
+      <SequenceId>24610</SequenceId>
+      <TypeId>20</TypeId>
     </column>
     <column id="268" parent="266" name="key">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>744</StateNumber>
-      <StoredType>varchar(100)|0s</StoredType>
-      <TypeId>1043</TypeId>
+      <StateNumber>825</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
     </column>
     <column id="269" parent="266" name="owner_id">
+      <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>744</StateNumber>
+      <StateNumber>825</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="270" parent="266" name="type">
+    <column id="270" parent="266" name="extension">
+      <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>744</StateNumber>
-      <StoredType>varchar(20)|0s</StoredType>
-      <TypeId>1043</TypeId>
+      <StateNumber>825</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
     </column>
-    <column id="271" parent="266" name="special_id">
+    <column id="271" parent="266" name="size">
+      <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>744</StateNumber>
+      <StateNumber>825</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <index id="272" parent="266" name="files_pkey">
+    <column id="272" parent="266" name="status">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>825</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="273" parent="266" name="filename">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StateNumber>825</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="274" parent="266" name="created_at">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StateNumber>825</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="275" parent="266" name="files_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16394</ObjectId>
+      <ObjectId>24617</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>744</StateNumber>
+      <StateNumber>825</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="273" parent="266" name="files_key_key">
+    <index id="276" parent="266" name="ux_files_key">
       <ColNames>key</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16396</ObjectId>
-      <StateNumber>744</StateNumber>
+      <ObjectId>24619</ObjectId>
+      <StateNumber>826</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="274" parent="266" name="files_pkey">
+    <key id="277" parent="266" name="files_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16395</ObjectId>
+      <ObjectId>24618</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>744</StateNumber>
-      <UnderlyingIndexId>16394</UnderlyingIndexId>
-    </key>
-    <key id="275" parent="266" name="files_key_key">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16397</ObjectId>
-      <StateNumber>744</StateNumber>
-      <UnderlyingIndexId>16396</UnderlyingIndexId>
+      <StateNumber>825</StateNumber>
+      <UnderlyingIndexId>24617</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

@@ -10,7 +10,7 @@ public record CreateMessageDTO(
         Long chatId,
         String content,
         @JsonProperty("media")
-        List<MediaDTO> media,
+        List<String> mediaTokens,
         @JsonProperty("reply_to")
         Long replyToId,
         @JsonProperty("forwarded_from")

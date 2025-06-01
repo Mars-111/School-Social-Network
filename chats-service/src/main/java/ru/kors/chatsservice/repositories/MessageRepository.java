@@ -11,6 +11,7 @@ import java.util.Set;
 public interface MessageRepository extends JpaRepository<Message, Long> {
     Page<Message> findAllByChat_Id(Long chatId, Pageable pageable);
     Set<Message> findAllByChat_Id(Long chatId);
+
 //    List<Message> findByIdLessThan(Integer id, Pageable pageable);
 //    List<Message> findAllByOrderByIdDesc(Pageable pageable);
 }

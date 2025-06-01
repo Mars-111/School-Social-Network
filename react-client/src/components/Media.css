@@ -1,0 +1,105 @@
+.media-wrapper {
+    margin-top: 10px;
+    display: block; /* чтобы вставало вертикально */
+}
+
+
+.media-wrapper {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-placeholder {
+  color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.file-placeholder {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  max-width: 300px;
+  background-color: #fafafa;
+}
+
+
+.media-image-container {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ddd;
+  display: block;
+}
+
+.media-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.media-placeholder {
+    width: 100%;
+    padding-top: 75%; /* запасной fallback */
+    background-color: #ddd;
+    position: relative;
+}
+
+.media-info {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    font-size: 12px;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.media-file {
+    display: flex;
+    align-items: center;
+    background: #f6f6f6;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 300px;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.file-icon {
+    font-size: 24px;
+}
+
+.file-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-name {
+    font-weight: 500;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.file-meta {
+    font-size: 12px;
+    color: #555;
+}

@@ -19,11 +19,8 @@ public class KafkaProducerService {
 public void send(Message message) {
     try {
         String jsonMessage = objectMapper.writeValueAsString(message);
-        if ((message.getFlags() & MessageFlags.IS_ANONYMOUS) != 0) {
-            message.setSender(null);
-        }
-        kafkaTemplate.send("chat-messages", message.getChat().getId(), jsonMessage);
         log.info("Message sent to chat-messages: " + jsonMessage);
+        kafkaTemplate.send("chat-messages", message.getChat().getId(), jsonMessage);
     } catch (Exception e) {
         log.error("Ошибка при отправке сообщения в Kafka", e);
     }

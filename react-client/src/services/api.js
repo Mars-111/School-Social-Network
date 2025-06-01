@@ -2,8 +2,9 @@ import { de } from "date-fns/locale";
 import keycloak from "../keycloak";
 
 const API_BASE_URL = 'https://chats.mars-ssn.ru';
+const API_MEDIA_URL = 'https://media.mars-ssn.ru';
 
-async function handleResponse(response) {
+async function handleResponseJSON(response) {
   console.log('Response:', response); 
   if (response.status === 401) {
     window.location.href = '/';
@@ -16,6 +17,19 @@ async function handleResponse(response) {
   return await response.json();
 }
 
+async function handleResponse(response) {
+  console.log('Response:', response); 
+  if (response.status === 401) {
+    window.location.href = '/';
+    throw new Error('Unauthorized');
+  }
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || 'Ошибка запроса');
+  }
+  return await response.text();
+}
+
 async function getUserChats(token) {
 
   const response = await fetch(`${API_BASE_URL}/api/users/chats`, {
@@ -23,7 +37,7 @@ async function getUserChats(token) {
       'Authorization': `Bearer ${token}`
     }
   });
-  return handleResponse(response);
+  return handleResponseJSON(response);
 }
 
 async function getChat(chatId, token) {
@@ -32,7 +46,7 @@ async function getChat(chatId, token) {
       'Authorization': `Bearer ${token}`
     }
   });
-  return handleResponse(response);
+  return handleResponseJSON(response);
 }
 
 async function getChatByTag(chatTag, token) {
@@ -41,7 +55,7 @@ async function getChatByTag(chatTag, token) {
 		'Authorization': `Bearer ${token}`
 	  }
 	});
-	return handleResponse(response);
+	return handleResponseJSON(response);
   }
   
 
@@ -51,10 +65,55 @@ async function getMessagesByChat(chatId, token) {
       'Authorization': `Bearer ${token}`
     }
   });
-  return handleResponse(response);
+  return handleResponseJSON(response);
 }
 
-async function sendMessage(message, addMessage) {
+async function createFile(file) {
+// формируем multipart/form-data запрос
+  const formData = new FormData();
+  formData.append('file', file);
+//   formData.append("file-size", new Blob([file.size.toString()], { type: 'text/plain' }));
+
+  const response = await fetch(`${API_MEDIA_URL}/api/files/upload?size=${file.size}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${keycloak.token}`
+    },
+    body: formData
+  });
+
+  return handleResponse(response);
+} 
+
+async function getAccessTokenForMessageMedia(messageId) {
+    const accessToken = fetch(`${API_BASE_URL}/api/messages/${messageId}/access-jwt`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${keycloak.token}`,
+        }
+    });
+
+    return handleResponse(accessToken);
+}
+
+async function getFile(accessMediaToken, fileId) {
+    const response = await fetch(`${API_MEDIA_URL}/api/files/${fileId}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${accessMediaToken}`,
+            'Access-Media-Token': accessMediaToken
+        }
+    });
+
+    if (!response.ok) {
+      throw new Error("Ошибка при получении файла");
+    }
+
+    return await response.blob(); // <-- ключевое!
+}
+
+
+async function sendMessage(message, files, addMessage) {
     const messageFormatted = {
         chat_id: message.chat_id || -1,
         type: message.type || '',
@@ -80,6 +139,17 @@ async function sendMessage(message, addMessage) {
         console.error("Не указан тип сообщения");
         throw new Error('Не указан тип сообщения');
     }
+
+    
+    if (files && files.length > 0) {
+        const tokens = files.map(file => {
+            return createFile(file);
+        });
+        console.log("media files tokens: ", tokens);
+        messageFormatted.media = await Promise.all(tokens);
+    }
+
+
     try {
         const response = await fetch(`${API_BASE_URL}/api/messages`, {
         method: 'POST',
@@ -94,7 +164,7 @@ async function sendMessage(message, addMessage) {
         const errorText = await response.text();
         throw new Error(errorText || 'Ошибка отправки сообщения');
         }
-        const responseData = await handleResponse(response);
+        const responseData = await handleResponseJSON(response);
         addMessage(responseData); // Use the response data to ensure consistency
         return responseData;
     } catch (error) {
@@ -190,7 +260,7 @@ async function joinChat(chatId, token) {
       'Authorization': `Bearer ${token}`
     }
   });
-  return handleResponse(response);
+  return handleResponseJSON(response);
 }
 
 async function createJoinRequestToChat(chatId, token) {
@@ -227,7 +297,7 @@ async function createChatApi(chatDTO) {
             const errorText = await response.text();
             throw new Error(errorText || 'Ошибка создания чата');
         }
-        const responseData = await handleResponse(response);
+        const responseData = await handleResponseJSON(response);
         //TODO: добавить чат в список чатов
 
         return responseData;
@@ -238,5 +308,10 @@ async function createChatApi(chatDTO) {
 
 }
 
+async function createMedia() {
+  //TODO: добавить получение токена для медиа
+    
+}
 
-export { getChat, getMessagesByChat, sendMessage, editMessageApi, deleteMessageApi, joinChat, getUserChats, createJoinRequestToChat, getChatByTag, createChatApi };
+
+export { getChat, getMessagesByChat, sendMessage, editMessageApi, deleteMessageApi, joinChat, getUserChats, createJoinRequestToChat, getChatByTag, createChatApi, getAccessTokenForMessageMedia, getFile };

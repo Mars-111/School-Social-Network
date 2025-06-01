@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import ru.kors.chatsservice.models.entity.Message;
-import ru.kors.chatsservice.models.entity.MessageMedia;
 
 import java.io.IOException;
 
@@ -34,11 +33,8 @@ public class MessageSerializer extends JsonSerializer<Message> {
 
         if (message.getMediaList() != null && !message.getMediaList().isEmpty()) {
             gen.writeArrayFieldStart("media");
-            for (MessageMedia media : message.getMediaList()) {
-                gen.writeStartObject();
-                gen.writeStringField("media_type", media.getType());
-                gen.writeStringField("media_url", media.getUrl());
-                gen.writeEndObject();
+            for (var media : message.getMediaList()) {
+                gen.writeObject(media);
             }
             gen.writeEndArray();
         }

@@ -5,21 +5,33 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.Instant;
+
 @Table("files")
 @Getter
 @Setter
 @Builder
 public class Media {
     @Id
-    private Integer id;
+    private Long id; //Not null
 
-    private String key; //Уникальный ключ для доступа к файлу
+    private String key; //Уникальный ключ для доступа к файлу. Not null
 
     @Column(value = "owner_id")
-    private Long ownerId;
+    private Long ownerId; //Not null
 
-    private String type;
+    @Column(value = "extension")
+    private String extension; //Not null, например "jpg", "png", "mp4" и т.д.
 
-    @Column(value = "special_id")
-    private Long specialId;
+    @Column(value = "size")
+    private Long size; //Размер в байтах. Not null
+
+    @Column(value = "filename")
+    private String filename; //Имя файла, которое будет использоваться при скачивании. Not null
+
+    private String status; //Not null
+
+    @Column(value = "created_at")
+    private Instant createdAt; //В реактивном придется ручками устанавливать. Not null
+
 }

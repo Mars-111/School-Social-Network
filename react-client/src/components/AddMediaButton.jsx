@@ -1,61 +1,69 @@
-import React, { useState } from "react";
-import keycloak from "../keycloak";
+import React, { useRef, useState } from 'react';
+import { useAppContext } from '../AppContext';
 
-export default function AddMediaButton() {
-    const [files, setFiles] = useState([]);
-    const [uploadStatus, setUploadStatus] = useState(null);
+function AddMediaButton() {
+  const fileInputRef = useRef(null);
+  const { addSelectedFiles } = useAppContext();
+  const [isDragging, setIsDragging] = useState(false);
 
-    const handleFileChange = (event) => {
-        setFiles(event.target.files);
-    };
+  function onFilesSelected(e) {
+    addSelectedFiles(e.target.files);
+  }
 
-    const handleUpload = async () => {
-        if (files.length === 0) {
-            alert("Выберите файлы для загрузки.");
-            return;
-        }
+  function onDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      addSelectedFiles(e.dataTransfer.files);
+      e.dataTransfer.clearData();
+    }
+  }
 
-        const formData = new FormData();
-        Array.from(files).forEach((file) => {
-            formData.append("files", file);
-        });
+  function onDragOver(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  }
 
-        // Пример длины файла (в байтах)
-        const totalLength = Array.from(files).reduce((sum, file) => sum + file.size, 0);
+  function onDragLeave(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  }
 
-        try {
-            const response = await fetch("https://localhost:8083/api/files/upload?length=" + totalLength, {
-                method: "POST",
-                headers: {
-                    'Authorization': `Bearer ${keycloak.token}`,
-                },
-                body: formData,
-            });
+  return (
+    <div>
+      <input
+        type="file"
+        multiple
+        accept="image/*,video/*"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        onChange={onFilesSelected}
+      />
+      <button onClick={() => fileInputRef.current.click()}>
+        Добавить медиа
+      </button>
 
-            const result = await response.json();
-            setUploadStatus(result);
-            console.log("Результат загрузки:", result);
-        } catch (error) {
-            console.error("Ошибка загрузки:", error);
-            setUploadStatus({ status: "error", message: error.message });
-        }
-    };
-
-    return (
-        <div>
-            <input
-                type="file"
-                multiple
-                onChange={handleFileChange}
-                style={{ marginBottom: "10px" }}
-            />
-            <button onClick={handleUpload}>Загрузить файлы</button>
-            {uploadStatus && (
-                <div style={{ marginTop: "10px" }}>
-                    <h4>Статус загрузки:</h4>
-                    <pre>{JSON.stringify(uploadStatus, null, 2)}</pre>
-                </div>
-            )}
-        </div>
-    );
+      <div
+        onDrop={onDrop}
+        onDragOver={onDragOver}
+        onDragLeave={onDragLeave}
+        style={{
+          marginTop: '10px',
+          padding: '20px',
+          border: '2px dashed #ccc',
+          borderRadius: '8px',
+          backgroundColor: isDragging ? '#e0f7fa' : '#fafafa',
+          textAlign: 'center',
+          color: '#555',
+        }}
+      >
+        {isDragging ? 'Отпустите файлы здесь' : 'Перетащите файлы сюда'}
+      </div>
+    </div>
+  );
 }
+
+export default AddMediaButton;

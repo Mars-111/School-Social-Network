@@ -2,9 +2,9 @@ package ru.kors.chatsservice.models.entity.deserializers;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
+import ru.kors.chatsservice.models.entity.MediaMetadata;
 import ru.kors.chatsservice.models.entity.Message;
-import ru.kors.chatsservice.models.entity.MessageMedia;
-import ru.kors.chatsservice.models.entity.User;
+    import ru.kors.chatsservice.models.entity.User;
 import ru.kors.chatsservice.models.entity.Chat;
 
 import java.io.IOException;
@@ -70,15 +70,12 @@ public class MessageDeserializer extends JsonDeserializer<Message> {
             }
         }
 
-        // media
+//        // media
         JsonNode mediaNode = root.get("media");
         if (mediaNode != null && mediaNode.isArray()) {
-            List<MessageMedia> mediaList = new ArrayList<>();
-            for (JsonNode mediaElement : mediaNode) {
-                MessageMedia media = new MessageMedia();
-                media.setType(getString(mediaElement, "media_type"));
-                media.setUrl(getString(mediaElement, "media_url"));
-                mediaList.add(media);
+            List<MediaMetadata> mediaList = new ArrayList<>();
+            for (JsonNode mediaItem : mediaNode) {
+                mediaList.add(mediaItem.traverse(mapper).readValueAs(MediaMetadata.class));
             }
             message.setMediaList(mediaList);
         }

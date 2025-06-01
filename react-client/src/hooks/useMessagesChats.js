@@ -33,6 +33,9 @@ export default function useInitMessagesChats(chats, loadingChats, setErrors) {
         });
     }, [chats, messages, setErrors]);
 
+
+
+
     const loadingMessages = loadingMessagesRef.current;
     return [messages, setMessages, loadingMessages.current];
 }

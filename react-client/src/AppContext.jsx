@@ -4,6 +4,7 @@ import useInitChats from './hooks/useChats';
 import useInitMessagesChats from './hooks/useMessagesChats';
 import useInitSocket from './hooks/useSocket';
 import { usePending } from './hooks/usePendingMessages';
+import useInitMedia from './hooks/useMedia';
 import { createChatApi } from './services/api';
 
 // Создаём глобальный контекст для всех хуков
@@ -103,6 +104,8 @@ function AppProvider({ children }) {
       
     const [isAddChatVisible, setIsAddChatVisible] = useState(false);
 
+    const {getSelectedFiles, addSelectedFiles, removeSelectedFile, clearSelectedFiles, getFile, saveFile, saveFilesByMessage} = useInitMedia();
+
 
     return (
         <AppContext.Provider
@@ -114,6 +117,8 @@ function AppProvider({ children }) {
                 selectedChat, setSelectedChat,
                 isAddChatVisible, setIsAddChatVisible,
                 getPendingList, addPending, removePending, markFailed, retryPending, pendingVersion,
+                getSelectedFiles, addSelectedFiles, removeSelectedFile, clearSelectedFiles,
+                getFile, saveFile, saveFilesByMessage
             }}
         >
             {children}

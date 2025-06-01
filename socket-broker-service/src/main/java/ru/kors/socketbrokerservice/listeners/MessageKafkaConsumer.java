@@ -26,10 +26,10 @@ public class MessageKafkaConsumer {
 
     @KafkaListener(topics = "chat-messages")
     public void consumeMessage(@Payload String messageJson, Acknowledgment ack) throws JsonProcessingException {
-        // Преобразование JSON в объект Message
-        Message message = objectMapper.readValue(messageJson, Message.class);
         // Логирование полученного сообщения (для отладки)
         System.out.println("Получено сообщение: " + messageJson);
+        // Преобразование JSON в объект Message
+        Message message = objectMapper.readValue(messageJson, Message.class);
 
         sessionManager.sendMessage(message);
 

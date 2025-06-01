@@ -6,12 +6,13 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import ru.kors.chatsservice.models.entity.deserializers.MessageDeserializer;
 import ru.kors.chatsservice.models.entity.serializers.MessageSerializer;
 
 
 import java.time.Instant;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,7 @@ import java.util.List;
 })
 @JsonSerialize(using = MessageSerializer.class)
 @JsonDeserialize(using = MessageDeserializer.class)
+@Slf4j
 public class Message {
 
     @Id
@@ -44,9 +46,8 @@ public class Message {
 
     private String content;
 
-    @Column(name = "media")
-    @OneToMany(mappedBy = "message", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<MessageMedia> mediaList = Collections.emptyList();
+    @OneToMany(mappedBy = "message", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MediaMetadata> mediaList =  new ArrayList<>(); //List чтобы сохранять порядок медиафайлов
 
     @ManyToOne(fetch = FetchType.EAGER) // связь с родительским сообщением
     @JoinColumn(name = "reply_to_id")
@@ -63,4 +64,11 @@ public class Message {
     private void setTimestamp() {
         this.timestamp = Instant.now();
     }
+
+
+    public void addMedia(MediaMetadata media) {
+        mediaList.add(media);
+        media.setMessage(this);
+    }
+
 }

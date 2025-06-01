@@ -12,21 +12,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.kors.chatsservice.controllers.external.Utils.CurrentUserUtil;
 import ru.kors.chatsservice.controllers.external.dto.CreateMessageDTO;
-import ru.kors.chatsservice.controllers.external.dto.MediaDTO;
 import ru.kors.chatsservice.controllers.external.dto.UpdateMessageDTO;
 import ru.kors.chatsservice.exceptions.BadRequestException;
 import ru.kors.chatsservice.exceptions.DoesNotHaveAccessException;
 import ru.kors.chatsservice.exceptions.NotFoundEntityException;
+import ru.kors.chatsservice.models.AccessMediaJWT;
 import ru.kors.chatsservice.models.entity.ChatEvent;
+import ru.kors.chatsservice.models.entity.MediaMetadata;
 import ru.kors.chatsservice.models.entity.Message;
-import ru.kors.chatsservice.models.entity.MessageMedia;
 import ru.kors.chatsservice.models.entity.User;
 import ru.kors.chatsservice.models.entity.constants.MessageFlags;
+import ru.kors.chatsservice.repositories.MediaMessageMetadataRepository;
 import ru.kors.chatsservice.repositories.MessageRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +38,8 @@ public class MessageService {
     private final UserService userService;
     private final KafkaProducerService kafkaProducerService;
     private final ChatEventService chatEventService;
+    private final MediaJWTService mediaJWTService;
+    private final MediaMessageMetadataRepository mediaMessageMetadataRepository;
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -75,10 +76,27 @@ public class MessageService {
             throw new BadRequestException("You cannot reply and forward message at the same time");
         }
 
-        //TODO: добавить проверку на то, что пользователь не отправляет сообщение в свой же чат и мейби еще проверка
 
 
         Message message = new Message();
+
+        if (messageDTO.mediaTokens() != null) {
+            List<AccessMediaJWT> mediaTokens = new ArrayList<>();
+            for (String i : messageDTO.mediaTokens()) {
+                var accessMediaJWT = mediaJWTService.convertAccessMediaJWT(i);
+                if (!Objects.equals(senderId, accessMediaJWT.userId()) || !accessMediaJWT.subject().equals("media_create")) {
+                    throw new DoesNotHaveAccessException("User does not have access to added media");
+                }
+                mediaTokens.add(accessMediaJWT);
+            }
+            for (AccessMediaJWT jwt : mediaTokens) {
+                var mediaMetadata = new MediaMetadata(jwt);
+                message.addMedia(mediaMetadata); // ← тут и message задается, и добавляется в коллекцию
+            }
+            message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.HAS_MEDIA));
+        }
+
+
         if (messageDTO.flags() != null) {
             message.setFlags(MessageFlags.sortFlagsDefaultUserToCreateMessage(messageDTO.flags()));
         }
@@ -105,24 +123,6 @@ public class MessageService {
             Message forwardedFrom = entityManager.getReference(Message.class, messageDTO.forwardedFromId());
             message.setForwardedFrom(forwardedFrom);
             message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.IS_FORWARDED));
-        }
-
-        List<MessageMedia> messageMediaList = new ArrayList<>();
-        if (messageDTO.media() != null) {
-            for (MediaDTO media : messageDTO.media()) {
-                if (media.type() == null || media.url() == null) {
-                    throw new BadRequestException("Media type and url cannot be null");
-                }
-                if (!mediaTypeCorrect(media.type())) {
-                    throw new BadRequestException("Media type is not correct");
-                }
-                MessageMedia messageMedia = new MessageMedia();
-                messageMedia.setType(media.type());
-                messageMedia.setUrl(media.url());
-                messageMediaList.add(messageMedia);
-            }
-            message.setMediaList(messageMediaList);
-            message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.HAS_MEDIA));
         }
 
         if ((
@@ -204,5 +204,17 @@ public class MessageService {
         message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.IS_DELETED));
 
         kafkaProducerService.send(chatEventService.save(chatEvent));
+    }
+
+    public String getMediaAccessJwt(Long messageId, Long userId) {
+        Message message = messageRepository.findById(messageId).orElseThrow(() -> new DoesNotHaveAccessException("Message not found"));
+        if (!chatService.isUserInChat(message.getChat().getId(), userId)) {
+            throw new DoesNotHaveAccessException("User does not have access to message");
+        }
+
+        return mediaJWTService.generateMediaAccessToken(
+                new HashSet<>(message.getMediaList().stream().map(MediaMetadata::getMediaId).toList()),
+                userId,
+                180);
     }
 }

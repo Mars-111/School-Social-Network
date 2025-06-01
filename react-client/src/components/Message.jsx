@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { formatTime } from "../services/timeUtils";
+import Media from "./Media";
 import "./Message.css";
 
 export default function Message({ message, onDelete, onEdit, onReply, onForward }) {
@@ -63,7 +64,7 @@ export default function Message({ message, onDelete, onEdit, onReply, onForward 
                     </div>
                 )}
 
-                {/* Отображение ответа */}
+                {/* Ответ */}
                 {message.reply_to && (
                     <div className="reply-box">
                         <div className="reply-line" />
@@ -74,6 +75,13 @@ export default function Message({ message, onDelete, onEdit, onReply, onForward 
                     </div>
                 )}
 
+                {/* Медиа */}
+                {message.media?.map((media, index) => (
+                    <Media key={index} media={media} />
+                ))}
+
+
+                {/* Контент */}
                 {isEditing ? (
                     <input
                         type="text"
@@ -97,9 +105,7 @@ export default function Message({ message, onDelete, onEdit, onReply, onForward 
                 )}
             </div>
 
-            <div className="timestamp">
-                {formatTime(message.timestamp)}
-            </div>
+            <div className="timestamp">{formatTime(message.timestamp)}</div>
 
             <div style={{ display: "flex", alignItems: "center", position: "relative" }} ref={menuRef}>
                 <div className="message-menu-icon" onClick={() => setIsMenuOpen((prev) => !prev)}>

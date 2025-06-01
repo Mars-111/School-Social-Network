@@ -32,7 +32,7 @@ public class Message {
     private String content;
 
     @JsonProperty("media")
-    private List<Media> mediaList;
+    private List<MediaMetadata> mediaMetadata;
 
     @JsonProperty("reply_to")
     private MessageReplyTo replyTo;

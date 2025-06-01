@@ -53,6 +53,11 @@ s3:
 #  endpoint: https://b7ef08b6a91cbef5c9b9a2c4b3ba0d33.r2.cloudflarestorage.com
   bucket: school-social-network
 
+
+media-service:
+  jwt:
+    secret: ${MEDIA_JWT_SECRET}
+
 logging:
   level:
     root: INFO
