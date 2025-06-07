@@ -68,30 +68,12 @@ public class InternalChatController {
 //        return chatService.changeChat(id, changeChatDTO);
 //    }
 
-    @PostMapping("/{chatId}/roles")
-    public ResponseEntity<Void> assignRole(
-            @PathVariable Long chatId,
-            @RequestParam Long userId,
-            @RequestParam String role) {
-        chatRoleService.assignRole(chatId, userId, role);
-        return ResponseEntity.ok().build();
-    }
-
     @GetMapping("/{chatId}/roles/{userId}")
     public ResponseEntity<List<ChatRole>> getRoles(
             @PathVariable Long chatId,
             @PathVariable Long userId) {
         List<ChatRole> roles = chatRoleService.getUserRoles(chatId, userId);
         return ResponseEntity.ok(roles);
-    }
-
-    @DeleteMapping("/{chatId}/roles/{userId}")
-    public ResponseEntity<Void> unassignRole(
-            @PathVariable Long chatId,
-            @PathVariable Long userId,
-            @RequestParam String role) {
-        chatRoleService.unassignRole(chatId, userId, role);
-        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{chatId}/join-request")

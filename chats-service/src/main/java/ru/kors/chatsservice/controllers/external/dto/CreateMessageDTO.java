@@ -6,11 +6,11 @@ import java.util.List;
 
 public record CreateMessageDTO(
         String type,
+        String content,
         @JsonProperty("chat_id")
         Long chatId,
-        String content,
-        @JsonProperty("media")
-        List<String> mediaTokens,
+        @JsonProperty("files")
+        List<String> fileTokens,
         @JsonProperty("reply_to")
         Long replyToId,
         @JsonProperty("forwarded_from")

@@ -18,7 +18,7 @@ public final class MessageFlags {
 
     // 📎 Тип содержимого
     public static final int HAS_TEXT = 1 << 10;
-    public static final int HAS_MEDIA = 1 << 11;
+    public static final int HAS_FILE = 1 << 11;
     public static final int HAS_DOCUMENT = 1 << 12;
     public static final int HAS_AUDIO = 1 << 13;
     public static final int HAS_VIDEO = 1 << 14;

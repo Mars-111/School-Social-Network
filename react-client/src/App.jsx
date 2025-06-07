@@ -7,6 +7,7 @@ import keycloak from './keycloak';
 import {useAppContext} from './AppContext';
 import AddChatButton from './components/AddChatButton';
 import CreateChatButton from './components/CreateChatButton';
+import { ProfileBar } from './components/ProfileBar';
 
 function App() {
   const {chats, setChats, createChat} = useAppContext();
@@ -23,6 +24,9 @@ function App() {
         <AddChatButton/>
         <CreateChatButton onCreate={createChat}/> 
         <ChatList/>
+        <div className='bottom-bar'>
+          <ProfileBar/>
+        </div>
       </div>
       <div className="chat-container">
         {selectedChat ? (

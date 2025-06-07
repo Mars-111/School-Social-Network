@@ -6,4 +6,17 @@ const keycloak = new Keycloak({
   clientId: "web-client"
 });
 
+
+setInterval(() => {
+  keycloak.updateToken(60).then(refreshed => {
+    if (refreshed) {
+      console.log("Token was refreshed");
+    } else {
+      console.log("Token is still valid");
+    }
+  }).catch(() => {
+    console.error("Failed to refresh token");
+  });
+}, 60000*4); // раз в 4 минуты
+
 export default keycloak;

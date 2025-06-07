@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: master-order-service
+
+  security:
+    user:
+      name: chat-service
+      password: ${TIMELINE_SERVICE_SECURE_PASSWORD}
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/order_db
+    username: admin
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+
+server:
+  port: 8084
+debug: true
+
+logging:
+    level:
+        org.springframework.security: DEBUG
+        org.springframework.web: DEBUG

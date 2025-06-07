@@ -2,8 +2,11 @@ package ru.kors.chatsservice.controllers.external;
 
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 import ru.kors.chatsservice.controllers.external.Utils.CurrentUserUtil;
 import ru.kors.chatsservice.models.entity.Chat;
@@ -17,6 +20,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
 
     private final UserService userService;
@@ -24,8 +28,8 @@ public class UserController {
     private final CurrentUserUtil currentUserUtil;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.findAll();
+    public User getMe() {
+        return userService.findById(currentUserUtil.getCurrentUser().getId());
     }
 
     @GetMapping("/{id}")
@@ -89,6 +93,13 @@ public class UserController {
     }
     //TODO: потом мб покрасивее isUserInChat
 
+
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@AuthenticationPrincipal Jwt jwt) {
+        log.info("------------------------------------");
+        return ResponseEntity.ok(userService.createUser(jwt));
+    }
 
 
 

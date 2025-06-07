@@ -1,8 +1,7 @@
-import { de } from "date-fns/locale";
 import keycloak from "../keycloak";
 
 const API_BASE_URL = 'https://chats.mars-ssn.ru';
-const API_MEDIA_URL = 'https://media.mars-ssn.ru';
+const API_FILE_URL = 'https://file.mars-ssn.ru';
 
 async function handleResponseJSON(response) {
   console.log('Response:', response); 
@@ -14,7 +13,7 @@ async function handleResponseJSON(response) {
     const errorText = await response.text();
     throw new Error(errorText || 'Ошибка запроса');
   }
-  return await response.json();
+  return await response.json(); //Превращяет ответ в обьект или массив
 }
 
 async function handleResponse(response) {
@@ -74,7 +73,7 @@ async function createFile(file) {
   formData.append('file', file);
 //   formData.append("file-size", new Blob([file.size.toString()], { type: 'text/plain' }));
 
-  const response = await fetch(`${API_MEDIA_URL}/api/files/upload?size=${file.size}`, {
+  const response = await fetch(`${API_FILE_URL}/api/files/upload?size=${file.size}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${keycloak.token}`
@@ -85,7 +84,7 @@ async function createFile(file) {
   return handleResponse(response);
 } 
 
-async function getAccessTokenForMessageMedia(messageId) {
+async function getAccessTokenForMessageFiles(messageId) {
     const accessToken = fetch(`${API_BASE_URL}/api/messages/${messageId}/access-jwt`, {
         method: 'GET',
         headers: {
@@ -96,12 +95,12 @@ async function getAccessTokenForMessageMedia(messageId) {
     return handleResponse(accessToken);
 }
 
-async function getFile(accessMediaToken, fileId) {
-    const response = await fetch(`${API_MEDIA_URL}/api/files/${fileId}`, {
+async function getFile(accessFileToken, fileId) {
+    const response = await fetch(`${API_FILE_URL}/api/files/${fileId}`, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${accessMediaToken}`,
-            'Access-Media-Token': accessMediaToken
+            'Authorization': `Bearer ${keycloak.token}`,
+            'Access-File-Token': accessFileToken
         }
     });
 
@@ -145,8 +144,8 @@ async function sendMessage(message, files, addMessage) {
         const tokens = files.map(file => {
             return createFile(file);
         });
-        console.log("media files tokens: ", tokens);
-        messageFormatted.media = await Promise.all(tokens);
+        console.log("files tokens: ", tokens);
+        messageFormatted.files = await Promise.all(tokens);
     }
 
 
@@ -308,10 +307,25 @@ async function createChatApi(chatDTO) {
 
 }
 
-async function createMedia() {
-  //TODO: добавить получение токена для медиа
-    
+
+async function getUser(userId) {
+  const response = await fetch(`${API_BASE_URL}/api/users/${userId}`, {
+    headers: {
+      'Authorization': `Bearer ${keycloak.token}`
+    }
+  });
+  return handleResponseJSON(response);
 }
 
+function createUser() {
+  const response = fetch(`${API_BASE_URL}/api/users`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${keycloak.token}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  return handleResponseJSON(response);
+}
 
-export { getChat, getMessagesByChat, sendMessage, editMessageApi, deleteMessageApi, joinChat, getUserChats, createJoinRequestToChat, getChatByTag, createChatApi, getAccessTokenForMessageMedia, getFile };
+export { createUser, getUser, getChat, getMessagesByChat, sendMessage, editMessageApi, deleteMessageApi, joinChat, getUserChats, createJoinRequestToChat, getChatByTag, createChatApi, getAccessTokenForMessageFiles, getFile };

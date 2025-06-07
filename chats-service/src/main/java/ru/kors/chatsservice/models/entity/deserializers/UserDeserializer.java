@@ -28,6 +28,10 @@ public class UserDeserializer extends JsonDeserializer<User> {
             user.setKeycloakId(node.get("keycloak_id").asText());
         }
 
+        if (node.has("username")) {
+            user.setUsername(node.get("username").asText());
+        }
+
         return user;
     }
 }

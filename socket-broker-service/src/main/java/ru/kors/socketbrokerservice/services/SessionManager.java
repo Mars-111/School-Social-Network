@@ -350,6 +350,11 @@ public class SessionManager {
 
         longRedisTemplate.opsForSet().add(dataKey, Long.valueOf(subscriptionKey.split(":")[1]));
 
+        if (!sessionsByUser.containsKey(userId)) {
+            log.warn("No sessions found for user {}", userId);
+            return;
+        }
+
         for (UserSession userSession : sessionsByUser.get(userId)) {
             userSession.getSubscriptions().add(subscriptionKey);
             subscribedSessions.computeIfAbsent(subscriptionKey, k -> ConcurrentHashMap.newKeySet())

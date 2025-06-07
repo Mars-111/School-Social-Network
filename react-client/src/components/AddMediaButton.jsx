@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useAppContext } from '../AppContext';
 
-function AddMediaButton() {
+function AddFileButton() {
   const fileInputRef = useRef(null);
   const { addSelectedFiles } = useAppContext();
   const [isDragging, setIsDragging] = useState(false);
@@ -66,4 +66,4 @@ function AddMediaButton() {
   );
 }
 
-export default AddMediaButton;
+export default AddFileButton;

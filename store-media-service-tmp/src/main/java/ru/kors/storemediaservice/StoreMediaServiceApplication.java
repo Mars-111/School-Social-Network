@@ -1,4 +1,4 @@
-package ru.kors.storemediaservice;
+package ru.kors.storefileservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

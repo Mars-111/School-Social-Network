@@ -1,18 +1,15 @@
 package ru.kors.chatsservice.controllers.external;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kors.chatsservice.controllers.external.Utils.CurrentUserUtil;
 import ru.kors.chatsservice.controllers.external.dto.CreateMessageDTO;
 import ru.kors.chatsservice.controllers.external.dto.UpdateMessageDTO;
 import ru.kors.chatsservice.models.entity.Message;
-import ru.kors.chatsservice.services.KafkaProducerService;
 import ru.kors.chatsservice.services.MessageService;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 @RestController
@@ -22,11 +19,6 @@ public class MessageController {
 
     private final MessageService messageService;
     private final CurrentUserUtil currentUserUtil;
-
-    @GetMapping
-    public List<Message> getAllMessages() {
-        return messageService.findAll();
-    }
 
     @GetMapping("/{messageId}")
     public ResponseEntity<Message> getMessageById(@PathVariable Long messageId) {
@@ -59,8 +51,8 @@ public class MessageController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{messageId}/media/access-jwt")
-    public ResponseEntity<String> getMediaAccessJwt(@PathVariable Long messageId) {
-        return ResponseEntity.ok(messageService.getMediaAccessJwt(messageId, currentUserUtil.getCurrentUserId()));
+    @GetMapping("/{messageId}/file/access-jwt")
+    public ResponseEntity<String> getFileAccessJwt(@PathVariable Long messageId) {
+        return ResponseEntity.ok(messageService.getFileAccessJwt(messageId, currentUserUtil.getCurrentUserId()));
     }
 }

@@ -1,6 +1,5 @@
 package ru.kors.socketbrokerservice.models.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -19,6 +18,9 @@ import java.util.List;
 public class Message {
     private Long id;
 
+    @JsonProperty("timeline_id")
+    private Integer timelineId;
+
     private Integer flags = 0;
 
     private String type;
@@ -31,8 +33,8 @@ public class Message {
 
     private String content;
 
-    @JsonProperty("media")
-    private List<MediaMetadata> mediaMetadata;
+    @JsonProperty("files")
+    private List<FileMetadata> fileMetadata;
 
     @JsonProperty("reply_to")
     private MessageReplyTo replyTo;

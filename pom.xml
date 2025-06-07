@@ -12,9 +12,10 @@
   <modules>
     <module>socket-broker-service</module>
     <module>chats-service</module>
-    <module>store-media-service</module>
     <module>keycloak-registration-spi</module>
-      <module>keycloak-login-spi</module>
+    <module>keycloak-event-listener</module>
+    <module>timeline-master-service</module>
+    <module>store-file-service</module>
   </modules>
 
   <properties>

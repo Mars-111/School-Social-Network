@@ -18,6 +18,7 @@ public class MessageSerializer extends JsonSerializer<Message> {
 
     private void writeMessage(JsonGenerator gen, Message message, boolean nested) throws IOException {
         gen.writeNumberField("id", message.getId());
+        gen.writeNumberField("timeline_id", message.getTimelineId());
         gen.writeStringField("type", message.getType());
         gen.writeNumberField("flags", message.getFlags());
         gen.writeNumberField("chat_id", message.getChat().getId());
@@ -31,10 +32,10 @@ public class MessageSerializer extends JsonSerializer<Message> {
         writeReplyOrForward(gen, "reply_to", message.getReplyTo(), nested);
         writeReplyOrForward(gen, "forwarded_from", message.getForwardedFrom(), nested);
 
-        if (message.getMediaList() != null && !message.getMediaList().isEmpty()) {
-            gen.writeArrayFieldStart("media");
-            for (var media : message.getMediaList()) {
-                gen.writeObject(media);
+        if (message.getFileList() != null && !message.getFileList().isEmpty()) {
+            gen.writeArrayFieldStart("files");
+            for (var file : message.getFileList()) {
+                gen.writeObject(file);
             }
             gen.writeEndArray();
         }

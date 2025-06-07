@@ -4,14 +4,21 @@ import useInitChats from './hooks/useChats';
 import useInitMessagesChats from './hooks/useMessagesChats';
 import useInitSocket from './hooks/useSocket';
 import { usePending } from './hooks/usePendingMessages';
-import useInitMedia from './hooks/useMedia';
+import useInitFile from './hooks/useFile';
 import { createChatApi } from './services/api';
+import { initDB } from './idb';
+import useInitUser from './hooks/useUser';
 
 // Создаём глобальный контекст для всех хуков
 const AppContext = createContext();
 
 // Провайдер, который оборачивает всё приложение и предоставляет доступ к состоянию
 function AppProvider({ children }) {
+    useEffect(() => {
+        initDB();
+        console.log("IndexedDB инициализирован");
+    }, []);
+
     const [errors, setErrors] = useState([]);
     function addError(error) {
         setErrors(prev => [...prev, error]);
@@ -104,8 +111,9 @@ function AppProvider({ children }) {
       
     const [isAddChatVisible, setIsAddChatVisible] = useState(false);
 
-    const {getSelectedFiles, addSelectedFiles, removeSelectedFile, clearSelectedFiles, getFile, saveFile, saveFilesByMessage} = useInitMedia();
+    const {getSelectedFiles, addSelectedFiles, removeSelectedFile, clearSelectedFiles, getFile, saveFile} = useInitFile();
 
+    const { user } = useInitUser();
 
     return (
         <AppContext.Provider
@@ -118,7 +126,8 @@ function AppProvider({ children }) {
                 isAddChatVisible, setIsAddChatVisible,
                 getPendingList, addPending, removePending, markFailed, retryPending, pendingVersion,
                 getSelectedFiles, addSelectedFiles, removeSelectedFile, clearSelectedFiles,
-                getFile, saveFile, saveFilesByMessage
+                getFile, saveFile,
+                user
             }}
         >
             {children}

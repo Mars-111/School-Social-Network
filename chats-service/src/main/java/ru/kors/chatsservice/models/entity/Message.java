@@ -31,6 +31,9 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "timeline_id", nullable = false)
+    private Integer timelineId; //порядковый номер сообщения в чате, для сортировки сообщений в чате
+
     private Integer flags = 0; //для разных флагов (например, прочитано/не прочитано, закреп и т.д.)
 
     @Column(nullable = false)
@@ -47,7 +50,7 @@ public class Message {
     private String content;
 
     @OneToMany(mappedBy = "message", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MediaMetadata> mediaList =  new ArrayList<>(); //List чтобы сохранять порядок медиафайлов
+    private List<FileMetadata> fileList =  new ArrayList<>(); //List что бы сохранять порядок медиафайлов
 
     @ManyToOne(fetch = FetchType.EAGER) // связь с родительским сообщением
     @JoinColumn(name = "reply_to_id")
@@ -66,9 +69,9 @@ public class Message {
     }
 
 
-    public void addMedia(MediaMetadata media) {
-        mediaList.add(media);
-        media.setMessage(this);
+    public void addFile(FileMetadata file) {
+        fileList.add(file);
+        file.setMessage(this);
     }
 
 }

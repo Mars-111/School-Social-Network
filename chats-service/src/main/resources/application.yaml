@@ -40,6 +40,13 @@ spring:
     properties:
       security.protocol: PLAINTEXT
 
+
+master:
+  timeline:
+    url: http://localhost:8084
+    user: chat-service
+    password: ${TIMELINE_SERVICE_SECURE_PASSWORD}
+
 server:
   port: 8082
   ssl:
@@ -49,11 +56,20 @@ server:
     key-alias: mars-ssn
 
 
-media-service:
+file-service:
   release:
     jwt:
-      secret: ${MEDIA_JWT_SECRET}
+      secret: ${FILE_JWT_SECRET}
       issuer: "chats-service"
+
+
+keycloak:
+  admin:
+    client-id: admin-cli
+    username: ${KEYCLOAK_ADMIN_USERNAME}
+    password: ${KEYCLOAK_ADMIN_PASSWORD}
+  server-url: https://keycloak.mars-ssn.ru
+  realm: school-social-network
 
 logging:
   level:

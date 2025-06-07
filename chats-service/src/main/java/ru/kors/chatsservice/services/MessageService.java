@@ -16,14 +16,14 @@ import ru.kors.chatsservice.controllers.external.dto.UpdateMessageDTO;
 import ru.kors.chatsservice.exceptions.BadRequestException;
 import ru.kors.chatsservice.exceptions.DoesNotHaveAccessException;
 import ru.kors.chatsservice.exceptions.NotFoundEntityException;
-import ru.kors.chatsservice.models.AccessMediaJWT;
-import ru.kors.chatsservice.models.entity.ChatEvent;
-import ru.kors.chatsservice.models.entity.MediaMetadata;
-import ru.kors.chatsservice.models.entity.Message;
-import ru.kors.chatsservice.models.entity.User;
+import ru.kors.chatsservice.models.AccessFileJWT;
+import ru.kors.chatsservice.models.entity.*;
 import ru.kors.chatsservice.models.entity.constants.MessageFlags;
-import ru.kors.chatsservice.repositories.MediaMessageMetadataRepository;
+import ru.kors.chatsservice.models.entity.constants.TimelineTypes;
+import ru.kors.chatsservice.models.entity.ids.TimelineId;
+import ru.kors.chatsservice.repositories.FileMessageMetadataRepository;
 import ru.kors.chatsservice.repositories.MessageRepository;
+import ru.kors.chatsservice.repositories.TimelineRepository;
 
 import java.util.*;
 
@@ -38,8 +38,10 @@ public class MessageService {
     private final UserService userService;
     private final KafkaProducerService kafkaProducerService;
     private final ChatEventService chatEventService;
-    private final MediaJWTService mediaJWTService;
-    private final MediaMessageMetadataRepository mediaMessageMetadataRepository;
+    private final FileJWTService fileJWTService;
+    private final TimelineService timelineService;
+    private final TimelineRepository timelineRepository;
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -59,16 +61,11 @@ public class MessageService {
         return messageRepository.findAllByChat_Id(chatId);
     }
 
-    private boolean mediaTypeCorrect(String type) {
-        return type.equals("image") || type.equals("video") || type.equals("audio") || type.equals("file") ||
-                type.equals("sticker") || type.equals("location") || type.equals("contact");
-    }
-
     public Message createMessage(CreateMessageDTO messageDTO, Long senderId) {
         log.info("Message reply_to: {}", messageDTO.replyToId());
 
         //Проверка наличия чата у пользователя
-        if (!userService.existsByIdAndChatId(senderId, messageDTO.chatId())) {
+        if (!userService.existsByIdAndChatId(senderId, messageDTO.chatId())) { //TODO: Добавить кэширование в редис по типу флагов (1111) первая единица - пользовать есть в чате, вторая - пользователь в муте и тд
             throw new DoesNotHaveAccessException("User does not have access to chat");
         }
 
@@ -80,20 +77,20 @@ public class MessageService {
 
         Message message = new Message();
 
-        if (messageDTO.mediaTokens() != null) {
-            List<AccessMediaJWT> mediaTokens = new ArrayList<>();
-            for (String i : messageDTO.mediaTokens()) {
-                var accessMediaJWT = mediaJWTService.convertAccessMediaJWT(i);
-                if (!Objects.equals(senderId, accessMediaJWT.userId()) || !accessMediaJWT.subject().equals("media_create")) {
-                    throw new DoesNotHaveAccessException("User does not have access to added media");
+        if (messageDTO.fileTokens() != null) {
+            List<AccessFileJWT> fileTokens = new ArrayList<>();
+            for (String i : messageDTO.fileTokens()) {
+                var accessFileJWT = fileJWTService.convertAccessFileJWT(i);
+                if (!Objects.equals(senderId, accessFileJWT.userId()) || !accessFileJWT.subject().equals("file_create")) {
+                    throw new DoesNotHaveAccessException("User does not have access to added file");
                 }
-                mediaTokens.add(accessMediaJWT);
+                fileTokens.add(accessFileJWT);
             }
-            for (AccessMediaJWT jwt : mediaTokens) {
-                var mediaMetadata = new MediaMetadata(jwt);
-                message.addMedia(mediaMetadata); // ← тут и message задается, и добавляется в коллекцию
+            for (AccessFileJWT jwt : fileTokens) {
+                var fileMetadata = new FileMetadata(jwt);
+                message.addFile(fileMetadata); // ← тут и message задается, и добавляется в коллекцию
             }
-            message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.HAS_MEDIA));
+            message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.HAS_FILE));
         }
 
 
@@ -127,11 +124,21 @@ public class MessageService {
 
         if ((
                 (message.getFlags() & MessageFlags.HAS_TEXT) |
-                (message.getFlags() & MessageFlags.HAS_MEDIA) |
+                (message.getFlags() & MessageFlags.HAS_FILE) |
                 (message.getFlags() & MessageFlags.IS_FORWARDED)
             ) == 0) {
             throw new BadRequestException("Empty message");
         }
+
+        // Получение порядкового номера сообщения в чате TIMELINE
+
+        Integer timelineId = timelineService.getNextOrderId(messageDTO.chatId());
+        TimelineId timelineIdObj = new TimelineId(messageDTO.chatId(), timelineId);
+        Timeline timeline = new Timeline(timelineIdObj, TimelineTypes.MESSAGE_TYPE);
+        timelineRepository.save(timeline);
+        message.setTimelineId(timeline.getId().getTimelineId());
+
+        //
 
         message = messageRepository.save(message);
 
@@ -149,6 +156,7 @@ public class MessageService {
 
         // Создаем событие изменения чата
         ChatEvent chatEvent = new ChatEvent();
+
         chatEvent.setType("change message");
         chatEvent.setChat(message.getChat());
 
@@ -165,7 +173,6 @@ public class MessageService {
         if (updateMessageDTO.content() != null) {
             String oldContent = message.getContent();
             message.setContent(updateMessageDTO.content()); //set
-            message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.IS_EDITED));
             ObjectNode changeNode = mapper.createObjectNode();
             changeNode.put("field", "content");
             changeNode.put("old_value", oldContent);
@@ -177,7 +184,19 @@ public class MessageService {
 
         chatEvent.setData(objectNode);
 
+        // Получение порядкового номера сообщения в чате TIMELINE
+
+        Integer timelineId = timelineService.getNextOrderId(message.getChat().getId());
+        TimelineId timelineIdObj = new TimelineId(message.getChat().getId(), timelineId);
+        Timeline timeline = new Timeline(timelineIdObj, TimelineTypes.EVENT_TYPE);
+        timelineRepository.save(timeline);
+        chatEvent.setTimelineId(timeline.getId().getTimelineId());
+
+        //
+
         message.getChat().getEvents().add(chatEvent);
+
+        message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.IS_EDITED));
 
         kafkaProducerService.send(chatEvent);
 
@@ -203,17 +222,27 @@ public class MessageService {
 
         message.setFlags(MessageFlags.setFlag(message.getFlags(), MessageFlags.IS_DELETED));
 
+        // Получение порядкового номера сообщения в чате TIMELINE
+
+        Integer timelineId = timelineService.getNextOrderId(message.getChat().getId());
+        TimelineId timelineIdObj = new TimelineId(message.getChat().getId(), timelineId);
+        Timeline timeline = new Timeline(timelineIdObj, TimelineTypes.EVENT_TYPE);
+        timelineRepository.save(timeline);
+        chatEvent.setTimelineId(timeline.getId().getTimelineId());
+
+        //
+
         kafkaProducerService.send(chatEventService.save(chatEvent));
     }
 
-    public String getMediaAccessJwt(Long messageId, Long userId) {
+    public String getFileAccessJwt(Long messageId, Long userId) {
         Message message = messageRepository.findById(messageId).orElseThrow(() -> new DoesNotHaveAccessException("Message not found"));
         if (!chatService.isUserInChat(message.getChat().getId(), userId)) {
             throw new DoesNotHaveAccessException("User does not have access to message");
         }
 
-        return mediaJWTService.generateMediaAccessToken(
-                new HashSet<>(message.getMediaList().stream().map(MediaMetadata::getMediaId).toList()),
+        return fileJWTService.generateFileAccessToken(
+                new HashSet<>(message.getFileList().stream().map(FileMetadata::getFileId).toList()),
                 userId,
                 180);
     }

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { getUserChats } from '../services/api';
 import keycloak from '../keycloak';
+import { setChatsIDB } from '../idb';
+
 
 export default function useInitChats(addError) {
     const [chats, setChats] = useState([]);
@@ -11,6 +13,7 @@ export default function useInitChats(addError) {
         async function fetchChats() {
             try {
                 const data = await getUserChats(keycloak.token);
+                setChatsIDB(data); // Сохраняем чаты в IndexedDB
                 setChats(data);
                 loadingChatsRef.current = false;
                 console.log("Загруженные чаты:", data);

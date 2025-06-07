@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../AppContext';
 
-function MediaPreviewList() {
+function FilePreviewList() {
   const { getSelectedFiles, removeSelectedFile } = useAppContext();
   const files = getSelectedFiles();
 
@@ -71,4 +71,4 @@ function MediaPreviewList() {
   );
 }
 
-export default MediaPreviewList;
+export default FilePreviewList;

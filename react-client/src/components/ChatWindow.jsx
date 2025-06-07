@@ -5,7 +5,7 @@ import Pending from './Pending';
 import { sendMessage, editMessageApi, deleteMessageApi } from '../services/api';
 import MessageList from './MessageList';
 import './ChatWindow.css';
-import MediaPreviewList from './MediaPreviewList';
+import FilePreviewList from './MediaPreviewList';
 
 
 function ChatWindow() {
@@ -127,7 +127,7 @@ function ChatWindow() {
             </div>
         )}
         <div style={{ borderTop: '1px solid #ddd', padding: '10px' }}>
-            <MediaPreviewList />
+            <FilePreviewList />
             <MessageInput onSend={handleSendMessage} />
         </div>
         </div>

@@ -12,7 +12,8 @@ public class UserSerializer extends JsonSerializer<User> {
     public void serialize(User user, JsonGenerator gen, SerializerProvider serializerProvider) throws IOException {
         gen.writeStartObject();
         gen.writeNumberField("id", user.getId());
-        gen.writeStringField("keycloak_id", user.getKeycloakId());
+//        gen.writeStringField("keycloak_id", user.getKeycloakId());
+        gen.writeStringField("username", user.getUsername());
         gen.writeStringField("tag", user.getTag());
     }
 }

@@ -1,4 +1,4 @@
-package ru.kors.storemediaservice.config;
+package ru.kors.storefileservice.config;
 
 
 import lombok.RequiredArgsConstructor;

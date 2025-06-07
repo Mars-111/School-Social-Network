@@ -21,7 +21,6 @@ import java.time.Instant;
 @Entity
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "chats_events", indexes = {
-        @Index(name = "idx_events_timestamp", columnList = "timestamp"),
         @Index(name = "idx_events_type", columnList = "type"),
         @Index(name = "idx_chat_events_chat", columnList = "chat_id")
 })
@@ -32,6 +31,9 @@ public class ChatEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "timeline_id", nullable = false)
+    private Integer timelineId; // Порядковый номер события в чате, для сортировки
 
     // Можно оставить поле type для дополнительной информации или убрать,
     // если дисриминатор полностью покрывает назначение.

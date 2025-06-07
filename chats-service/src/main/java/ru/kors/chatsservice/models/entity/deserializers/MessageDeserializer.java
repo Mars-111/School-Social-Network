@@ -2,7 +2,7 @@ package ru.kors.chatsservice.models.entity.deserializers;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
-import ru.kors.chatsservice.models.entity.MediaMetadata;
+import ru.kors.chatsservice.models.entity.FileMetadata;
 import ru.kors.chatsservice.models.entity.Message;
     import ru.kors.chatsservice.models.entity.User;
 import ru.kors.chatsservice.models.entity.Chat;
@@ -22,6 +22,7 @@ public class MessageDeserializer extends JsonDeserializer<Message> {
         Message message = new Message();
 
         message.setId(getLong(root, "id"));
+        message.setTimelineId(getInt(root, "timeline_id"));
         message.setType(getString(root, "type"));
         message.setFlags(getInt(root, "flags"));
 
@@ -73,11 +74,11 @@ public class MessageDeserializer extends JsonDeserializer<Message> {
 //        // media
         JsonNode mediaNode = root.get("media");
         if (mediaNode != null && mediaNode.isArray()) {
-            List<MediaMetadata> mediaList = new ArrayList<>();
+            List<FileMetadata> mediaList = new ArrayList<>();
             for (JsonNode mediaItem : mediaNode) {
-                mediaList.add(mediaItem.traverse(mapper).readValueAs(MediaMetadata.class));
+                mediaList.add(mediaItem.traverse(mapper).readValueAs(FileMetadata.class));
             }
-            message.setMediaList(mediaList);
+            message.setFileList(mediaList);
         }
 
         return message;

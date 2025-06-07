@@ -5,7 +5,7 @@ export default function CreateChatButton({ onCreate }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [chatName, setChatName] = useState("");
     const [chatTag, setChatTag] = useState("");
-    const [chatType, setChatType] = useState("PRIVATE"); // Можно установить значение по умолчанию как "PRIVATE"
+    const [chatType, setChatType] = useState("PUBLIC_GROUP"); // Можно установить значение по умолчанию как "PRIVATE"
 
     const handleOpenModal = () => {
         setIsModalOpen(true);

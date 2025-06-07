@@ -16,7 +16,7 @@ import ru.kors.chatsservice.services.*;
 
 import java.util.List;
 
-@RestController("chatController")
+@RestController
 @RequestMapping("/api/chats")
 @RequiredArgsConstructor
 @Slf4j
@@ -127,10 +127,7 @@ public class ChatController  {
             @PathVariable Long chatId,
             @PathVariable Long userId,
             @RequestParam String role) {
-        if (!chatService.isOwner(chatId, currentUserUtil.getCurrentUser().getId())) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
-        chatRoleService.assignRole(chatId, userId, role);
+        chatRoleService.assignRole(chatId, userId, role, currentUserUtil.getCurrentUser().getId());
         return ResponseEntity.ok().build();
     }
 
@@ -147,11 +144,7 @@ public class ChatController  {
             @PathVariable Long chatId,
             @PathVariable Long userId,
             @RequestParam String role) {
-        if (!chatService.isOwner(chatId, currentUserUtil.getCurrentUser().getId())) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
-        //TODO: или админ
-        chatRoleService.unassignRole(chatId, userId, role);
+        chatRoleService.unassignRole(chatId, userId, role, currentUserUtil.getCurrentUser().getId());
         return ResponseEntity.ok().build();
     }
 

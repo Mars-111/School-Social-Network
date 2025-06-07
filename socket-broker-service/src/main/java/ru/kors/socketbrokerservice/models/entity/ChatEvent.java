@@ -12,6 +12,9 @@ import java.time.Instant;
 public class ChatEvent {
     private Long id;
 
+    @JsonProperty("timeline_id")
+    private Integer timelineId;
+
     private String type;
 
     @JsonProperty("chat_id")

@@ -5,6 +5,4 @@ public class ChatRoles {
 
     public static final String OWNER = "OWNER";
     public static final String ADMIN = "ADMIN";
-    public static final String MODERATOR = "MODERATOR";
-
 }

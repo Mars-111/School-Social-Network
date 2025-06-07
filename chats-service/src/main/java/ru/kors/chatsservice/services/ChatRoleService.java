@@ -3,6 +3,7 @@ package ru.kors.chatsservice.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.kors.chatsservice.exceptions.BadRequestException;
+import ru.kors.chatsservice.exceptions.DoesNotHaveAccessException;
 import ru.kors.chatsservice.models.entity.Chat;
 import ru.kors.chatsservice.models.entity.ChatRole;
 import ru.kors.chatsservice.models.entity.User;
@@ -21,12 +22,34 @@ public class ChatRoleService {
         return chatRoleRepository.findById(id).orElse(null);
     }
 
-    public void assignRole(Long chatId, Long userId, String role) {
+
+    private boolean isValidRole(String role) {
+        return !role.equalsIgnoreCase("OWNER");
+    }
+
+    public void assignRole(Long chatId, Long userId, String role, Long executorId) {
         if (role.isEmpty()) {
             throw new BadRequestException("Role is empty");
         }
-        User user = userService.findById(userId);
-        Chat chat = chatService.findById(chatId);
+        if (!isValidRole(role)) {
+            throw new BadRequestException("Invalid role: " + role);
+        }
+        String userRole = chatRoleRepository.findRoleByChat_IdAndUser_Id(chatId, executorId);
+        if (userRole == null) {
+            throw new DoesNotHaveAccessException("User does not have a role in this chat");
+        }
+        if (!userRole.equals("OWNER") && (role.equals("OWNER") || role.equals("ADMIN"))) {
+            throw new DoesNotHaveAccessException("User does not have permission to assign this role");
+        }
+        boolean isUserInChat = userService.existsByIdAndChatId(userId, chatId);
+        if (!isUserInChat) {
+            throw new BadRequestException("the user is not in the chat");
+        }
+
+        User user = new User();
+        user.setId(userId);
+        Chat chat = new Chat();
+        chat.setId(chatId);
 
         ChatRole chatRole = new ChatRole();
         chatRole.setUser(user);
@@ -40,7 +63,17 @@ public class ChatRoleService {
         return chatRoleRepository.findAllByChat_IdAndUser_Id(chatId, userId);
     }
 
-    public void unassignRole(Long chatId, Long userId, String role) {
+    public void unassignRole(Long chatId, Long userId, String role, Long executorId) {
+        if (role.isEmpty()) {
+            throw new BadRequestException("Role is empty");
+        }
+        if (!isValidRole(role)) {
+            throw new BadRequestException("Invalid role: " + role);
+        }
+        String executorTopRole = chatRoleRepository.findAdminOrOwnerRole(chatId, executorId);
+        if (executorTopRole == null || (executorTopRole.equals("ADMIN") && (role.equals("OWNER") || role.equals("ADMIN")))) {
+            throw new DoesNotHaveAccessException("User does not have permission to unassign this role");
+        }
         chatRoleRepository.deleteByChat_IdAndUser_IdAndRole(chatId, userId, role);
     }
 }

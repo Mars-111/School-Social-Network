@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { formatTime } from "../services/timeUtils";
-import Media from "./Media";
+import File from "./File";
 import "./Message.css";
 
 export default function Message({ message, onDelete, onEdit, onReply, onForward }) {
@@ -75,9 +75,9 @@ export default function Message({ message, onDelete, onEdit, onReply, onForward 
                     </div>
                 )}
 
-                {/* Медиа */}
-                {message.media?.map((media, index) => (
-                    <Media key={index} media={media} />
+                {/* Файлы */}
+                {message.files?.map((file, index) => (
+                    <File key={index} file={file} />
                 ))}
 
 

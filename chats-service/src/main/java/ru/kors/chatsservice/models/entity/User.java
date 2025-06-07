@@ -35,8 +35,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String tag;
+
+    @Column(nullable = false)
+    private String username;
 
     @Column(name = "keycloak_id", nullable = false, unique = true)
     private String keycloakId;
@@ -62,6 +65,15 @@ public class User {
     //Роли пользователя в чатах
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ChatRole> chatRoles;
+
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Instant createdAt;
+
+    @PrePersist
+    private void setTimestamp() {
+        this.createdAt = Instant.now();
+    }
 
 //    @Column(name = "last_online")
 //    private Instant lastOnline;
