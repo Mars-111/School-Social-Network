@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025">
-      <change afterPath="$PROJECT_DIR$/clients" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/clients/react-app/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/clients/react-app/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/clients/react-app/eslint.config.js" afterDir="false" />
@@ -28,36 +27,8 @@
       <change afterPath="$PROJECT_DIR$/clients/react-app/src/index.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/clients/react-app/src/main.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/clients/react-app/vite.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/login.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/messages/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/messages/messages_ru.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/register.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498_vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/add-tag-register.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/login-config-totp.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/login-update-password.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/login.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/password-commons.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/register-commons.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/register.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/resources/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/resources/js/userProfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/tag-required.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/template.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/user-profile-commons.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/login.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/messages/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/messages/messages_ru.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/register.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/theme.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients" beforeDir="false" afterPath="$PROJECT_DIR$/clients" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/.idea/modules.xml" beforeDir="false" />
@@ -77,115 +48,6 @@
       <change beforePath="$PROJECT_DIR$/clients/src/app.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/src/main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/clients/src/socket.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/generated-bytecode.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/generated-bytecode.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/quarkus-application.dat" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/quarkus-application.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/transformed-bytecode.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/transformed-bytecode.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/register.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/register.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/theme.properties" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/theme.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16439" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16439" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16562" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16562" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16584" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16756" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16756" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16770" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16770" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16825" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16825" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17633" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17633" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17636" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17636" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17637" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17637" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17638" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17638" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17703" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17703" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17705" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17705" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17707" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17707" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17963" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17963" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000004" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000004" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/HELP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/add-tag-register.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/login-config-totp.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/login-update-password.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/login.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/password-commons.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/register-commons.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/register.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/resources/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/resources/js/userProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/tag-required.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/template.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/theme.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/user-profile-commons.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/theme.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/login.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/messages/messages_en.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/messages/messages_ru.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/register.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/theme.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/org.keycloak.keycloak-themes-25.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/purple-dream-theme/login/resources/css/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/purple-dream-theme/login/theme.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/old/chat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/old/chats.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/old/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/old/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/old/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/public/chat-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/public/fonts/JetBrainsMono-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/public/fonts/JetBrainsSans-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/ConnectSocket.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/app.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -678,7 +540,7 @@
       <workItem from="1749274294909" duration="6220000" />
       <workItem from="1749302638392" duration="18568000" />
       <workItem from="1749409572460" duration="1490000" />
-      <workItem from="1749475089503" duration="3145000" />
+      <workItem from="1749475089503" duration="4071000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <option name="closed" value="true" />
