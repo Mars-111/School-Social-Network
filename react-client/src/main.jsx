@@ -11,15 +11,13 @@ keycloak.init({ onLoad: 'login-required' }).then(async authenticated => {
     console.log("Keycloak token: ", keycloak.token);
     if (authenticated) {
         const token = keycloak.token;
-        if (token) {
-            const userId = getUserId(token);
-            if (!userId) {
-                console.error("Не удалось получить user_id из токена");
-                const response = await createUser(token);
-                if (response) {
-                    console.log("Создан новый пользователь:", response);
-                    window.location.reload();
-                }
+        const userId = getUserId(token);
+        if (!userId) {
+            console.error("Не удалось получить user_id из токена");
+            const response = await createUser(token);
+            if (response) {
+                console.log("Создан новый пользователь:", response);
+                window.location.reload();
             }
         }
         createRoot(document.getElementById('root')).render(

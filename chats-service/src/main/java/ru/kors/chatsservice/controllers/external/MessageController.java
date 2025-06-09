@@ -27,7 +27,7 @@ public class MessageController {
     }
 
     @GetMapping("/chat/{chatId}")
-    public ResponseEntity<Set<Message>> getMessagesByChatId(@PathVariable Long chatId) {
+    public ResponseEntity<Set<Message>> getMessagesByChatId(@PathVariable("chatId") Long chatId) {
         Set<Message> messages = messageService.findAllByChatId(chatId);
         return ResponseEntity.ok(messages);
     }

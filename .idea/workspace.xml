@@ -5,137 +5,100 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025">
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/config/RestClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/exceptions/ConflictException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/exceptions/InternalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Timeline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/TimelineTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ids/TimelineId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/FileMetadataSerializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/TimelineRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/KeycloakService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/TimelineService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/login.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_ru.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/register.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/purple-dream-theme/login/resources/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/purple-dream-theme/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/school-social-network-theme/login/resources/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/school-social-network-theme/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/school-social-network-theme/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464_fsm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464_vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519_fsm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519_vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16825_fsm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16825_vm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000005" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/order db/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-event-listener/src/main/java/ru/listener/keycloakeventlistener/providers/CustomRegistrationEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/login.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/messages/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/messages/messages_ru.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/register.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/purple-dream-theme/login/resources/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/keycloak-tag-action/purple-dream-theme/login/theme.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/components/File.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/hooks/useFile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react-client/src/idb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/src/main/java/ru/kors/timelineservice/TimelineMasterServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/src/main/java/ru/kors/timelineservice/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/src/main/java/ru/kors/timelineservice/controllers/TimelineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/src/main/java/ru/kors/timelineservice/models/TimelineModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/src/main/java/ru/kors/timelineservice/services/TimelineService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timeline-master-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-client/src/ConnectSocket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-client/web-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e/storage_v2/_src_/database/chats.G9ijBQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/863f7b7d-404e-4ca0-b992-65697a220f6e/storage_v2/_src_/database/chats.G9ijBQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/eslint.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/public/errors/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/public/errors/502.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/public/errors/failedUserCreate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/public/silent-check-sso.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/public/vite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/App.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/assets/react.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/AuthContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/WelcomeScreen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/authApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/keycloak.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/config/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/src/main.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/react-app/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/login.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/messages/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/messages/messages_ru.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/register.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/fuko-themes/login/theme.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498_vm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/add-tag-register.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/login-config-totp.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/login-update-password.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/login.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/password-commons.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/register-commons.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/register.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/resources/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/resources/js/userProfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/tag-required.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/template.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/theme.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/login/user-profile-commons.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/custom-theme/added-tag-theme/theme.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/login.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/messages/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/messages/messages_ru.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/register.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-themes/fuko-themes/login/theme.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/ChatController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/CreateMessageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/external/dto/CreateMessageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/handlers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/handlers/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/internal/InternalChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/exceptions/BadMediaJWT.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/exceptions/BadFileJWT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/AccessMediaJWT.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/AccessFileJWT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/LastMessageReadInChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/LastMessageReadInChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/MediaMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/FileMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/UserEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/ChatRoles.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/ChatRoles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/MessageFlags.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/constants/MessageFlags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/MessageDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/MessageDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/UserDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/deserializers/UserDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MediaMetadataSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MessageSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MessageSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/UserSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/UserSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/ChatRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/ChatRoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/MediaMessageMetadataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/FileMessageMetadataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/ChatRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/ChatRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MediaJWTService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/FileJWTService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chats-service/src/test/java/ru/kors/chatsservice/services/MediaJWTServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/test/java/ru/kors/chatsservice/services/FileJWTServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/.idea/web-client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/old/chat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/old/chats.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/old/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/old/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/public/chat-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/public/fonts/JetBrainsMono-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/public/fonts/JetBrainsSans-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/KeycloakClass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/src/socket.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/generated-bytecode.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/generated-bytecode.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/quarkus-application.dat" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/quarkus-application.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/transformed-bytecode.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/lib/quarkus/transformed-bytecode.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/providers/keycloak-custom-authenticator-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/add-tag-register.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/login-config-totp.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/login-update-password.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/login.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/password-commons.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/register-commons.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/register.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/resources/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/resources/js/userProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/tag-required.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/template.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/theme.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/login/user-profile-commons.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/added-tag-theme/theme.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/messages/messages_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/register.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/register.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/theme.properties" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/backups/keycloak/themes/my-purple-pink-theme/login/theme.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/1259" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16398" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16425_vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16439" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16439" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16456_vm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16464" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16484" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16533" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16544" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16562" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16562" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" afterDir="false" />
@@ -147,39 +110,25 @@
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_vm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16909_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17017_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17027" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17027" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17032" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17032" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17515" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17515" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17520" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17520" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17545" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17545" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17612" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17612" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17619" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17619" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17633" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17633" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17636" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17636" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17637" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17637" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17638" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17638" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17639" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17652" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17690" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17690" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17703" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17703" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17705" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17705" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17707" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17707" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17709" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17711" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17914" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17915" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17915" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17920" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17920" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17937" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17937" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17963" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17963" afterDir="false" />
@@ -187,83 +136,56 @@
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2619_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2696" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2840_fsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/2841" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_multixact/members/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_multixact/members/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_multixact/offsets/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_multixact/offsets/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_stat/pgstat.stat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000003" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000004" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000004" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-event-listener/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-event-listener/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-event-listener/src/main/java/ru/listener/keycloakeventlistener/factories/CustomEventListenerProviderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-event-listener/src/main/java/ru/listener/keycloakeventlistener/factories/CustomRegistrationEventListenerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-event-listener/src/main/java/ru/listener/keycloakeventlistener/listeners/CustomEventListenerProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-event-listener/src/main/resources/META-INF/services/org.keycloak.events.EventListenerProviderFactory" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-event-listener/src/main/resources/META-INF/services/org.keycloak.events.EventListenerProviderFactor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/AppContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/AppContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/AddMediaButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/AddMediaButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/ChatWindow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/ChatWindow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/CreateChatButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/CreateChatButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/Media.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/Media.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/MediaPreviewList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/MediaPreviewList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/components/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/components/Message.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/hooks/useChats.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/hooks/useChats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/hooks/useMedia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/keycloak.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/keycloak.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/add-tag-register.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/login-config-totp.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/login-update-password.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/login.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/password-commons.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/register-commons.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/register.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/resources/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/resources/js/userProfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/tag-required.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/template.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/theme.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/login/user-profile-commons.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/custom-theme/added-tag-theme/theme.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/login.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/messages/messages_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/messages/messages_ru.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/register.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/my-purple-pink-theme/login/theme.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/org.keycloak.keycloak-themes-25.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/purple-dream-theme/login/resources/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-tag-action/purple-dream-theme/login/theme.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/react-client/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-client/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-client/src/services/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/ChatEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/ChatEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/MediaMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/FileMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/models/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/socket-broker-service/src/main/java/ru/kors/socketbrokerservice/services/SessionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/StoreMediaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/StoreMediaServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/controllers/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/controllers/MediaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/services/KafkaProducerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/services/KafkaProducerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/services/MediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-media-service-tmp/src/main/java/ru/kors/storemediaservice/services/MediaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/StoreMediaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/StoreFileServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/config/S3Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/config/S3Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/controllers/MediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/controllers/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/exceptions/BadMediaAccessJWTException.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/exceptions/BadFileAccessJWTException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/exceptions/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/exceptions/BadRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/exceptions/NotAccessToMediaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/exceptions/NotAccessToFileException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/exceptions/S3InternalErrorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/exceptions/S3InternalErrorException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/models/DecodeTokenResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/models/DecodeTokenResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/models/FileMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/models/FileMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/models/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/models/File.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/models/UploadResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/models/UploadResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/repository/MediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/repository/FileRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/CurrentUserUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/CurrentUserUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/DataFileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/DataFileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/KafkaProducerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/KafkaProducerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/MediaAccessTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/FileAccessTokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/MediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/MetadataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/MetadataParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/S3AsyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/S3AsyncService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/java/ru/kors/storemediaservice/services/S3FileUploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/S3FileUploadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/resources/db/migration/V1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/resources/db/migration/V1__init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store-media-service/src/main/resources/keystore.p12" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/resources/keystore.p12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-client/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-client/src/socket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/old/chat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/old/chats.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/old/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/old/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/public/chat-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/public/fonts/JetBrainsMono-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/public/fonts/JetBrainsSans-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/src/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/src/ConnectSocket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/src/KeycloakClass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-client/src/app.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,7 +384,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SocketBrokerServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ChatsServiceApplication">
     <configuration name="openRealms | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/openRealms.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -754,7 +676,9 @@
       <workItem from="1749271415420" duration="80000" />
       <workItem from="1749271508450" duration="2366000" />
       <workItem from="1749274294909" duration="6220000" />
-      <workItem from="1749302638392" duration="12616000" />
+      <workItem from="1749302638392" duration="18568000" />
+      <workItem from="1749409572460" duration="1490000" />
+      <workItem from="1749475089503" duration="3145000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <option name="closed" value="true" />
