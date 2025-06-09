@@ -4,51 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025">
-      <change afterPath="$PROJECT_DIR$/clients/react-app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/public/errors/500.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/public/errors/502.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/public/errors/failedUserCreate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/public/silent-check-sso.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/App.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/AuthContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/WelcomeScreen.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/authApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/auth/keycloak.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/config/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/src/main.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/react-app/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients" beforeDir="false" afterPath="$PROJECT_DIR$/clients" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/.idea/web-client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/old/chat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/old/chats.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/old/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/old/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/old/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/public/chat-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/public/fonts/JetBrainsMono-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/public/fonts/JetBrainsSans-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/src/KeycloakClass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/src/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/src/socket.js" beforeDir="false" />
-    </list>
+    <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,88 +79,88 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StoreMediaServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in CreateUser.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in GetAccessToken.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in GetUsers.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in findUser.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.GetAccessToken | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.GetUsers | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.openRealms | #1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KeycloakBeansTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KeycloakBeansTest.keycloakIsValid.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReleaseMediaJWTServiceTest.generateMediaAccessToken_shouldReturnValidToken.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.chats-service [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.chats-service [clean,package,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.chats-service [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.chats-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.schoolSocialNetwork-parent [clean...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.store-file-service [clean,package...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.store-file-service [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.store-media-service [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.store-media-service [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.store-media-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.timeline-master-service [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.timeline-master-service [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.timeline-master-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.timeline-master-service [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ChatsServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.KeycloakAuthServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.KeycloakEventListenerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.SocketBrokerServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.StoreFileServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.StoreMediaServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.TimelineMasterServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.WebClientApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/develop/School-Social-Network/store-file-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.StoreMediaServiceApplication.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.kafka: Compose Deployment.executor": "Run",
+    "HTTP Request.All in CreateUser.executor": "Run",
+    "HTTP Request.All in GetAccessToken.executor": "Run",
+    "HTTP Request.All in GetUsers.executor": "Run",
+    "HTTP Request.All in findUser.executor": "Run",
+    "HTTP Request.GetAccessToken | #1.executor": "Run",
+    "HTTP Request.GetUsers | #1.executor": "Run",
+    "HTTP Request.openRealms | #1.executor": "Run",
+    "JUnit.KeycloakBeansTest.executor": "Run",
+    "JUnit.KeycloakBeansTest.keycloakIsValid.executor": "Run",
+    "JUnit.ReleaseMediaJWTServiceTest.generateMediaAccessToken_shouldReturnValidToken.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.chats-service [clean,install].executor": "Run",
+    "Maven.chats-service [clean,package,install].executor": "Run",
+    "Maven.chats-service [clean,package].executor": "Run",
+    "Maven.chats-service [clean].executor": "Run",
+    "Maven.schoolSocialNetwork-parent [clean...].executor": "Run",
+    "Maven.store-file-service [clean,package...].executor": "Run",
+    "Maven.store-file-service [clean,package].executor": "Run",
+    "Maven.store-media-service [clean,install].executor": "Run",
+    "Maven.store-media-service [clean,package].executor": "Run",
+    "Maven.store-media-service [clean].executor": "Run",
+    "Maven.timeline-master-service [clean,install].executor": "Run",
+    "Maven.timeline-master-service [clean,package].executor": "Run",
+    "Maven.timeline-master-service [clean].executor": "Run",
+    "Maven.timeline-master-service [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.GoLinterPluginOnboarding": "true",
+    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ChatsServiceApplication.executor": "Run",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "Spring Boot.KeycloakAuthServiceApplication.executor": "Run",
+    "Spring Boot.KeycloakEventListenerApplication.executor": "Run",
+    "Spring Boot.SocketBrokerServiceApplication.executor": "Run",
+    "Spring Boot.StoreFileServiceApplication.executor": "Run",
+    "Spring Boot.StoreMediaServiceApplication.executor": "Run",
+    "Spring Boot.TimelineMasterServiceApplication.executor": "Run",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "Spring Boot.WebClientApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/develop/School-Social-Network/store-file-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;PostgreSQL&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "PostgreSQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -540,7 +496,7 @@
       <workItem from="1749274294909" duration="6220000" />
       <workItem from="1749302638392" duration="18568000" />
       <workItem from="1749409572460" duration="1490000" />
-      <workItem from="1749475089503" duration="4071000" />
+      <workItem from="1749475089503" duration="4728000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <option name="closed" value="true" />
