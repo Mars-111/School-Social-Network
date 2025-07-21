@@ -7,6 +7,15 @@
           <option value="token" />
           <option value="allowed-token" />
           <option value="Access-Media-Token" />
+          <option value="GrantType" />
+          <option value="RedirectUri" />
+          <option value="ClientId" />
+          <option value="ClientSecret" />
+          <option value="CodeChallenge" />
+          <option value="Username" />
+          <option value="Password" />
+          <option value="CodeVerifier" />
+          <option value="Code" />
         </set>
       </option>
     </inspection_tool>

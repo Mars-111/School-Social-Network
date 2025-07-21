@@ -62,7 +62,7 @@ public class FileAccessTokenService {
         return new DecodeTokenResult(userId, fileIds);
     }
 
-    public String generateFileTokenForCreate(Long fileId, Long userId, String extension, String filename, FileMetadata fileMetadata, Long fileSize) {
+    public String generateFileTokenForCreate(Long fileId, Long userId, String extension, String filename, FileMetadata fileMetadata, Long fileSize, boolean privateFile) {
         String jwt = Jwts.builder()
                 .subject("file_create")
                 .issuer("file-service")
@@ -72,6 +72,7 @@ public class FileAccessTokenService {
                 .claim("extension", extension)
                 .claim("filename", filename)
                 .claim("file_metadata", fileMetadata)
+                .claim("private", privateFile)
                 .expiration(new Date(System.currentTimeMillis() + 90000)) // 90 seconds
                 .signWith(secretKey)
                 .compact();

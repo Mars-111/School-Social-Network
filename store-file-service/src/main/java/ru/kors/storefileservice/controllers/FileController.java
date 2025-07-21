@@ -35,8 +35,9 @@ public class FileController {
 
     @PostMapping("/upload")
     public Mono<ResponseEntity<String>> uploadMultiple(@RequestPart("file") Mono<FilePart> file,
-                                                       @RequestParam("size") Long fileSize) {
-        return file.flatMap(filePart -> fileService.upload(filePart, fileSize))
+                                                       @RequestParam("size") Long fileSize,
+                                                       @RequestParam("isPrivate") boolean isPrivate) {
+        return file.flatMap(filePart -> fileService.upload(filePart, fileSize, isPrivate))
                 .map(uploadResult ->
                         fileAccessTokenService.generateFileTokenForCreate(
                                 uploadResult.getMedia().getId(),
@@ -44,13 +45,14 @@ public class FileController {
                                 uploadResult.getMedia().getExtension(),
                                 uploadResult.getMedia().getFilename(),
                                 uploadResult.getImageMetadata(),
-                                fileSize))
+                                fileSize,
+                                isPrivate))
                 .map(ResponseEntity::ok);
     }
 
     @GetMapping("/{mediaId}")
     public Mono<ResponseEntity<?>> download(@PathVariable Long mediaId,
-                                               @RequestHeader("Access-File-Token") String mediaToken) {
+                                            @RequestHeader("Access-File-Token") String mediaToken) {
         DecodeTokenResult decoded = fileAccessTokenService.decode(mediaToken);
 
         return currentUserUtil.getCurrentUserId()
@@ -74,6 +76,19 @@ public class FileController {
                                 .header(HttpHeaders.LOCATION, url)
                                 .build())
                 );
+    }
+
+    @GetMapping("/public/{mediaId}")
+    public Mono<ResponseEntity<?>> download(@PathVariable Long mediaId) {
+//        return fileService.findKeyById(mediaId)
+//                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Media not found")))
+//                .flatMap(key ->
+//                        fileService.getOneTimeLink(key, Duration.ofSeconds(90))
+//                                .map(url -> ResponseEntity
+//                                        .status(HttpStatus.FOUND)
+//                                        .header(HttpHeaders.LOCATION, url)
+//                                        .build())
+//                ); переделать
     }
 
 

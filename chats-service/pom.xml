@@ -99,7 +99,7 @@
                             <version>1.18.36</version>
                         </path>
                     </annotationProcessorPaths>
-                    <parameters>true</parameters>
+<!--                    <parameters>true</parameters>-->
 <!--                    <parameters>true</parameters> добавл не думая сособо-->
                 </configuration>
             </plugin>

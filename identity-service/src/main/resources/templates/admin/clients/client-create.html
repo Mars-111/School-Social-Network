@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Client</title>
+    <link rel="stylesheet" href="../../css/basic-style.css">
+    <script defer src="js/client-create.js"></script>
+</head>
+<body>
+<h1>Create New Client</h1>
+
+<form id="create-client-form">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required/>
+        <div class="error" id="error-name"></div>
+    </div>
+
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="3"></textarea>
+        <div class="error" id="error-description"></div>
+    </div>
+
+    <div>
+        <label for="secret">Secret (bcrypt):</label>
+        <input type="password" id="secret" name="secret" required/>
+        <div class="error" id="error-secret"></div>
+    </div>
+
+    <div>
+        <label for="allowedRedirectUris">Allowed Redirect URIs (comma-separated):</label>
+        <textarea id="allowedRedirectUris" name="allowedRedirectUris" rows="3"></textarea>
+        <div class="error" id="error-allowedRedirectUris"></div>
+    </div>
+
+    <button type="submit">Create Client</button>
+</form>
+
+<div class="success" id="success-message"></div>
+
+
+</body>
+</html>

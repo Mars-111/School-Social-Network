@@ -44,7 +44,7 @@ public class FileService {
 
 
 
-    public Mono<UploadResult> upload(FilePart filePart, Long contentLength) {
+    public Mono<UploadResult> upload(FilePart filePart, Long contentLength, boolean isPrivate) {
         if (contentLength == null || contentLength <= 0 || contentLength > 9999999) {
             throw new BadRequestException("Length must be greater than 0 or less than 9999999");
         }
@@ -88,7 +88,7 @@ public class FileService {
                 })
                 .then(currentUserUtil.getCurrentUserId())
                 .flatMap(userId -> {
-                    File file = File.builder().ownerId(userId).key(key).extension(extension).size(contentLength).filename(filename).status("pending").createdAt(Instant.now()).build();
+                    File file = File.builder().ownerId(userId).key(key).extension(extension).size(contentLength).filename(filename).status("pending").isPrivate(isPrivate).createdAt(Instant.now()).build();
                     log.info("222222222222");
                     return fileRepository.save(file);
                 })

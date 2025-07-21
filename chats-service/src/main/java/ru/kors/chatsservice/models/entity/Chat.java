@@ -59,6 +59,9 @@ public class Chat {
     @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<ChatRole> chatRoles;
 
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<ChatMetadata> metadata;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 

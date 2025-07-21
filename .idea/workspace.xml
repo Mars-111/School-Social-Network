@@ -4,7 +4,110 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025" />
+    <list default="true" id="598e31c8-ebbb-4f33-9c7c-6ac1d3998cd0" name="Changes" comment="18.02.2025">
+      <change afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/ChatMetadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/chat-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/chat-service/chats-service-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/chat-service/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_stat/pgstat.stat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/IdentityServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/config/CustomJwtDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/config/JWKConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/config/JwtDecoderBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/admin/api/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/admin/api/dto/CreateClientDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/admin/pages/AdminPagesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/dto/AuthorizeRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/dto/CreateUserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/security/JWKsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/extern/security/OidcDiscoveryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/controllers/handlers/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/exeptions/InvalidTokenCast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/exeptions/NoSuchUserException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/exeptions/NotAuthException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/factories/JWTFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/filters/AccessTokenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/AccessFlags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/AccessToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/AuthCodeData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/RefreshToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/UserAuthentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/UserIdAndPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/entity/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/entity/ClientAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/entity/converters/RedirectUriConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/repositories/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/repositories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/services/ClientCacheService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/services/ClientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/services/authenticatedUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/utils/PCKEUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/ed25519-private.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/ed25519-public.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/keystore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/admin/clients/client-create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/admin/clients/client-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/admin/clients/clients-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/admin/clients/js/client-create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/admin/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/css/basic-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identity-service/src/main/resources/templates/errors/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/handlers/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/controllers/handlers/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MessageSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/java/ru/kors/chatsservice/models/entity/serializers/MessageSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chats-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/chats-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16385" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16420" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16493" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16498" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16519" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16568" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16572" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16576" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/16584" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17153" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17342" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17343" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17348" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17349" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17584" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17935" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17936" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17959" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/17961" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/base/16384/pg_internal.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/global/pg_internal.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000004" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_wal/000000010000000000000004" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose/pgdata/pg_xact/0000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose/pgdata/postmaster.pid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/controllers/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/controllers/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/models/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/models/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/repository/FileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/repository/FileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/FileAccessTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/FileAccessTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/store-file-service/src/main/java/ru/kors/storefileservice/services/FileService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,17 +116,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JUnit5 Test Class" />
         <option value="HTTP Request" />
-        <option value="Record" />
         <option value="Enum" />
         <option value="AnnotationType" />
         <option value="package-info" />
-        <option value="Interface" />
         <option value="Dockerfile" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Interface" />
         <option value="Exception" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -40,7 +145,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Mars-111/School-Social-Network.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/Mars-111/FukkoMe.git&quot;,
     &quot;accountId&quot;: &quot;48dbf182-9486-4bd2-a074-d8c637f677bd&quot;
   }
 }</component>
@@ -79,108 +184,112 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Application.StoreMediaServiceApplication.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Docker.kafka: Compose Deployment.executor": "Run",
-    "HTTP Request.All in CreateUser.executor": "Run",
-    "HTTP Request.All in GetAccessToken.executor": "Run",
-    "HTTP Request.All in GetUsers.executor": "Run",
-    "HTTP Request.All in findUser.executor": "Run",
-    "HTTP Request.GetAccessToken | #1.executor": "Run",
-    "HTTP Request.GetUsers | #1.executor": "Run",
-    "HTTP Request.openRealms | #1.executor": "Run",
-    "JUnit.KeycloakBeansTest.executor": "Run",
-    "JUnit.KeycloakBeansTest.keycloakIsValid.executor": "Run",
-    "JUnit.ReleaseMediaJWTServiceTest.generateMediaAccessToken_shouldReturnValidToken.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.chats-service [clean,install].executor": "Run",
-    "Maven.chats-service [clean,package,install].executor": "Run",
-    "Maven.chats-service [clean,package].executor": "Run",
-    "Maven.chats-service [clean].executor": "Run",
-    "Maven.schoolSocialNetwork-parent [clean...].executor": "Run",
-    "Maven.store-file-service [clean,package...].executor": "Run",
-    "Maven.store-file-service [clean,package].executor": "Run",
-    "Maven.store-media-service [clean,install].executor": "Run",
-    "Maven.store-media-service [clean,package].executor": "Run",
-    "Maven.store-media-service [clean].executor": "Run",
-    "Maven.timeline-master-service [clean,install].executor": "Run",
-    "Maven.timeline-master-service [clean,package].executor": "Run",
-    "Maven.timeline-master-service [clean].executor": "Run",
-    "Maven.timeline-master-service [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ChatsServiceApplication.executor": "Run",
-    "Spring Boot.DemoApplication.executor": "Run",
-    "Spring Boot.KeycloakAuthServiceApplication.executor": "Run",
-    "Spring Boot.KeycloakEventListenerApplication.executor": "Run",
-    "Spring Boot.SocketBrokerServiceApplication.executor": "Run",
-    "Spring Boot.StoreFileServiceApplication.executor": "Run",
-    "Spring Boot.StoreMediaServiceApplication.executor": "Run",
-    "Spring Boot.TimelineMasterServiceApplication.executor": "Run",
-    "Spring Boot.UserServiceApplication.executor": "Run",
-    "Spring Boot.WebClientApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "22",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/develop/School-Social-Network/store-file-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StoreMediaServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Docker.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in CreateUser.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in GetAccessToken.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in GetUsers.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in findUser.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.GetAccessToken | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.GetUsers | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.openRealms | #1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeycloakBeansTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeycloakBeansTest.keycloakIsValid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReleaseMediaJWTServiceTest.generateMediaAccessToken_shouldReturnValidToken.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.chats-service [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.chats-service [clean,package,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.chats-service [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.chats-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [clean,package,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.identity-service [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.schoolSocialNetwork-parent [clean...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.store-file-service [clean,package...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.store-file-service [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.store-media-service [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.store-media-service [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.store-media-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.timeline-master-service [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.timeline-master-service [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.timeline-master-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.timeline-master-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ChatsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.IdentityServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.KeycloakAuthServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.KeycloakEventListenerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.SocketBrokerServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.StoreFileServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.StoreMediaServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TimelineMasterServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.WebClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;22&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/develop/School-Social-Network/identity-service/src/main/resources&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "PostgreSQL"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\develop\School-Social-Network\identity-service\src\main\resources" />
+      <recent name="C:\develop\School-Social-Network\docker\chat-service" />
       <recent name="C:\develop\School-Social-Network\chats-service\target" />
       <recent name="C:\develop\School-Social-Network\store-media-service\src\main\java\ru\kors\storemediaservice\services" />
       <recent name="C:\develop\School-Social-Network\store-media-service\src\main\java\ru\kors\storemediaservice\controllers" />
-      <recent name="C:\develop\School-Social-Network\store-media-service\src\main\java\ru\kors\storemediaservice\config" />
-      <recent name="C:\develop\School-Social-Network\store-media-service\src\main\resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\develop\School-Social-Network\identity-service\src\main\resources" />
+      <recent name="C:\develop\School-Social-Network\identity-service\src\main\resources\templates\admin\clients" />
+      <recent name="C:\develop\School-Social-Network\identity-service\src\main\resources\templates\admin" />
+      <recent name="C:\develop\School-Social-Network\docker" />
       <recent name="C:\develop\School-Social-Network\chats-service" />
-      <recent name="C:\develop\School-Social-Network\store-media-service\src\main\java\ru\kors\storemediaservice\config" />
-      <recent name="C:\develop\School-Social-Network\store-media-service\src\main\java\ru\kors\storemediaservice\controllers" />
-      <recent name="C:\develop\School-Social-Network\docker\keycloak" />
-      <recent name="C:\develop\School-Social-Network\keycloak-tag-action\custom-theme\added-tag-theme\login" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ru.kors.chatsservice.models.entity" />
@@ -202,7 +311,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ChatsServiceApplication">
+  <component name="RunManager" selected="Spring Boot.IdentityServiceApplication">
     <configuration name="openRealms | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/user-service/src/main/resources/http-test/openRealms.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -225,6 +334,13 @@
     <configuration name="ChatsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="chats-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.kors.chatsservice.ChatsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IdentityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="identity-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.identityservice.IdentityServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -276,6 +392,7 @@
       <item itemvalue="HTTP Request.openRealms | #1" />
       <item itemvalue="JUnit.FileJWTServiceTest.generateFileAccessToken_shouldReturnValidToken" />
       <item itemvalue="Spring Boot.ChatsServiceApplication" />
+      <item itemvalue="Spring Boot.IdentityServiceApplication" />
       <item itemvalue="Spring Boot.SocketBrokerServiceApplication" />
       <item itemvalue="Spring Boot.TimelineMasterServiceApplication" />
       <item itemvalue="Spring Boot.StoreFileServiceApplication" />
@@ -496,7 +613,46 @@
       <workItem from="1749274294909" duration="6220000" />
       <workItem from="1749302638392" duration="18568000" />
       <workItem from="1749409572460" duration="1490000" />
-      <workItem from="1749475089503" duration="4728000" />
+      <workItem from="1749475089503" duration="13980000" />
+      <workItem from="1749602026181" duration="1958000" />
+      <workItem from="1749750155370" duration="828000" />
+      <workItem from="1749760258522" duration="1343000" />
+      <workItem from="1750366854256" duration="22058000" />
+      <workItem from="1750486769537" duration="959000" />
+      <workItem from="1750526239581" duration="16642000" />
+      <workItem from="1750670507477" duration="1459000" />
+      <workItem from="1750702972458" duration="7368000" />
+      <workItem from="1750774871139" duration="14553000" />
+      <workItem from="1750862165852" duration="1461000" />
+      <workItem from="1750883510020" duration="7683000" />
+      <workItem from="1750963692232" duration="1845000" />
+      <workItem from="1750977280173" duration="3508000" />
+      <workItem from="1751039030527" duration="11249000" />
+      <workItem from="1751094523670" duration="3705000" />
+      <workItem from="1751131899956" duration="34519000" />
+      <workItem from="1751351291601" duration="2198000" />
+      <workItem from="1751652495826" duration="11834000" />
+      <workItem from="1751711874203" duration="7853000" />
+      <workItem from="1751817523370" duration="6426000" />
+      <workItem from="1751909404558" duration="6642000" />
+      <workItem from="1751980188460" duration="62000" />
+      <workItem from="1751980376536" duration="6213000" />
+      <workItem from="1752085116437" duration="4805000" />
+      <workItem from="1752158473267" duration="2494000" />
+      <workItem from="1752182713398" duration="3216000" />
+      <workItem from="1752248145463" duration="399000" />
+      <workItem from="1752280592892" duration="3838000" />
+      <workItem from="1752300677189" duration="1390000" />
+      <workItem from="1752334537959" duration="11773000" />
+      <workItem from="1752419883871" duration="3397000" />
+      <workItem from="1752438822127" duration="6996000" />
+      <workItem from="1752520184621" duration="25853000" />
+      <workItem from="1752693985119" duration="6230000" />
+      <workItem from="1752816672902" duration="2415000" />
+      <workItem from="1752845235426" duration="10554000" />
+      <workItem from="1752948988428" duration="3066000" />
+      <workItem from="1753038389548" duration="783000" />
+      <workItem from="1753105157310" duration="678000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <option name="closed" value="true" />
@@ -540,6 +696,61 @@
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3.jar!/com/nimbusds/jose/proc/JWSVerificationKeySelector.class</url>
+          <line>61</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3.jar!/com/nimbusds/jose/proc/JWSVerificationKeySelector.class</url>
+          <line>68</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3.jar!/com/nimbusds/jose/proc/JWSVerificationKeySelector.class</url>
+          <line>70</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3.jar!/com/nimbusds/jose/proc/JWSVerificationKeySelector.class</url>
+          <line>69</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3.jar!/com/nimbusds/jwt/proc/DefaultJWTProcessor.class</url>
+          <line>138</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/9.37.3/nimbus-jose-jwt-9.37.3.jar!/com/nimbusds/jose/jwk/KeyConverter.class</url>
+          <line>19</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3.jar!/com/nimbusds/jose/jwk/KeyConverter.class</url>
+          <line>27</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/nimbusds/nimbus-jose-jwt/10.3/nimbus-jose-jwt-10.3-sources.jar!/com/nimbusds/jose/jwk/KeyConverter.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/identity-service/src/main/java/org/example/identityservice/models/RefreshToken.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.text.ParseException" package="java.text" />
+          <option name="timeStamp" value="14" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

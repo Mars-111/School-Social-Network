@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+    <link rel="stylesheet" href="../../css/basic-style.css">
+</head>
+<body>
+
+    <h1>Clients List:</h1>
+
+    <ul>
+        <li th:each="client : ${clientIds}">
+            <a th:href="@{/clients/{id}(id=${clientIds})}"
+               th:text="${clientIds}"></a>
+        </li>
+    </ul>
+</body>
+</html>

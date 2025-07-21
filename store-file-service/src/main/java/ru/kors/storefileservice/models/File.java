@@ -31,6 +31,9 @@ public class File {
 
     private String status; //Not null
 
+    @Column(value = "is_private")
+    private boolean isPrivate;
+
     @Column(value = "created_at")
     private Instant createdAt; //В реактивном придется ручками устанавливать. Not null
 

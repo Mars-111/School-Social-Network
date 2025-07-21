@@ -6,7 +6,7 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 import ru.kors.storefileservice.models.File;
 
-public interface FileRepository extends ReactiveCrudRepository<File, Integer> {
+public interface FileRepository extends ReactiveCrudRepository<File, Long> {
 
     Mono<File> findByKey(String key);
 

@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: identity-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5440/identity
+    username: admin
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  security:
+    user:
+      name: admin
+      password: 123
+
+  data:
+    redis:
+      host: localhost
+      port: 6380
+      ssl:
+        enabled: false
+
+jwt:
+  allowed-redirect-uri: "http://localhost:8090,https://mars-ssn.ru,/"
+  refresh:
+    live-time: 604800
+
+server:
+  port: 8090
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: Mars123asd!
+    key-store-type: PKCS12
+    key-alias: mars-ssn
+
+
+logging:
+  level:
+    org.springframework.security: trace
+    com.nimbusds.jose: debug
+    com.nimbusds.jwt: debug

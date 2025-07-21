@@ -7,7 +7,7 @@ import ru.kors.chatsservice.models.entity.Message;
 
 import java.io.IOException;
 
-public class MessageSerializer extends JsonSerializer<Message> {
+public class    MessageSerializer extends JsonSerializer<Message> {
 
     @Override
     public void serialize(Message message, JsonGenerator gen, SerializerProvider serializers) throws IOException {

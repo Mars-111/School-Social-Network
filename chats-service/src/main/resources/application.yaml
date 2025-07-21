@@ -10,7 +10,7 @@ spring:
           issuer-uri: https://keycloak.mars-ssn.ru/realms/school-social-network
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/chats
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/chats}
     username: admin
     password: 123
     driver-class-name: org.postgresql.Driver
@@ -43,7 +43,7 @@ spring:
 
 master:
   timeline:
-    url: http://localhost:8084
+    url: ${TIMELINE_SERVICE_URL:http://localhost:8084}
     user: chat-service
     password: ${TIMELINE_SERVICE_SECURE_PASSWORD}
 
